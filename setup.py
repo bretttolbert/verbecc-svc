@@ -25,6 +25,6 @@ setup(name=package,
       install_requires=[required],
       include_package_data=True,
       entry_points = {
-          'console_scripts': ['confr=verb_conjugate_fr.conjugator:main']
+          'console_scripts': ['confr=verb_conjugate_fr.cli:main']
       }
       )
