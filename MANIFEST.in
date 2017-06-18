@@ -1,0 +1,3 @@
+include requirements.txt
+include verb_conjugate_fr/VERSION
+include verb_conjugate_fr/data/*
