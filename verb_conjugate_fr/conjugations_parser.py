@@ -52,9 +52,7 @@ class ConjugationsParser:
             resource_filename("verb_conjugate_fr",
                               "data/conjugations_fr.xml"),
             parser)
-        print(tree)
         root = tree.getroot()
-        print(root)
         if root.tag != 'conjugation-fr':
             raise ConjugationsParserError("Root XML Tag <conjugation-fr> Not Found")
         for child in root:
@@ -62,7 +60,7 @@ class ConjugationsParser:
                 self.templates.append(Template(child))
         self.templates = sorted(self.templates, key=lambda x: x.name)
         self._keys = [template.name for template in self.templates]
-        print('loaded {} conjugation templates'.format(len(self.templates)))
+        print('Loaded {} conjugation templates'.format(len(self.templates)))
 
     def find_template(self, name):
         """Assumes templates are already sorted by name"""
