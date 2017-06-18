@@ -1,6 +1,12 @@
 # verb-conjugate-fr
 Python French verb conjugation / Conjugaison des verbes français en Python
 
+* Unit tested
+* Travis CI ![Travis CI build status](https://travis-ci.org/bretttolbert/verb-conjugate-fr.svg?branch=master)
+* Currently under development
+* Has a command line interface
+* Coming soon: Flask web interface
+
 Build with setup.py or use tox to build (both py27 and p3) and run unit tests and linters.
 
 ```
