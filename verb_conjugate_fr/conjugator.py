@@ -35,13 +35,13 @@ class Conjugator:
         verb_stem = get_verb_stem(infinitive, template.name)
         mood = template.moods['indicative']
         tense = mood.tenses['present']
-        ret += conjugate_specific_mood_tense(verb_stem, tense)
+        ret += conjugate_specific_tense(verb_stem, tense)
         tense = mood.tenses['imperfect']
-        ret += conjugate_specific_mood_tense(verb_stem, tense)
+        ret += conjugate_specific_tense(verb_stem, tense)
         tense = mood.tenses['future']
-        ret += conjugate_specific_mood_tense(verb_stem, tense)
+        ret += conjugate_specific_tense(verb_stem, tense)
         tense = mood.tenses['simple-past']
-        ret += conjugate_specific_mood_tense(verb_stem, tense)
+        ret += conjugate_specific_tense(verb_stem, tense)
         return ret
 
 
@@ -55,16 +55,23 @@ def get_verb_stem(infinitive, template_name):
     return infinitive[:len(infinitive) - len(template_ending)]
 
 
-def conjugate_specific_mood_tense(verb_stem, tense):
+def conjugate_specific_tense(verb_stem, tense):
     ret = '{}\n'.format(tense.name)
     for pronoun in ('je', 'tu', 'il', 'nous', 'vous', 'ils'):
         person = tense.find_person_by_pronoun(pronoun)
-        ending = person.get_ending()
-        conjugated_verb = verb_stem + ending
-        if pronoun == 'je' and starts_with_vowel(conjugated_verb):
-            ret += "j'"
-        else:
-            ret += pronoun + ' '
-        ret += u'{}\n'.format(conjugated_verb)
+        ret += conjugate_specific_tense_pronoun(verb_stem, person, pronoun)
+        ret += '\n'
     ret += '\n'
+    return ret
+
+
+def conjugate_specific_tense_pronoun(verb_stem, person, pronoun):
+    ret = ''
+    ending = person.get_ending()
+    conjugated_verb = verb_stem + ending
+    if pronoun == 'je' and starts_with_vowel(conjugated_verb):
+        ret += "j'"
+    else:
+        ret += pronoun + ' '
+    ret += u'{}'.format(conjugated_verb)
     return ret
