@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 
 from bisect import bisect_left
@@ -6,6 +8,7 @@ from lxml import etree
 
 from pkg_resources import resource_filename
 
+from .string_utils import strip_accents
 from .verb import (Verb, VerbsParserError)
 
 
@@ -39,8 +42,9 @@ class VerbsParser:
 
     def get_verbs_that_start_with(self, pre):
         ret = []
+        pre_no_accents = strip_accents(pre)
         for verb in self.verbs:
-            if verb.infinitive.startswith(pre):
+            if verb.infinitive.startswith(pre_no_accents):
                 ret.append(verb)
         return ret
 

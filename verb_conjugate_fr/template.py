@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from lxml import etree
 
 from .mood import (MOOD_TENSES, Mood)

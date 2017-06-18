@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from mock import patch
 
 import pytest
@@ -46,7 +48,7 @@ def test_verb_invalid_xml(mock_v_elem):
 
 def test_get_verbs_that_start_with():
     vp = VerbsParser()
-    matches = vp.get_verbs_that_start_with("mang")
+    matches = vp.get_verbs_that_start_with(u"mang")
     assert len(matches) == 2
     assert matches[0].infinitive == 'mangeotter'
     assert matches[1].infinitive == 'manger'

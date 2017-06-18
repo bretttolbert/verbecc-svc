@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from lxml import etree
 
 from verb_conjugate_fr.person import Person
@@ -6,7 +8,7 @@ from verb_conjugate_fr.tense import Tense
 
 def test_tense_and_person():
     tense_elem = etree.fromstring(
-        """<present>
+        u"""<present>
         <p><i>ie</i><i>ye</i></p>
         <p><i>ies</i><i>yes</i></p>
         <p><i>ie</i><i>ye</i></p>

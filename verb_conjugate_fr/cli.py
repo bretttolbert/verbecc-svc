@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import sys
 
 from .conjugator import Conjugator
+from .string_utils import unicodefix
 from .verbs_parser import (
     VerbNotFoundError
 )
@@ -32,12 +35,12 @@ def cli_try_conjugate(conjugator, verb):
 def main():
     conjugator = Conjugator()
     if len(sys.argv) > 1:
-        verb = sys.argv[1]
+        verb = unicodefix(sys.argv[1])
         cli_try_conjugate(conjugator, verb)
     while True:
         print("Entrez un mot français pour conjuguer")
         print("Enter a French verb to conjugate")
-        verb = input()
+        verb = unicodefix(input())
         if verb == 'exit':
             return
         cli_try_conjugate(conjugator, verb)

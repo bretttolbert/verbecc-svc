@@ -1,8 +1,14 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 
 from .conjugations_parser import ConjugationsParser
 from .mood import Mood
 from .person import Person
+from .string_utils import (
+    starts_with_vowel,
+    strip_accents
+)
 from .template import Template
 from .tense import Tense
 from .verb import Verb
@@ -23,36 +29,42 @@ class Conjugator:
     def conjugate(self, infinitive):
         ret = ""
         verb = self.vp.find_verb_by_infinitive(infinitive)
-        print('Conjugaison du verbe {}'.format(verb.infinitive))
+        print(u'Conjugaison du verbe {}'.format(verb.infinitive))
         template = self.cp.find_template(verb.template)
-        print("Template: {}".format(template.name))
-        template_beg, template_ending = template.name.split(':')
-        if not infinitive.endswith(template_ending):
-            raise ConjugatorError(
-                "Template {} ending doesn't "
-                "match infinitive {}"
-                .format(template.name, infinitive))
-        verb_stem = infinitive[:len(infinitive)-len(template_ending)]
+        print(u"Template: {}".format(template.name))
+        verb_stem = get_verb_stem(infinitive, template.name)
         mood = template.moods['indicative']
         tense = mood.tenses['present']
-        ret += self._conjugate_specific_mood_tense(verb_stem, mood, tense)
+        ret += conjugate_specific_mood_tense(verb_stem, tense)
         tense = mood.tenses['imperfect']
-        ret += self._conjugate_specific_mood_tense(verb_stem, mood, tense)
+        ret += conjugate_specific_mood_tense(verb_stem, tense)
         tense = mood.tenses['future']
-        ret += self._conjugate_specific_mood_tense(verb_stem, mood, tense)
+        ret += conjugate_specific_mood_tense(verb_stem, tense)
         tense = mood.tenses['simple-past']
-        ret += self._conjugate_specific_mood_tense(verb_stem, mood, tense)
+        ret += conjugate_specific_mood_tense(verb_stem, tense)
         return ret
 
-    def _conjugate_specific_mood_tense(self, verb_stem, mood, tense):
-        ret = '\n{}\n'.format(tense.name)
-        for pronoun in ('je', 'tu', 'il', 'nous', 'vous', 'ils'):
-            person = tense.find_person_by_pronoun(pronoun)
-            ending = person.get_ending()
-            if pronoun == 'je' and verb_stem.startswith('a'):
-                ret += "j'"
-            else:
-                ret += '{} '.format(pronoun)
-            ret += u'{}{}\n'.format(verb_stem, ending)
-        ret += '\n'
-        return ret
+
+def get_verb_stem(infinitive, template_name):
+    template_beg, template_ending = template_name.split(u':')
+    if not infinitive.endswith(template_ending):
+        raise ConjugatorError(
+            "Template {} ending doesn't "
+            "match infinitive {}"
+            .format(template_name, infinitive))
+    return infinitive[:len(infinitive) - len(template_ending)]
+
+
+def conjugate_specific_mood_tense(verb_stem, tense):
+    ret = '{}\n'.format(tense.name)
+    for pronoun in ('je', 'tu', 'il', 'nous', 'vous', 'ils'):
+        person = tense.find_person_by_pronoun(pronoun)
+        ending = person.get_ending()
+        conjugated_verb = verb_stem + ending
+        if pronoun == 'je' and starts_with_vowel(conjugated_verb):
+            ret += "j'"
+        else:
+            ret += pronoun + ' '
+        ret += u'{}\n'.format(conjugated_verb)
+    ret += '\n'
+    return ret

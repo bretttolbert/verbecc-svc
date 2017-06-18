@@ -1,5 +1,4 @@
-import codecs
-from enum import Enum
+# -*- coding: utf-8 -*-
 
 
 class Person:
