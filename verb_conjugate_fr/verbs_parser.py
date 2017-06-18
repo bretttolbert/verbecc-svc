@@ -37,6 +37,13 @@ class VerbsParser:
             return self.verbs[i]
         raise VerbNotFoundError
 
+    def get_verbs_that_start_with(self, pre):
+        ret = []
+        for verb in self.verbs:
+            if verb.infinitive.startswith(pre):
+                ret.append(verb)
+        return ret
+
 
 if __name__ == "__main__":
     vp = VerbsParser()
