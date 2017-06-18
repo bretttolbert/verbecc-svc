@@ -23,5 +23,8 @@ setup(name=package,
       author_email='bretttolbert@gmail.com',
       packages=find_packages(),
       install_requires=[required],
-      include_package_data=True
+      include_package_data=True,
+      entry_points = {
+          'console_scripts': ['confr=verb_conjugate_fr.conjugator:main']
+      }
       )

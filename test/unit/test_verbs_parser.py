@@ -3,7 +3,10 @@ from mock import patch
 import pytest
 
 from verb_conjugate_fr.verbs_parser import (
-    Verb, VerbsParser, VerbsParserError
+    Verb,
+    VerbNotFoundError,
+    VerbsParser,
+    VerbsParserError
 )
 
 
@@ -20,9 +23,17 @@ def test_verb():
     assert verb.translation_en == "eat"
 
 
+def test_verb_two():
+    vp = VerbsParser()
+    verb = vp.find_verb_by_infinitive("abattre")
+    assert verb.infinitive == "abattre"
+    assert verb.template == "bat:tre"
+    assert verb.translation_en == "tear down"
+
+
 def test_verb_not_found():
     vp = VerbsParser()
-    with pytest.raises(ValueError):
+    with pytest.raises(VerbNotFoundError):
         verb = vp.find_verb_by_infinitive("foo")
 
 

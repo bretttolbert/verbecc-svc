@@ -9,6 +9,10 @@ from pkg_resources import resource_filename
 from .verb import (Verb, VerbsParserError)
 
 
+class VerbNotFoundError(Exception):
+    pass
+
+
 class VerbsParser:
     def __init__(self):
         self.verbs = []
@@ -31,7 +35,7 @@ class VerbsParser:
         i = bisect_left(self._keys, infinitive)
         if i != len(self._keys) and self._keys[i] == infinitive:
             return self.verbs[i]
-        raise ValueError
+        raise VerbNotFoundError
 
 
 if __name__ == "__main__":
