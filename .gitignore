@@ -20,8 +20,6 @@ pip-log.txt
 venv/
 .tox/
 .py*/
-py27-test_results.xml
-py27-testcov/
-py3-test_results.xml
-py3-testcov/
+*-test_results.xml
+*-testcov/
 test/unit/__pycache__/
