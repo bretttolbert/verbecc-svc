@@ -59,15 +59,15 @@ def conjugate_specific_tense(verb_stem, tense):
     ret = '{}\n'.format(tense.name)
     for pronoun in ('je', 'tu', 'il', 'nous', 'vous', 'ils'):
         person = tense.find_person_by_pronoun(pronoun)
-        ret += conjugate_specific_tense_pronoun(verb_stem, person, pronoun)
+        ending = person.get_ending()
+        ret += conjugate_specific_tense_pronoun(verb_stem, ending, pronoun)
         ret += '\n'
     ret += '\n'
     return ret
 
 
-def conjugate_specific_tense_pronoun(verb_stem, person, pronoun):
+def conjugate_specific_tense_pronoun(verb_stem, ending, pronoun):
     ret = ''
-    ending = person.get_ending()
     conjugated_verb = verb_stem + ending
     if pronoun == 'je' and starts_with_vowel(conjugated_verb):
         ret += "j'"

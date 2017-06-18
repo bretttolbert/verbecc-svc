@@ -41,7 +41,6 @@ def main():
         print("Entrez un mot français pour conjuguer")
         print("Enter a French verb to conjugate")
         verb = unicodefix(input())
-        person = mock.MagicMock()
         if verb == 'exit':
             return
         cli_try_conjugate(conjugator, verb)

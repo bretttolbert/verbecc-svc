@@ -41,9 +41,9 @@ def test_conjugator_conjugate_specific_tense():
 def test_conjugator_conjugate_specific_tense_pronoun(mock_person):
     verb_stem = u"man"
     pronoun = u"je"
-    mock_person.get_ending.return_value = u"ge"
-    conjugation = conjugate_specific_tense_pronoun(verb_stem, mock_person, pronoun)
-    assert conjugation == u"je mange"
+    ending = u"ge"
+    conjugation = conjugate_specific_tense_pronoun(verb_stem, ending, pronoun)
+    assert conjugation == "je mange"
 
 
 def test_conjugator_get_verb_stem():
