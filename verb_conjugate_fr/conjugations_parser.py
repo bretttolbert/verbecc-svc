@@ -47,7 +47,7 @@ Class Diagram:
 class ConjugationsParser:
     def __init__(self):
         self.templates = []
-        parser = etree.XMLParser(dtd_validation=True)
+        parser = etree.XMLParser(dtd_validation=True, encoding='utf-8')
         tree = etree.parse(
             resource_filename("verb_conjugate_fr",
                               "data/conjugations_fr.xml"),

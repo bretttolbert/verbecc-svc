@@ -16,7 +16,9 @@ class VerbNotFoundError(Exception):
 class VerbsParser:
     def __init__(self):
         self.verbs = []
-        tree = etree.parse(resource_filename("verb_conjugate_fr", "data/verbs_fr.xml"))
+        parser = etree.XMLParser(encoding='utf-8')
+        tree = etree.parse(resource_filename("verb_conjugate_fr", "data/verbs_fr.xml"),
+                           parser)
         print(tree)
         root = tree.getroot()
         print(root)

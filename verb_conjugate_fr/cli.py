@@ -15,7 +15,8 @@ except NameError:
 
 def cli_try_conjugate(conjugator, verb):
     try:
-        conjugator.conjugate(verb)
+        out = conjugator.conjugate(verb)
+        print(out)
     except VerbNotFoundError:
         print("Aucune mot trouvé")
         print("Verb not found")

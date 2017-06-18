@@ -21,6 +21,7 @@ class Conjugator:
         self.cp = ConjugationsParser()
 
     def conjugate(self, infinitive):
+        ret = ""
         verb = self.vp.find_verb_by_infinitive(infinitive)
         print('Conjugaison du verbe {}'.format(verb.infinitive))
         template = self.cp.find_template(verb.template)
@@ -34,12 +35,24 @@ class Conjugator:
         verb_stem = infinitive[:len(infinitive)-len(template_ending)]
         mood = template.moods['indicative']
         tense = mood.tenses['present']
-        print('')
+        ret += self._conjugate_specific_mood_tense(verb_stem, mood, tense)
+        tense = mood.tenses['imperfect']
+        ret += self._conjugate_specific_mood_tense(verb_stem, mood, tense)
+        tense = mood.tenses['future']
+        ret += self._conjugate_specific_mood_tense(verb_stem, mood, tense)
+        tense = mood.tenses['simple-past']
+        ret += self._conjugate_specific_mood_tense(verb_stem, mood, tense)
+        return ret
+
+    def _conjugate_specific_mood_tense(self, verb_stem, mood, tense):
+        ret = '\n{}\n'.format(tense.name)
         for pronoun in ('je', 'tu', 'il', 'nous', 'vous', 'ils'):
             person = tense.find_person_by_pronoun(pronoun)
             ending = person.get_ending()
             if pronoun == 'je' and verb_stem.startswith('a'):
-                print('j\'{}{}'.format(verb_stem, ending))
+                ret += "j'"
             else:
-                print('{} {}{}'.format(pronoun, verb_stem, ending))
-        print('')
+                ret += '{} '.format(pronoun)
+            ret += u'{}{}\n'.format(verb_stem, ending)
+        ret += '\n'
+        return ret
