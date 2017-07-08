@@ -14,7 +14,7 @@ class ConjugationTemplate:
         if template_elem.tag != 'template':
             raise ConjugationTemplateError("not a 'template' elem")
         try:
-            self.name = template_elem.get('name')
+            self.name = u'' + template_elem.get('name')
             self.moods = {}
             for mood_name, mood_tenses in MOOD_TENSES.items():
                 self.moods[mood_name] = \

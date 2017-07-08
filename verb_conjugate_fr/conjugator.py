@@ -26,7 +26,7 @@ class Conjugator:
         self.vp = VerbsParser()
         self.cp = ConjugationsParser()
 
-    def conjugate(self, infinitive):
+    def get_full_conjugation_string(self, infinitive):
         ret = ""
         verb = self.vp.find_verb_by_infinitive(infinitive)
         print(u'Conjugaison du verbe {}'.format(verb.infinitive))

@@ -16,9 +16,9 @@ class PersonEnding:
     def __init__(self, p_elem):
         self._endings = []
         for i_elem in p_elem.findall('i'):
-            ending = i_elem.text
-            if ending is None:
-                ending = ''
+            ending = u''
+            if i_elem.text is not None:
+                ending += i_elem.text
             self._endings.append(ending)
 
     def get_ending(self):

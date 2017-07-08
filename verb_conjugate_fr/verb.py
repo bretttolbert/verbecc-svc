@@ -12,9 +12,9 @@ class Verb:
         if v_elem.tag != 'v':
             raise VerbsParserError("parse_verb: not a 'v' elem")
         try:
-            self.infinitive = v_elem.find('i').text
-            self.template = v_elem.find('t').text
-            self.translation_en = v_elem.find('en').text
+            self.infinitive = u'' + v_elem.find('i').text
+            self.template = u'' + v_elem.find('t').text
+            self.translation_en = u'' + v_elem.find('en').text
         except AttributeError as e:
             raise VerbsParserError(
                 "Error parsing {}: {}".format(

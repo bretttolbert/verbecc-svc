@@ -13,10 +13,14 @@ from verb_conjugate_fr.conjugator import (
 from verb_conjugate_fr.tense import Tense
 
 
-def test_conjugator():
+def test_conjugator_get_full_conjugation_string():
     conj = Conjugator()
-    conj.conjugate(u"manger")
-    conj.conjugate(u"éparpiller")
+    out = conj.get_full_conjugation_string(u"manger")
+    assert len(out)
+    assert u"je mange\n" in out
+    out = conj.get_full_conjugation_string(u"éparpiller")
+    assert len(out)
+    assert u"j'éparpille\n" in out
 
 
 def test_conjugator_conjugate_specific_tense():
