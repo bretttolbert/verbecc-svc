@@ -2,14 +2,14 @@
 
 from __future__ import print_function
 
+from .conjugation_template import ConjugationTemplate
 from .conjugations_parser import ConjugationsParser
 from .mood import Mood
-from .person import Person
+from .person_ending import PersonEnding
 from .string_utils import (
     starts_with_vowel,
     strip_accents
 )
-from .template import Template
 from .tense import Tense
 from .verb import Verb
 from .verbs_parser import (
@@ -42,6 +42,9 @@ class Conjugator:
         ret += conjugate_specific_tense(verb_stem, tense)
         tense = mood.tenses['simple-past']
         ret += conjugate_specific_tense(verb_stem, tense)
+        # mood = template.moods['participle']
+        # tense = mood.tenses['present-participle']
+        # ret += conjugate_specific_tense(verb_stem, tense)
         return ret
 
 

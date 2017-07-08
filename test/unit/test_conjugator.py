@@ -37,13 +37,13 @@ def test_conjugator_conjugate_specific_tense():
                   u"nous mangeons\nvous mangez\nils mangent\n\n"
 
 
-@patch('verb_conjugate_fr.person.Person')
+@patch('verb_conjugate_fr.person_ending.PersonEnding')
 def test_conjugator_conjugate_specific_tense_pronoun(mock_person):
     verb_stem = u"man"
     pronoun = u"je"
     ending = u"ge"
     conjugation = conjugate_specific_tense_pronoun(verb_stem, ending, pronoun)
-    assert conjugation == "je mange"
+    assert conjugation == u"je mange"
 
 
 def test_conjugator_get_verb_stem():

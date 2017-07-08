@@ -1,14 +1,21 @@
 # -*- coding: utf-8 -*-
 
-from .person import Person
+from .person_ending import PersonEnding
 
 
 class Tense:
     """
+    Contains PersonEndings for a specific verb template, mood and tense
+    Note: The template name and mood isn't specified because a Tense belongs to a Mood object
+    Class relationships:
+        ConjugationTemplate has many Mood
+            Mood has many Tense
+                Tense has many PersonEnding
+    E.g. aim:er indicative present
     name
         the name of the tense, e.g. "present"
     tense_elem
-        A tense_elem contains one or more <p> elems
+        A tense_elem contains one or more <p> (PersonEnding) elems
         Example tense_elem children:
             <p><i>e</i></p>
             <p><i>es</i></p>
@@ -37,7 +44,7 @@ class Tense:
         """
         self.persons = []
         for p_elem in tense_elem.findall('p'):
-            self.persons.append(Person(p_elem))
+            self.persons.append(PersonEnding(p_elem))
 
     def find_person_by_pronoun(self, pronoun):
         pronoun = pronoun.lower()

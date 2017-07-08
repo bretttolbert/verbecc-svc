@@ -5,14 +5,14 @@ from lxml import etree
 from .mood import (MOOD_TENSES, Mood)
 
 
-class TemplateError(Exception):
+class ConjugationTemplateError(Exception):
     pass
 
 
-class Template:
+class ConjugationTemplate:
     def __init__(self, template_elem):
         if template_elem.tag != 'template':
-            raise TemplateError("not a 'template' elem")
+            raise ConjugationTemplateError("not a 'template' elem")
         try:
             self.name = template_elem.get('name')
             self.moods = {}
@@ -21,7 +21,7 @@ class Template:
                     Mood(mood_name, template_elem.find(mood_name))
 
         except AttributeError as e:
-            raise TemplateError(
+            raise ConjugationTemplateError(
                 "Error parsing {}: {}".format(
                     etree.tostring(template_elem),
                     str(e)))

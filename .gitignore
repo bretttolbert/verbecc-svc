@@ -23,3 +23,4 @@ venv/
 *-test_results.xml
 *-testcov/
 test/unit/__pycache__/
+__pycache__/

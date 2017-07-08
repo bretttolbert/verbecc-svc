@@ -2,7 +2,7 @@
 
 from lxml import etree
 
-from verb_conjugate_fr.person import Person
+from verb_conjugate_fr.person_ending import PersonEnding
 from verb_conjugate_fr.tense import Tense
 
 

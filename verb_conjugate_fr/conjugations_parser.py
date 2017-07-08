@@ -8,7 +8,7 @@ from lxml import etree
 
 from pkg_resources import resource_filename
 
-from .template import Template
+from .conjugation_template import ConjugationTemplate
 
 
 class ConjugationsParserError(Exception):
@@ -59,7 +59,7 @@ class ConjugationsParser:
             raise ConjugationsParserError("Root XML Tag <conjugation-fr> Not Found")
         for child in root:
             if child.tag == 'template':
-                self.templates.append(Template(child))
+                self.templates.append(ConjugationTemplate(child))
         self.templates = sorted(self.templates, key=lambda x: x.name)
         self._keys = [template.name for template in self.templates]
         print('Loaded {} conjugation templates'.format(len(self.templates)))

@@ -44,7 +44,8 @@ class VerbsParser:
         ret = []
         pre_no_accents = strip_accents(pre)
         for verb in self.verbs:
-            if verb.infinitive.startswith(pre_no_accents):
+            infinitive_no_accents = strip_accents(verb.infinitive)
+            if infinitive_no_accents.startswith(pre_no_accents):
                 ret.append(verb)
         return ret
 
