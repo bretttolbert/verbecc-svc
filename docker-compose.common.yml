@@ -1,0 +1,4 @@
+version: '2'
+services:
+  python:
+    build: ./python

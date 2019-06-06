@@ -1,0 +1,14 @@
+version: '2'
+services:
+  python:
+    image: registry.gitlab.com/bretttolbert/verb-conjugate-fr/python:dev
+    volumes:
+      - ./python/:/code
+    entrypoint: watchmedo auto-restart --recursive --pattern="*.py" --directory="." python verb_conjugate_fr/run.py
+  python-tests:
+    image: registry.gitlab.com/bretttolbert/verb-conjugate-fr/python:dev
+    volumes:
+      - ./python/:/code
+    entrypoint: watchmedo auto-restart --recursive --pattern="*.py" --directory="." pytest
+    depends_on:
+      - python

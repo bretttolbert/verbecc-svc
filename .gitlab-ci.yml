@@ -1,0 +1,29 @@
+stages:
+  - build
+  - test
+
+variables:
+  TAG: $CI_BUILD_REF
+  IMAGE: $CI_REGISTRY_IMAGE
+
+services:
+  - docker:dind
+
+image: docker
+
+before_script:
+  - apk add --update py-pip python-dev
+  - pip install docker-compose==1.23.2
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+build:
+  stage: build
+  script:
+    - docker-compose -f docker-compose.common.yml -f docker-compose.prod.yml build
+    - docker-compose -f docker-compose.common.yml -f docker-compose.prod.yml push
+
+test-python:
+  stage: test
+  script:
+    - docker-compose -f docker-compose.common.yml -f docker-compose.prod.yml pull python
+    - docker-compose -f docker-compose.common.yml -f docker-compose.prod.yml run --rm --entrypoint pytest python
