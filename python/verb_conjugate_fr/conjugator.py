@@ -32,6 +32,12 @@ def get_verb_stem(infinitive, template_name):
             .format(template_name, infinitive))
     return infinitive[:len(infinitive) - len(template_ending)]
 
+def prepend_with_que(pronoun_string):
+    if starts_with_vowel(pronoun_string):
+        return "qu'" + pronoun_string
+    else:
+        return "que " + pronoun_string
+
 class Conjugator:
     def __init__(self):
         self.verb_parser = VerbsParser()
@@ -47,7 +53,10 @@ class Conjugator:
         for mood in conjugation_template.moods:
             moods.append({mood: self.get_full_conjugation_for_mood(
             verb_stem, conjugation_template, mood)})
-        return {'verb': verb, 
+        return {'verb': {'infinitive': verb.infinitive, 
+                         'template': verb.template,
+                         'translation_en': verb.translation_en,
+                         'stem': verb_stem}, 
                 'verb_stem': verb_stem,
                 'moods': moods}
 
@@ -59,20 +68,30 @@ class Conjugator:
 
         for tense in mood.tenses:
             tense_template = mood.tenses[tense]
-            ret[tense] = self._conjugate_specific_tense(verb_stem, tense_template)
+            ret[tense] = self._conjugate_specific_tense(verb_stem, mood_name, tense_template)
         return ret
 
-    def _conjugate_specific_tense(self, verb_stem, tense_template):
+    def _conjugate_specific_tense(self, verb_stem, mood_name, tense_template):
         ret = []
-        if tense_template.name == 'infinitive-present':
-            person = tense_template.persons[0]
-            ret = [verb_stem + person.get_ending()]
+        if tense_template.name in ('infinitive-present', 'present-participle'):
+            ret = [verb_stem + tense_template.persons[0].get_ending()]
+        elif tense_template.name == 'imperative-present':
+            ret = []
+            for i in range(3):
+                ret.append(verb_stem + tense_template.persons[i].get_ending())
+        elif tense_template.name == 'past-participle':
+            ret = []
+            for i in range(4):
+                ret.append(verb_stem + tense_template.persons[i].get_ending())
         else:
             pronouns = grammar_defines.get_default_pronouns()
             for pronoun in pronouns:
                 person = tense_template.get_person_ending_by_pronoun(pronoun)
                 ending = person.get_ending()
-                ret.append(self._conjugate_specific_tense_pronoun(verb_stem, ending, pronoun))
+                conjugation = self._conjugate_specific_tense_pronoun(verb_stem, ending, pronoun)
+                if mood_name == 'subjunctive':
+                    conjugation = prepend_with_que(conjugation)
+                ret.append(conjugation)
         return ret
 
     def _conjugate_specific_tense_pronoun(self, verb_stem, ending, pronoun):

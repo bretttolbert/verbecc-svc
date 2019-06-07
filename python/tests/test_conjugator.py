@@ -9,7 +9,8 @@ import pytest
 from verb_conjugate_fr.conjugator import (
     Conjugator,
     ConjugatorError,
-    get_verb_stem
+    get_verb_stem,
+    prepend_with_que
 )
 from verb_conjugate_fr.tense_template import TenseTemplate
 
@@ -34,7 +35,7 @@ def test_conjugator_conjugate_specific_tense():
         </present>""")
     tense_name = 'present'
     tense = TenseTemplate(tense_name, tense_elem)
-    out = conj._conjugate_specific_tense(verb_stem, tense)
+    out = conj._conjugate_specific_tense(verb_stem, 'indicative', tense)
     assert len(out) == 6
     assert out == [u"je mange", u"tu manges", u"il mange", u"nous mangeons", u"vous mangez", u"ils mangent"]
 
@@ -47,6 +48,10 @@ def test_conjugator_conjugate_specific_tense_pronoun(mock_person):
     conjugation = conj._conjugate_specific_tense_pronoun(verb_stem, ending, pronoun)
     assert conjugation == u"je mange"
 
+def test_conjugator_prepend_with_que():
+    assert prepend_with_que("tu manges") == "que tu manges"
+    assert prepend_with_que("il mange") == "qu'il mange"
+    assert prepend_with_que("elles mangent") == "qu'elles mangent"
 
 def test_conjugator_get_verb_stem():
     verb_stem = get_verb_stem(u"manger", u"man:ger")
