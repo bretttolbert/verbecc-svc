@@ -1,8 +1,5 @@
 #!/usr/bin/env python
-from flask import Flask
-from flask_restful import Api
-
-app = Flask(__name__)
-api = Api(app)
+from fastapi import FastAPI
+app = FastAPI(title="verb-conjugate-fr")
 
 import verb_conjugate_fr.views

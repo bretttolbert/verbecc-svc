@@ -1,12 +1,14 @@
-FROM python:3.6-slim
+FROM tiangolo/uvicorn-gunicorn:python3.7-alpine3.8
 
-MAINTAINER Brett Tolbert "bretttolbert@gmail.com"
+LABEL maintainer="Brett Tolbert <bretttolbert@gmail.com>"
 
 COPY . /code
 WORKDIR /code
 
+RUN apk add --update --no-cache g++ gcc libxslt-dev
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install -e .
 
-CMD ["python", "./code/verb_conjugate_fr/run.py"]
-ENTRYPOINT ["python", "./verb_conjugate_fr/run.py"]
+EXPOSE 8000
+
+CMD gunicorn verb_conjugate_fr:app -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0
