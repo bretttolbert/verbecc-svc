@@ -22,7 +22,7 @@ make dev-build && make dev
 
 ## Usage Examples
 
-http://localhost:8000/conjugate/mood/indicative/manger
+http://localhost:8000/conjugate/manger
 
 ```
 {
@@ -63,11 +63,6 @@ http://localhost:8000/conjugate/mood/indicative/manger
 }
 ```
 
-http://localhost:8000/conjugate/manger
-```
-TBD
-```
-
 http://localhost:8000/find/infinitive/manger
 ```
 {
@@ -79,5 +74,5 @@ http://localhost:8000/find/infinitive/manger
 }
 ```
 
+http://localhost:8000/conjugate/mood/indicative/manger
 http://localhost:8000/find/conjugation-template/man:ger
-

@@ -45,7 +45,7 @@ class Conjugator:
         conjugation_template = self.conj_parser.find_template(verb.template)
         print(u"Conjugation template: {}".format(conjugation_template.name))
         verb_stem = get_verb_stem(infinitive, conjugation_template.name)
-        ret['moods']['indicative'] = self._get_full_conjugation_for_mood(verb_stem, conjugation_template, 'indicative')
+        ret['moods']['indicative'] = self.get_full_conjugation_for_mood(verb_stem, conjugation_template, 'indicative')
         return ret
 
     def get_full_conjugation_string(self, infinitive):
@@ -55,9 +55,9 @@ class Conjugator:
         conjugation_template = self.conj_parser.find_template(verb.template)
         print(u"Conjugation template: {}".format(conjugation_template.name))
         verb_stem = get_verb_stem(infinitive, conjugation_template.name)
-        return self._get_full_conjugation_string_for_mood(verb_stem, conjugation_template, 'indicative')
+        return self.get_full_conjugation_string_for_mood(verb_stem, conjugation_template, 'indicative')
 
-    def _get_full_conjugation_for_mood(self, verb_stem, template, mood_name):
+    def get_full_conjugation_for_mood(self, verb_stem, template, mood_name):
         ret = {}
         if mood_name not in template.moods:
             raise InvalidMoodError
