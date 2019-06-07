@@ -17,10 +17,11 @@ from .verbs_parser import (
     VerbNotFoundError, VerbsParser
 )
 
+class InvalidMoodError(Exception):
+    pass
 
 class ConjugatorError(Exception):
     pass
-
 
 def get_verb_stem(infinitive, template_name):
     template_beg, template_ending = template_name.split(u':')
@@ -58,6 +59,8 @@ class Conjugator:
 
     def _get_full_conjugation_for_mood(self, verb_stem, template, mood_name):
         ret = {}
+        if mood_name not in template.moods:
+            raise InvalidMoodError
         mood = template.moods[mood_name]
 
         for tense in ('present', 'imperfect', 'future', 'simple-past'):

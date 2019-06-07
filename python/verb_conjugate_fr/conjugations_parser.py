@@ -14,6 +14,9 @@ from .conjugation_template import ConjugationTemplate
 class ConjugationsParserError(Exception):
     pass
 
+class TemplateNotFoundError(Exception):
+    pass
+
 
 """
 Conjugations XML structure:
@@ -69,7 +72,7 @@ class ConjugationsParser:
         i = bisect_left(self._keys, name)
         if i != len(self._keys) and self._keys[i] == name:
             return self.templates[i]
-        raise ValueError
+        raise TemplateNotFoundError
 
 
 if __name__ == "__main__":
