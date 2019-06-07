@@ -4,7 +4,7 @@ services:
     image: registry.gitlab.com/bretttolbert/verb-conjugate-fr/python:dev
     ports:
       - "8000:8000"
-    command: ["uvicorn", "verb_conjugate_fr:app", "--host", "0.0.0.0", "--debug", "--port", "8000"]
+    command: ["uvicorn", "verb_conjugate_fr:app", "--host", "0.0.0.0", "--reload", "--port", "8000"]
     volumes:
       - ./python/:/code
   python-tests:
