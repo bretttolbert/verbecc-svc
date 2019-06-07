@@ -1,5 +1,7 @@
 # verb-conjugate-fr
-Python French verb conjugation / Conjugaison des verbes français en Python
+Python microservice with REST API for conjugation of French verbs
+Un microservice Python avec un API REST pour la conjugaison des verbes français
 
-* Unit tested
 * Dockerized
+* Unit tested
+* Continuous Integration and Deployment with GitLab CI/CD
