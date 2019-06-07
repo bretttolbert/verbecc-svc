@@ -1,7 +1,8 @@
 # verb-conjugate-fr
-Python microservice with REST API for conjugation of French verbs
 
-Un microservice Python avec un API REST pour la conjugaison des verbes français
+## Python microservice with REST API for conjugation of French verbs
+
+## Un microservice Python avec un API REST pour la conjugaison des verbes français
 
 [![pipeline status](https://gitlab.com/bretttolbert/verb-conjugate-fr/badges/master/pipeline.svg)](https://gitlab.com/bretttolbert/verb-conjugate-fr/pipelines)
 
@@ -9,8 +10,15 @@ Un microservice Python avec un API REST pour la conjugaison des verbes français
 * Unit tested
 * Continuous Integration and Deployment with GitLab CI/CD
 
-Usage Examples
+**This project is WIP and is NOT production ready!**
 
+## Quick Start (Development)
+
+```
+make dev-build && make dev
+```
+
+## Usage Examples
 
 http://localhost:8000/conjugate/mood/indicative/manger
 
@@ -52,3 +60,22 @@ http://localhost:8000/conjugate/mood/indicative/manger
   }
 }
 ```
+
+http://localhost:8000/conjugate/manger
+```
+TBD
+```
+
+http://localhost:8000/find/infinitive/manger
+```
+{
+  "value": {
+    "infinitive": "manger",
+    "template": "man:ger",
+    "translation_en": "eat"
+  }
+}
+```
+
+http://localhost:8000/find/conjugation-template/man:ger
+
