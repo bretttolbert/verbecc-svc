@@ -1,6 +1,8 @@
 watchdog
 fastapi
 uvicorn
+starlette
+requests
 lxml==4.1.1
 mock>=2.0.0,<3.0.0
 pytest>=3.0.6,<4.0.0
