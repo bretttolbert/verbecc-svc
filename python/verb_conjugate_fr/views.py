@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from verb_conjugate_fr import app
+from fastapi import HTTPException
 from .conjugator import Conjugator, get_verb_stem
 from .conjugation_template import ConjugationTemplate
 from .conjugations_parser import ConjugationsParser
@@ -18,8 +19,12 @@ def read_conjugation(infinitive: str):
 
 @app.get("/find/infinitive/{infinitive}")
 def read_find_infinitive(infinitive: str):
-    verb = cg.verb_parser.find_verb_by_infinitive(infinitive)
-    return {'value': verb}
+    value = None
+    try:
+        value = cg.verb_parser.find_verb_by_infinitive(infinitive)
+    except VerbNotFoundError:
+        raise HTTPException(status_code=404, detail="Verb not found")
+    return {'value': value}
 
 @app.get("/find/conjugation-template/{template_name}")
 def read_find_conjugation_template(template_name: str):
