@@ -55,15 +55,6 @@ def test_conjugator_conjugate():
     }
 
 
-def test_conjugator_get_full_conjugation_string():
-    out = conj.get_full_conjugation_string(u"manger")
-    assert len(out)
-    assert u"je mange\n" in out
-    out = conj.get_full_conjugation_string(u"éparpiller")
-    assert len(out)
-    assert u"j'éparpille\n" in out
-
-
 def test_conjugator_conjugate_specific_tense():
     verb_stem = u"man"
     tense_elem = etree.fromstring(

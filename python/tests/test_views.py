@@ -8,6 +8,15 @@ def test_read_root():
     assert response.status_code == 200
     assert response.json() == {"value": "Hello 世界"}
 
+def test_read_conjugation():
+    response = client.get("/conjugate/manger")
+    assert response.status_code == 200
+
+def test_read_conjugation_not_found():
+    response = client.get("/conjugate/oops")
+    assert response.status_code == 404
+    assert response.json() == {"detail": "Verb not found"}
+
 def test_read_find_infinitive():
     response = client.get("/find/infinitive/manger")
     assert response.status_code == 200

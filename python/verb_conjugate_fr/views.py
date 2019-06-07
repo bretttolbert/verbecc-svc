@@ -16,11 +16,7 @@ def read_root():
 def read_conjugation(infinitive: str):
     value = None
     try:
-        mood = "indicative"
-        verb = cg.verb_parser.find_verb_by_infinitive(infinitive)
-        verb_stem = get_verb_stem(infinitive, verb.template)
-        template = cg.conj_parser.find_template(verb.template)
-        value = cg.get_full_conjugation_for_mood(verb_stem, template, mood)
+        value = cg.conjugate(infinitive)
     except VerbNotFoundError:
         raise HTTPException(status_code=404, detail="Verb not found")
     except InvalidMoodError:

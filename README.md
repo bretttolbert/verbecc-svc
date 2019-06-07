@@ -22,48 +22,52 @@ make dev-build && make dev
 
 ## Usage Examples
 
-http://localhost:8000/conjugate/manger
 
+* http://localhost:8000/conjugate/manger
 ```
 {
   "value": {
-    "present": [
-      "je mange",
-      "tu manges",
-      "il mange",
-      "nous mangeons",
-      "vous mangez",
-      "ils mangent"
-    ],
-    "imperfect": [
-      "je mangeais",
-      "tu mangeais",
-      "il mangeait",
-      "nous mangions",
-      "vous mangiez",
-      "ils mangeaient"
-    ],
-    "future": [
-      "je mangerai",
-      "tu mangeras",
-      "il mangera",
-      "nous mangerons",
-      "vous mangerez",
-      "ils mangeront"
-    ],
-    "simple-past": [
-      "je mangeai",
-      "tu mangeas",
-      "il mangea",
-      "nous mangeâmes",
-      "vous mangeâtes",
-      "ils mangèrent"
-    ]
+    "moods": {
+      "indicative": {
+        "present": [
+          "je mange",
+          "tu manges",
+          "il mange",
+          "nous mangeons",
+          "vous mangez",
+          "ils mangent"
+        ],
+        "imperfect": [
+          "je mangeais",
+          "tu mangeais",
+          "il mangeait",
+          "nous mangions",
+          "vous mangiez",
+          "ils mangeaient"
+        ],
+        "future": [
+          "je mangerai",
+          "tu mangeras",
+          "il mangera",
+          "nous mangerons",
+          "vous mangerez",
+          "ils mangeront"
+        ],
+        "simple-past": [
+          "je mangeai",
+          "tu mangeas",
+          "il mangea",
+          "nous mangeâmes",
+          "vous mangeâtes",
+          "ils mangèrent"
+        ]
+      }
+    }
   }
 }
 ```
 
-http://localhost:8000/find/infinitive/manger
+* http://localhost:8000/find/infinitive/manger
 ```
 {
   "value": {
@@ -74,5 +78,5 @@ http://localhost:8000/find/infinitive/manger
 }
 ```
 
-http://localhost:8000/conjugate/mood/indicative/manger
-http://localhost:8000/find/conjugation-template/man:ger
+* http://localhost:8000/conjugate/mood/indicative/manger
+* http://localhost:8000/find/conjugation-template/man:ger
