@@ -3,6 +3,8 @@ Python microservice with REST API for conjugation of French verbs
 
 Un microservice Python avec un API REST pour la conjugaison des verbes français
 
+[![pipeline status](https://gitlab.com/bretttolbert/verb-conjugate-fr/badges/master/pipeline.svg)](https://gitlab.com/bretttolbert/verb-conjugate-fr/pipelines)
+
 * Dockerized
 * Unit tested
 * Continuous Integration and Deployment with GitLab CI/CD
