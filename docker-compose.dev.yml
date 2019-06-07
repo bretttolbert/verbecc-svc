@@ -2,9 +2,11 @@ version: '2'
 services:
   python:
     image: registry.gitlab.com/bretttolbert/verb-conjugate-fr/python:dev
+    ports:
+      - "5000:5000"
     volumes:
       - ./python/:/code
-    entrypoint: watchmedo auto-restart --recursive --pattern="*.py" --directory="." python verb_conjugate_fr/run.py
+    entrypoint: watchmedo auto-restart --recursive --pattern="*.py" --directory="." python verb_conjugate_fr/app.py
   python-tests:
     image: registry.gitlab.com/bretttolbert/verb-conjugate-fr/python:dev
     volumes:
