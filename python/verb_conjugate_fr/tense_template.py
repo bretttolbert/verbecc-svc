@@ -62,4 +62,12 @@ class TenseTemplate:
                 return self.persons[4]
             elif pronoun in ('ils', 'elles'):
                 return self.persons[5]
+        elif self.name in ('infinitive-present', 'present-participle'):
+            return self.persons[0]
+        elif self.name == 'imperative-present':
+            #to do: correct this
+            return self.persons[0]
+        elif self.name == 'past-participle':
+            #to do: correct this
+            return self.persons[0]
         raise ValueError

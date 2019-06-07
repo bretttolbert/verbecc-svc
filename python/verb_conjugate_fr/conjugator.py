@@ -32,30 +32,24 @@ def get_verb_stem(infinitive, template_name):
             .format(template_name, infinitive))
     return infinitive[:len(infinitive) - len(template_ending)]
 
-
 class Conjugator:
     def __init__(self):
         self.verb_parser = VerbsParser()
         self.conj_parser = ConjugationsParser()
 
     def conjugate(self, infinitive):
-        ret = {'moods': {'indicative': []}}
         verb = self.verb_parser.find_verb_by_infinitive(infinitive)
         print(u'Conjugaison du verbe "{}":'.format(verb.infinitive))
         conjugation_template = self.conj_parser.find_template(verb.template)
         print(u"Conjugation template: {}".format(conjugation_template.name))
         verb_stem = get_verb_stem(infinitive, conjugation_template.name)
-        ret['moods']['indicative'] = self.get_full_conjugation_for_mood(verb_stem, conjugation_template, 'indicative')
-        return ret
-
-    def get_full_conjugation_string(self, infinitive):
-        ret = ''
-        verb = self.verb_parser.find_verb_by_infinitive(infinitive)
-        print(u'Conjugaison du verbe "{}":'.format(verb.infinitive))
-        conjugation_template = self.conj_parser.find_template(verb.template)
-        print(u"Conjugation template: {}".format(conjugation_template.name))
-        verb_stem = get_verb_stem(infinitive, conjugation_template.name)
-        return self.get_full_conjugation_string_for_mood(verb_stem, conjugation_template, 'indicative')
+        moods = []
+        for mood in conjugation_template.moods:
+            moods.append({mood: self.get_full_conjugation_for_mood(
+            verb_stem, conjugation_template, mood)})
+        return {'verb': verb, 
+                'verb_stem': verb_stem,
+                'moods': moods}
 
     def get_full_conjugation_for_mood(self, verb_stem, template, mood_name):
         ret = {}
@@ -63,32 +57,22 @@ class Conjugator:
             raise InvalidMoodError
         mood = template.moods[mood_name]
 
-        for tense in ('present', 'imperfect', 'future', 'simple-past'):
+        for tense in mood.tenses:
             tense_template = mood.tenses[tense]
             ret[tense] = self._conjugate_specific_tense(verb_stem, tense_template)
         return ret
 
-    def _get_full_conjugation_string_for_mood(self, verb_stem, template, mood_name):
-        ret = ''
-        mood = template.moods[mood_name]
-
-        for tense in ('present', 'imperfect', 'future', 'simple-past'):
-            tense_template = mood.tenses[tense]
-            ret += tense + '\n'
-            ret += '\n'.join(self._conjugate_specific_tense(verb_stem, tense_template))
-            ret += '\n'
-
-        # mood = template.moods['participle']
-        # tense = mood.tenses['present-participle']
-        # ret += self._conjugate_specific_tense(verb_stem, tense)
-        return ret
-
     def _conjugate_specific_tense(self, verb_stem, tense_template):
         ret = []
-        for pronoun in grammar_defines.get_default_pronouns():
-            person = tense_template.get_person_ending_by_pronoun(pronoun)
-            ending = person.get_ending()
-            ret.append(self._conjugate_specific_tense_pronoun(verb_stem, ending, pronoun))
+        if tense_template.name == 'infinitive-present':
+            person = tense_template.persons[0]
+            ret = [verb_stem + person.get_ending()]
+        else:
+            pronouns = grammar_defines.get_default_pronouns()
+            for pronoun in pronouns:
+                person = tense_template.get_person_ending_by_pronoun(pronoun)
+                ending = person.get_ending()
+                ret.append(self._conjugate_specific_tense_pronoun(verb_stem, ending, pronoun))
         return ret
 
     def _conjugate_specific_tense_pronoun(self, verb_stem, ending, pronoun):

@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 from verb_conjugate_fr import app
 from fastapi import HTTPException
-from .conjugator import Conjugator, get_verb_stem, InvalidMoodError
+from .conjugator import (
+    Conjugator, ConjugatorError, InvalidMoodError, get_verb_stem)
 from .conjugation_template import ConjugationTemplate
-from .conjugations_parser import ConjugationsParser, TemplateNotFoundError
+from .conjugations_parser import (
+    ConjugationsParser, TemplateNotFoundError)
 from .verbs_parser import VerbsParser, VerbNotFoundError
 
 cg = Conjugator()
