@@ -33,7 +33,6 @@ make dev-build && make dev
       "translation_en": "eat",
       "stem": "man"
     },
-    "verb_stem": "man",
     "moods": [
       {
         "infinitive": {

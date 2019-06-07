@@ -57,7 +57,6 @@ class Conjugator:
                          'template': verb.template,
                          'translation_en': verb.translation_en,
                          'stem': verb_stem}, 
-                'verb_stem': verb_stem,
                 'moods': moods}
 
     def get_full_conjugation_for_mood(self, verb_stem, template, mood_name):
