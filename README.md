@@ -37,105 +37,93 @@ $ make dev-build && make dev
       "translation_en": "eat",
       "stem": "man"
     },
-    "moods": [
-      {
-        "infinitive": {
-          "infinitive-present": [
-            "manger"
-          ]
-        }
+    "moods": {
+      "infinitive": {
+        "infinitive-present": [
+          "manger"
+        ]
       },
-      {
-        "indicative": {
-          "present": [
-            "je mange",
-            "tu manges",
-            "il mange",
-            "nous mangeons",
-            "vous mangez",
-            "ils mangent"
-          ],
-          "imperfect": [
-            "je mangeais",
-            "tu mangeais",
-            "il mangeait",
-            "nous mangions",
-            "vous mangiez",
-            "ils mangeaient"
-          ],
-          "future": [
-            "je mangerai",
-            "tu mangeras",
-            "il mangera",
-            "nous mangerons",
-            "vous mangerez",
-            "ils mangeront"
-          ],
-          "simple-past": [
-            "je mangeai",
-            "tu mangeas",
-            "il mangea",
-            "nous mangeâmes",
-            "vous mangeâtes",
-            "ils mangèrent"
-          ]
-        }
+      "indicative": {
+        "present": [
+          "je mange",
+          "tu manges",
+          "il mange",
+          "nous mangeons",
+          "vous mangez",
+          "ils mangent"
+        ],
+        "imperfect": [
+          "je mangeais",
+          "tu mangeais",
+          "il mangeait",
+          "nous mangions",
+          "vous mangiez",
+          "ils mangeaient"
+        ],
+        "future": [
+          "je mangerai",
+          "tu mangeras",
+          "il mangera",
+          "nous mangerons",
+          "vous mangerez",
+          "ils mangeront"
+        ],
+        "simple-past": [
+          "je mangeai",
+          "tu mangeas",
+          "il mangea",
+          "nous mangeâmes",
+          "vous mangeâtes",
+          "ils mangèrent"
+        ]
       },
-      {
-        "conditional": {
-          "present": [
-            "je mangerais",
-            "tu mangerais",
-            "il mangerait",
-            "nous mangerions",
-            "vous mangeriez",
-            "ils mangeraient"
-          ]
-        }
+      "conditional": {
+        "present": [
+          "je mangerais",
+          "tu mangerais",
+          "il mangerait",
+          "nous mangerions",
+          "vous mangeriez",
+          "ils mangeraient"
+        ]
       },
-      {
-        "subjunctive": {
-          "present": [
-            "que je mange",
-            "que tu manges",
-            "qu'il mange",
-            "que nous mangions",
-            "que vous mangiez",
-            "qu'ils mangent"
-          ],
-          "imperfect": [
-            "que je mangeasse",
-            "que tu mangeasses",
-            "qu'il mangeât",
-            "que nous mangeassions",
-            "que vous mangeassiez",
-            "qu'ils mangeassent"
-          ]
-        }
+      "subjunctive": {
+        "present": [
+          "que je mange",
+          "que tu manges",
+          "qu'il mange",
+          "que nous mangions",
+          "que vous mangiez",
+          "qu'ils mangent"
+        ],
+        "imperfect": [
+          "que je mangeasse",
+          "que tu mangeasses",
+          "qu'il mangeât",
+          "que nous mangeassions",
+          "que vous mangeassiez",
+          "qu'ils mangeassent"
+        ]
       },
-      {
-        "imperative": {
-          "imperative-present": [
-            "mange",
-            "mangeons",
-            "mangez"
-          ]
-        }
+      "imperative": {
+        "imperative-present": [
+          "mange",
+          "mangeons",
+          "mangez"
+        ]
       },
-      {
-        "participle": {
-          "present-participle": [
-            "mangeant"
-          ],
-          "past-participle": [
-            "mangé",
-            "mangés",
-            "mangée",
-            "mangées"
-          ]
-        }
+      "participle": {
+        "present-participle": [
+          "mangeant"
+        ],
+        "past-participle": [
+          "mangé",
+          "mangés",
+          "mangée",
+          "mangées"
+        ]
       }
-    ]
+    }
   }
 }
 ```

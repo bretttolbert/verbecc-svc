@@ -45,14 +45,12 @@ class Conjugator:
 
     def conjugate(self, infinitive):
         verb = self.verb_parser.find_verb_by_infinitive(infinitive)
-        print(u'Conjugaison du verbe "{}":'.format(verb.infinitive))
         conjugation_template = self.conj_parser.find_template(verb.template)
-        print(u"Conjugation template: {}".format(conjugation_template.name))
         verb_stem = get_verb_stem(infinitive, conjugation_template.name)
-        moods = []
+        moods = {}
         for mood in conjugation_template.moods:
-            moods.append({mood: self.get_full_conjugation_for_mood(
-            verb_stem, conjugation_template, mood)})
+            moods[mood] = self.get_full_conjugation_for_mood(
+            verb_stem, conjugation_template, mood)
         return {'verb': {'infinitive': verb.infinitive, 
                          'template': verb.template,
                          'translation_en': verb.translation_en,
