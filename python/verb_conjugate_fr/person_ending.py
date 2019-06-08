@@ -2,7 +2,6 @@
 
 
 class PersonEnding:
-
     """
     aka <p>
     Ending for a specific verb template, mood, tense and grammatical person
@@ -13,10 +12,17 @@ class PersonEnding:
     p_elem
         Example p_elem:
             <p><i>eoir</i><i>oir</i></p>
+
+    default_p_elem
+        This will be used in place of p_elem if p_elem contains no <i> elements.
+        See comment in tense_template.__init__ for explanation.
     """
-    def __init__(self, p_elem):
+    def __init__(self, p_elem, default_p_elem):
         self._endings = []
-        for i_elem in p_elem.findall('i'):
+        i_elems = p_elem.findall('i')
+        if len(i_elems) == 0:
+            i_elems = default_p_elem.findall('i')
+        for i_elem in i_elems:
             ending = u''
             if i_elem.text is not None:
                 ending += i_elem.text

@@ -42,13 +42,15 @@ class VerbsParser:
             return self.verbs[i]
         raise VerbNotFoundError
 
-    def get_verbs_that_start_with(self, pre):
+    def get_verbs_that_start_with(self, pre, max_results=10):
         ret = []
         pre_no_accents = strip_accents(pre)
         for verb in self.verbs:
             infinitive_no_accents = strip_accents(verb.infinitive)
             if infinitive_no_accents.startswith(pre_no_accents):
-                ret.append(verb)
+                ret.append(verb.infinitive)
+                if len(ret) >= max_results:
+                    break
         return ret
 
 

@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 from verb_conjugate_fr import app
 from fastapi import HTTPException
+import sys
+import traceback
 from .conjugator import (
     Conjugator, ConjugatorError, InvalidMoodError, get_verb_stem)
 from .conjugation_template import ConjugationTemplate
 from .conjugations_parser import (
     ConjugationsParser, TemplateNotFoundError)
-from .verbs_parser import VerbsParser, VerbNotFoundError
+from .verbs_parser import VerbNotFoundError
 
 cg = Conjugator()
 
@@ -28,8 +30,16 @@ def read_conjugation(infinitive: str):
     except ConjugatorError:
         raise HTTPException(status_code=404, detail="Conjugator error")
     except:
-        raise HTTPException(status_code=404, detail="Unknown error")
+        extype, exval, extb = sys.exc_info()
+        raise HTTPException(status_code=404, 
+            detail="Error: {}\nTraceback: {}".format(
+                exval, traceback.format_tb(extb)))
     return {'value': value}
+
+@app.get("/search/infinitive/{query}")
+def read_search_infinitive(query: str, max_results=10):
+    matches = cg.verb_parser.get_verbs_that_start_with(query, max_results);
+    return {'value': matches}
 
 @app.get("/find/infinitive/{infinitive}")
 def read_find_infinitive(infinitive: str):
@@ -39,7 +49,10 @@ def read_find_infinitive(infinitive: str):
     except VerbNotFoundError:
         raise HTTPException(status_code=404, detail="Verb not found")
     except:
-        raise HTTPException(status_code=404, detail="Unknown error")
+        extype, exval, extb = sys.exc_info()
+        raise HTTPException(status_code=404, 
+            detail="Error: {}\nTraceback: {}".format(
+                exval, traceback.format_tb(extb)))
     return {'value': value}
 
 @app.get("/find/conjugation-template/{template_name}")
@@ -50,7 +63,10 @@ def read_find_conjugation_template(template_name: str):
     except TemplateNotFoundError:
         raise HTTPException(status_code=404, detail="Template not found")
     except:
-        raise HTTPException(status_code=404, detail="Unknown error")
+        extype, exval, extb = sys.exc_info()
+        raise HTTPException(status_code=404, 
+            detail="Error: {}\nTraceback: {}".format(
+                exval, traceback.format_tb(extb)))
     return {'value': value}
 
 @app.get("/conjugate/mood/{mood}/{infinitive}")
@@ -66,5 +82,8 @@ def read_conjugation_for_mood(mood: str, infinitive: str):
     except InvalidMoodError:
         raise HTTPException(status_code=404, detail="Invalid mood")
     except:
-        raise HTTPException(status_code=404, detail="Unknown error")
+        extype, exval, extb = sys.exc_info()
+        raise HTTPException(status_code=404, 
+            detail="Error: {}\nTraceback: {}".format(
+                exval, traceback.format_tb(extb)))
     return {'value': value}

@@ -42,10 +42,21 @@ class TenseTemplate:
           imperative-present has 3
           present-participle has 1
           past-participle has 4
+
+        For some verbs, e.g. être, the past-participle
+        is the same for all 4 variants, so the xml omits them:
+            <p><i>été</i></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        Workaround: we get the first one and use it as a default
+        to populate the other three. PersonEnding will use
+        default_p_elem if the given p_elem has no <i> elem
         """
         self.persons = []
+        default_p_elem = tense_elem.find('p')
         for p_elem in tense_elem.findall('p'):
-            self.persons.append(PersonEnding(p_elem))
+            self.persons.append(PersonEnding(p_elem, default_p_elem))
 
     def get_person_ending_by_pronoun(self, pronoun):
         pronoun = pronoun.lower()
