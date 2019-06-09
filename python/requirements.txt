@@ -1,4 +1,3 @@
-watchdog
 fastapi
 uvicorn
 starlette

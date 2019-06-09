@@ -11,6 +11,6 @@ services:
     image: registry.gitlab.com/bretttolbert/verb-conjugate-fr/python:dev
     volumes:
       - ./python/:/code
-    entrypoint: watchmedo auto-restart --recursive --pattern="*.py" --directory="." pytest
+    entrypoint: pytest -vv
     depends_on:
       - python
