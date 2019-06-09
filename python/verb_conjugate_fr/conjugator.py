@@ -38,6 +38,9 @@ def prepend_with_que(pronoun_string):
     else:
         return "que " + pronoun_string
 
+TENSES_CONJUGATED_WITHOUT_PRONOUNS = ['infinitive-present', 'present-participle', 
+                                      'imperative-present', 'past-participle']
+
 class Conjugator:
     def __init__(self):
         self.verb_parser = VerbsParser()
@@ -70,16 +73,9 @@ class Conjugator:
 
     def _conjugate_specific_tense(self, verb_stem, mood_name, tense_template):
         ret = []
-        if tense_template.name in ('infinitive-present', 'present-participle'):
-            ret = [verb_stem + tense_template.persons[0].get_ending()]
-        elif tense_template.name == 'imperative-present':
-            ret = []
-            for i in range(3):
-                ret.append(verb_stem + tense_template.persons[i].get_ending())
-        elif tense_template.name == 'past-participle':
-            ret = []
-            for i in range(4):
-                ret.append(verb_stem + tense_template.persons[i].get_ending())
+        if tense_template.name in TENSES_CONJUGATED_WITHOUT_PRONOUNS:
+            for person in tense_template.persons:
+                ret.append(verb_stem + person.get_ending())
         else:
             pronouns = grammar_defines.get_default_pronouns()
             for pronoun in pronouns:

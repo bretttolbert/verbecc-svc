@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from lxml import etree
-
-from mock import patch
-
 import pytest
-
+from lxml import etree
+from mock import patch
 from verb_conjugate_fr.conjugator import (
     Conjugator,
     ConjugatorError,
@@ -16,11 +13,20 @@ from verb_conjugate_fr.tense_template import TenseTemplate
 
 conj = Conjugator()
 
+test_verbs = [
+    (u"manger"), 
+    (u"venir"), 
+    (u"être"), 
+    (u"aller"), 
+    (u"pouvoir"), 
+    (u"finir")
+]
 
-def test_conjugator_conjugate():
-    output = conj.conjugate(u"manger")
-    assert output
-
+@pytest.mark.parametrize("infinitive", test_verbs)
+def test_conjugator_conjugate(infinitive):
+    for infinitive in test_verbs:
+        output = conj.conjugate(infinitive)
+        assert output
 
 def test_conjugator_conjugate_specific_tense():
     verb_stem = u"man"

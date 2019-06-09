@@ -49,14 +49,14 @@ class TenseTemplate:
             <p></p>
             <p></p>
             <p></p>
-        Workaround: we get the first one and use it as a default
-        to populate the other three. PersonEnding will use
-        default_p_elem if the given p_elem has no <i> elem
+        Workaround: We do not add a PersonEnding unless it contains an <i>
         """
         self.persons = []
         default_p_elem = tense_elem.find('p')
         for p_elem in tense_elem.findall('p'):
-            self.persons.append(PersonEnding(p_elem, default_p_elem))
+            person = PersonEnding(p_elem)
+            if len(person.endings) > 0:
+                self.persons.append(person)
 
     def get_person_ending_by_pronoun(self, pronoun):
         pronoun = pronoun.lower()

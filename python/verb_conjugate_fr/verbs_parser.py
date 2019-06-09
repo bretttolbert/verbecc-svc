@@ -31,14 +31,15 @@ class VerbsParser:
         for child in root:
             if child.tag == 'v':
                 self.verbs.append(Verb(child))
-        self.verbs = sorted(self.verbs, key=lambda x: x.infinitive)
-        self._keys = [verb.infinitive for verb in self.verbs]
+        self.verbs = sorted(self.verbs, key=lambda x: x.infinitive_no_accents)
+        self._keys = [verb.infinitive_no_accents for verb in self.verbs]
         print('Loaded {} verbs'.format(len(self.verbs)))
 
     def find_verb_by_infinitive(self, infinitive):
         """Assumes verbs are already sorted by infinitive"""
-        i = bisect_left(self._keys, infinitive)
-        if i != len(self._keys) and self._keys[i] == infinitive:
+        infinitive_no_accents = strip_accents(infinitive)
+        i = bisect_left(self._keys, infinitive_no_accents)
+        if i != len(self._keys) and self._keys[i] == infinitive_no_accents:
             return self.verbs[i]
         raise VerbNotFoundError
 
@@ -46,8 +47,7 @@ class VerbsParser:
         ret = []
         pre_no_accents = strip_accents(pre)
         for verb in self.verbs:
-            infinitive_no_accents = strip_accents(verb.infinitive)
-            if infinitive_no_accents.startswith(pre_no_accents):
+            if verb.infinitive_no_accents.startswith(pre_no_accents):
                 ret.append(verb.infinitive)
                 if len(ret) >= max_results:
                     break
