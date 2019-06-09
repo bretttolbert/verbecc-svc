@@ -20,22 +20,22 @@ def test_read_conjugation_not_found():
     assert response.status_code == 404
     assert response.json() == {"detail": "Verb not found"}
 
-test_data = [
-    (u"manger", 200, {"value":{
+expected_resp_etre = {"value":{
+                "infinitive":"être",
+                "infinitive_no_accents": "etre",
+                "template":":être",
+                "translation_en":"be"}}
+expected_resp_manger = {"value":{
                 "infinitive":"manger",
                 "infinitive_no_accents": "manger",
                 "template":"man:ger",
-                "translation_en":"eat"}}),
-    (u"être", 200, {"value":{
-                "infinitive":"être",
-                "infinitive_no_accents": "etre",
-                "template":":être",
-                "translation_en":"be"}}),
-    (u"etre", 200, {"value":{
-                "infinitive":"être",
-                "infinitive_no_accents": "etre",
-                "template":":être",
-                "translation_en":"be"}}),
+                "translation_en":"eat"}}
+test_data = [
+    (u"manger", 200, expected_resp_manger),
+    (u"être", 200, expected_resp_etre),
+    (u"etre", 200, expected_resp_etre),
+    (u"Être", 200, expected_resp_etre),
+    (u"Etre", 200, expected_resp_etre),
     (u"oops", 404, {"detail": "Verb not found"})
 ]
 

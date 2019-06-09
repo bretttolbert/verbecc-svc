@@ -46,7 +46,13 @@ def test_verb_invalid_xml(mock_v_elem):
         v = Verb(mock_v_elem)
 
 
-def test_get_verbs_that_start_with():
+test_data = [
+    ("mang", ['mangeotter', 'manger']),
+    ("Mang", ['mangeotter', 'manger']),
+]
+
+@pytest.mark.parametrize("query,expected_matches", test_data)
+def test_get_verbs_that_start_with(query, expected_matches):
     vp = VerbsParser()
-    matches = vp.get_verbs_that_start_with(u"mang")
-    assert matches == ['mangeotter', 'manger']
+    matches = vp.get_verbs_that_start_with(query)
+    assert matches == expected_matches

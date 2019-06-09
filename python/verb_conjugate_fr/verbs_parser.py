@@ -37,7 +37,7 @@ class VerbsParser:
 
     def find_verb_by_infinitive(self, infinitive):
         """Assumes verbs are already sorted by infinitive"""
-        infinitive_no_accents = strip_accents(infinitive)
+        infinitive_no_accents = strip_accents(infinitive.lower())
         i = bisect_left(self._keys, infinitive_no_accents)
         if i != len(self._keys) and self._keys[i] == infinitive_no_accents:
             return self.verbs[i]
@@ -45,7 +45,7 @@ class VerbsParser:
 
     def get_verbs_that_start_with(self, pre, max_results=10):
         ret = []
-        pre_no_accents = strip_accents(pre)
+        pre_no_accents = strip_accents(pre.lower())
         for verb in self.verbs:
             if verb.infinitive_no_accents.startswith(pre_no_accents):
                 ret.append(verb.infinitive)
