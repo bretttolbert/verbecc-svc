@@ -11,10 +11,15 @@
 * Dockerized
 * Unit tested
 * Continuous Integration and Deployment with GitLab CI/CD
+* Web Interface available: https://gitlab.com/bretttolbert/verb-conjugate-fr-web
+
+## Live Demo
+```http://142.93.74.193/conjugate/manger```
 
 ## Quick Start (Docker)
 ```
-$ docker pull bretttolbert/verb-conjugate-fr:latest
+$ docker login registry.gitlab.com
+$ docker pull registry.gitlab.com/bretttolbert/verb-conjugate-fr
 $ docker run --name verb_conjugate_fr -d -p 8000:8000 bretttolbert/verb-conjugate-fr:latest
 ```
 
