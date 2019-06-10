@@ -46,21 +46,29 @@ class Conjugator:
         self.verb_parser = VerbsParser()
         self.conj_parser = ConjugationsParser()
 
-    def conjugate(self, infinitive):
+    def _get_conj_obs(self, infinitive):
         verb = self.verb_parser.find_verb_by_infinitive(infinitive)
-        conjugation_template = self.conj_parser.find_template(verb.template)
-        verb_stem = get_verb_stem(verb.infinitive, conjugation_template.name)
+        template = self.conj_parser.find_template(verb.template)
+        verb_stem = get_verb_stem(verb.infinitive, template.name)
+        return (verb, template, verb_stem)        
+
+    def conjugate(self, infinitive):
+        verb, template, verb_stem = self._get_conj_obs(infinitive)
         moods = {}
-        for mood in conjugation_template.moods:
-            moods[mood] = self.get_full_conjugation_for_mood(
-            verb_stem, conjugation_template, mood)
+        for mood in template.moods:
+            moods[mood] = self._get_full_conjugation_for_mood(
+            verb_stem, template, mood)
         return {'verb': {'infinitive': verb.infinitive, 
                          'template': verb.template,
                          'translation_en': verb.translation_en,
                          'stem': verb_stem}, 
                 'moods': moods}
 
-    def get_full_conjugation_for_mood(self, verb_stem, template, mood_name):
+    def get_full_conjugation_for_mood(self, infinitive, mood_name):
+        verb, template, verb_stem = self._get_conj_obs(infinitive)
+        return self._get_full_conjugation_for_mood(verb_stem, template, mood_name)
+
+    def _get_full_conjugation_for_mood(self, verb_stem, template, mood_name):
         ret = {}
         if mood_name not in template.moods:
             raise InvalidMoodError
