@@ -13,8 +13,8 @@
 * Continuous Integration and Deployment with GitLab CI/CD
 * Web Interface available: https://gitlab.com/bretttolbert/verb-conjugate-fr-web
 
-## Live Demo
-http://142.93.74.193/conjugate/manger
+## See it live
+http://verbe.cc/vcfr/conjugate/manger
 
 ## Quick Start (Docker)
 ```
