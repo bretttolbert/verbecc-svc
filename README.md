@@ -14,7 +14,7 @@
 * Web Interface available: https://gitlab.com/bretttolbert/verb-conjugate-fr-web
 
 ## Live Demo
-```http://142.93.74.193/conjugate/manger```
+http://142.93.74.193/conjugate/manger
 
 ## Quick Start (Docker)
 ```
