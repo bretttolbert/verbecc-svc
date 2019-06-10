@@ -84,3 +84,19 @@ def read_conjugation_for_mood(mood: str, infinitive: str):
             detail="Error: {}\nTraceback: {}".format(
                 exval, traceback.format_tb(extb)))
     return {'value': value}
+
+@app.get("/conjugate/{infinitive}/passe-compose")
+def read_conjugation_passe_compose(infinitive: str):
+    value = None
+    try:
+        value = cg.conjugate_passe_compose(infinitive)
+    except VerbNotFoundError:
+        raise HTTPException(status_code=404, detail="Verb not found")
+    except InvalidMoodError:
+        raise HTTPException(status_code=404, detail="Invalid mood")
+    except:
+        extype, exval, extb = sys.exc_info()
+        raise HTTPException(status_code=404, 
+            detail="Error: {}\nTraceback: {}".format(
+                exval, traceback.format_tb(extb)))
+    return {'value': value}

@@ -40,6 +40,57 @@ def prepend_with_que(pronoun_string):
 
 TENSES_CONJUGATED_WITHOUT_PRONOUNS = ['infinitive-present', 'present-participle', 
                                       'imperative-present', 'past-participle']
+VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE = [
+"aller",
+"arriver",
+"descendre",
+"redescendre",
+"entrer",
+"rentrer",
+"monter",
+"remonter",
+"mourir",
+"naître",
+"renaître",
+"partir",
+"repartir",
+"passer",
+"rester",
+"retourner",
+"sortir",
+"ressortir",
+"tomber",
+"retomber",
+"venir",
+"devenir",
+"parvenir",
+"revenir"]
+
+PARTICIPLE_IDX_MASC_SING = 0
+PARTICIPLE_IDX_MASC_PLUR = 1
+PARTICIPLE_IDX_FEMI_SING = 2
+PARTICIPLE_IDX_FEMI_PLUR = 3
+
+def get_participle_idx_for_conjugation(conjugation):
+    if conjugation.startswith('j'):
+        return PARTICIPLE_IDX_MASC_SING
+    elif conjugation.startswith('tu'):
+        return PARTICIPLE_IDX_MASC_SING
+    elif conjugation.startswith('ils'):
+        return PARTICIPLE_IDX_MASC_PLUR
+    elif conjugation.startswith('elles'):
+        return PARTICIPLE_IDX_FEMI_PLUR
+    elif conjugation.startswith('il'):
+        return PARTICIPLE_IDX_MASC_SING
+    elif conjugation.startswith('on'):
+        return PARTICIPLE_IDX_MASC_SING
+    elif conjugation.startswith('elle'):
+        return PARTICIPLE_IDX_FEMI_SING
+    elif conjugation.startswith('nous'):
+        return PARTICIPLE_IDX_MASC_PLUR
+    elif conjugation.startswith('vous'):
+        return PARTICIPLE_IDX_MASC_PLUR
+    raise ValueError
 
 class Conjugator:
     def __init__(self):
@@ -57,7 +108,7 @@ class Conjugator:
         moods = {}
         for mood in template.moods:
             moods[mood] = self._get_full_conjugation_for_mood(
-            verb_stem, template, mood)
+            verb, verb_stem, template, mood)
         return {'verb': {'infinitive': verb.infinitive, 
                          'template': verb.template,
                          'translation_en': verb.translation_en,
@@ -66,9 +117,9 @@ class Conjugator:
 
     def get_full_conjugation_for_mood(self, infinitive, mood_name):
         verb, template, verb_stem = self._get_conj_obs(infinitive)
-        return self._get_full_conjugation_for_mood(verb_stem, template, mood_name)
+        return self._get_full_conjugation_for_mood(verb, verb_stem, template, mood_name)
 
-    def _get_full_conjugation_for_mood(self, verb_stem, template, mood_name):
+    def _get_full_conjugation_for_mood(self, verb, verb_stem, template, mood_name):
         ret = {}
         if mood_name not in template.moods:
             raise InvalidMoodError
@@ -77,6 +128,34 @@ class Conjugator:
         for tense in mood.tenses:
             tense_template = mood.tenses[tense]
             ret[tense] = self._conjugate_specific_tense(verb_stem, mood_name, tense_template)
+
+        if mood_name == 'indicative':
+            ret['passé-composé'] = self._conjugate_passe_compose(verb, verb_stem, template)
+
+        return ret
+
+    def conjugate_passe_compose(self, infinitive):
+        verb, template, verb_stem = self._get_conj_obs(infinitive)
+        return self._conjugate_passe_compose(verb, verb_stem, template)
+
+    def _conjugate_passe_compose(self, verb, verb_stem, template):
+        helping_verb = 'avoir'
+        if verb.infinitive in VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE:
+            helping_verb = 'être'
+        hv_verb, hv_template, hv_verb_stem = self._get_conj_obs(helping_verb)
+        hv_conj = self._conjugate_specific_tense(
+            hv_verb_stem, 
+            'indicative', 
+            hv_template.moods['indicative'].tenses['present'])
+        participle = self._conjugate_specific_tense(
+            verb_stem, 
+            'participle', 
+            template.moods['participle'].tenses['past-participle'])
+        ret = []
+        if helping_verb == 'avoir':
+            ret = [i + ' ' + participle[0] for i in hv_conj]
+        else:
+            ret = [i + ' ' + participle[get_participle_idx_for_conjugation(i)] for i in hv_conj]
         return ret
 
     def _conjugate_specific_tense(self, verb_stem, mood_name, tense_template):

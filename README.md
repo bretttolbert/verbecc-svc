@@ -80,6 +80,14 @@ $ make dev-build && make dev
           "nous mangeâmes",
           "vous mangeâtes",
           "ils mangèrent"
+        ],
+        "passé-composé": [
+          "j'ai mangé",
+          "tu as mangé",
+          "il a mangé",
+          "nous avons mangé",
+          "vous avez mangé",
+          "ils ont mangé"
         ]
       },
       "conditional": {

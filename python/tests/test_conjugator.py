@@ -45,6 +45,25 @@ def test_conjugator_conjugate_specific_tense():
     assert len(out) == 6
     assert out == [u"je mange", u"tu manges", u"il mange", u"nous mangeons", u"vous mangez", u"ils mangent"]
 
+def test_conjugator_conjugate_passe_compose_with_avoir():
+    assert conj.conjugate_passe_compose('manger') == [
+    "j'ai mangé",
+    "tu as mangé",
+    "il a mangé",
+    "nous avons mangé",
+    "vous avez mangé",
+    "ils ont mangé"
+    ]
+
+def test_conjugator_conjugate_passe_compose_with_etre():
+    assert conj.conjugate_passe_compose('aller') == [
+    "je suis allé",
+    "tu es allé",
+    "il est allé",
+    "nous sommes allés",
+    "vous êtes allés",
+    "ils sont allés"
+    ]
 
 @patch('verb_conjugate_fr.person_ending.PersonEnding')
 def test_conjugator_conjugate_specific_tense_pronoun(mock_person):

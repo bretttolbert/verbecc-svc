@@ -58,6 +58,14 @@ expected_resp_conj_indicative_pouvoir = {
       "nous pûmes",
       "vous pûtes",
       "ils purent"
+    ],
+    "passé-composé": [
+      "j'ai pu",
+      "tu as pu",
+      "il a pu",
+      "nous avons pu",
+      "vous avez pu",
+      "ils ont pu"
     ]
   }
 }
@@ -115,6 +123,14 @@ expected_resp_conj_pouvoir = {
           "nous pûmes",
           "vous pûtes",
           "ils purent"
+        ],
+        "passé-composé": [
+          "j'ai pu",
+          "tu as pu",
+          "il a pu",
+          "nous avons pu",
+          "vous avez pu",
+          "ils ont pu"
         ]
       },
       "conditional": {
