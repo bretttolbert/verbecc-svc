@@ -95,21 +95,21 @@ class Conjugator:
             ret = [i + ' ' + participle[0] for i in hv_conj]
         else:
             ret = [i + ' ' + 
-                participle[get_participle_inflection_from_pronoun(i).value] 
+                participle[get_participle_inflection_by_pronoun(i).value] 
                 for i in hv_conj]
         return ret
 
     def _conjugate_specific_tense(self, verb_stem, mood_name, tense_template):
         ret = []
         if tense_template.name in TENSES_CONJUGATED_WITHOUT_PRONOUNS:
-            for person in tense_template.persons:
-                ret.append(verb_stem + person.get_ending())
+            for person_ending in tense_template.person_endings:
+                ret.append(verb_stem + person_ending.get_ending())
         else:
-            pronouns = get_default_pronouns()
-            for pronoun in pronouns:
-                person = tense_template.get_person_ending_by_pronoun(pronoun)
-                ending = person.get_ending()
-                conjugation = self._conjugate_specific_tense_pronoun(verb_stem, ending, pronoun)
+            for person_ending in tense_template.person_endings:
+                pronoun = get_default_pronoun(person_ending.get_person())
+                ending = person_ending.get_ending()
+                conjugation = self._conjugate_specific_tense_pronoun(
+                    verb_stem, ending, pronoun)
                 if mood_name == 'subjunctive':
                     conjugation = prepend_with_que(conjugation)
                 ret.append(conjugation)

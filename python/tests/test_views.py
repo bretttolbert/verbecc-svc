@@ -179,9 +179,82 @@ expected_resp_conj_pouvoir = {
   }
 }
 
+expected_resp_conj_pleuvoir = {
+  "value": {
+    "verb": {
+      "infinitive": "pleuvoir",
+      "template": "pl:euvoir",
+      "translation_en": "rain",
+      "stem": "pl"
+    },
+    "moods": {
+      "infinitive": {
+        "infinitive-present": [
+          "pleuvoir"
+        ]
+      },
+      "indicative": {
+        "present": [
+          "il pleut",
+          "ils pleuvent"
+        ],
+        "imperfect": [
+          "il pleuvait",
+          "ils pleuvaient"
+        ],
+        "future": [
+          "il pleuvra",
+          "ils pleuvront"
+        ],
+        "simple-past": [
+          "il plut"
+        ],
+        "passé-composé": [
+          "j'ai plu",
+          "tu as plu",
+          "il a plu",
+          "nous avons plu",
+          "vous avez plu",
+          "ils ont plu"
+        ]
+      },
+      "conditional": {
+        "present": [
+          "il pleuvrait",
+          "ils pleuvraient"
+        ]
+      },
+      "subjunctive": {
+        "present": [
+          "qu'il pleuve",
+          "qu'ils pleuvent"
+        ],
+        "imperfect": [
+          "qu'il plût"
+        ]
+      },
+      "imperative": {
+        "imperative-present": []
+      },
+      "participle": {
+        "present-participle": [
+          "pleuvant"
+        ],
+        "past-participle": [
+          "plu",
+          "plus",
+          "plue",
+          "plues"
+        ]
+      }
+    }
+  }
+}
+
 test_conj_data = [
     ("pouvoir", 200, expected_resp_conj_pouvoir),
     ("Pouvoir", 200, expected_resp_conj_pouvoir),
+    ("pleuvoir", 200, expected_resp_conj_pleuvoir),
     ("oops", 404, {"detail": "Verb not found"})
 ]
 

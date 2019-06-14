@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .person_ending import PersonEnding
-from .grammar_defines import Person
+from .grammar_defines import Person, get_person_by_pronoun
 
 
 class TenseTemplate:
@@ -29,6 +29,7 @@ class TenseTemplate:
     def __init__(self, name, tense_elem):
         self.name = name
         """
+        There are six persons corresponding to grammar_defines.Person
         [0]= 1st person singular (je)
         [1]= 2nd person singular (tu)
         [2]= 3rd person singular (il, elle, on)
@@ -62,26 +63,15 @@ class TenseTemplate:
             <p></p>
             <p><i>euvent</i></p>
         """
-        self.persons = []
-        default_p_elem = tense_elem.find('p')
+        self.person_endings = []
+        person_num = 0
         for p_elem in tense_elem.findall('p'):
-            person = PersonEnding(p_elem)
-            if len(person.endings) > 0:
-                self.persons.append(person)
+            person_ending = PersonEnding(p_elem, Person(person_num))
+            person_num += 1
+            if len(person_ending.endings) > 0:
+                self.person_endings.append(person_ending)
 
     def get_person_ending_by_pronoun(self, pronoun):
-        pronoun = pronoun.lower()
         if self.name in ('present', 'imperfect', 'future', 'simple-past'):
-            if pronoun == 'je':
-                return self.persons[0]
-            elif pronoun == 'tu':
-                return self.persons[1]
-            elif pronoun in ('il', 'elle', 'on'):
-                return self.persons[2]
-            elif pronoun == 'nous':
-                return self.persons[3]
-            elif pronoun == 'vous':
-                return self.persons[4]
-            elif pronoun in ('ils', 'elles'):
-                return self.persons[5]
+            return self.person_endings[get_person_by_pronoun(pronoun).value]
         raise ValueError

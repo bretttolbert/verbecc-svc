@@ -3,8 +3,8 @@
 from lxml import etree
 
 from verb_conjugate_fr.person_ending import PersonEnding
+from verb_conjugate_fr.grammar_defines import Person
 from verb_conjugate_fr.tense_template import TenseTemplate
-
 
 def test_tense_and_person():
     tense_elem = etree.fromstring(
@@ -19,10 +19,12 @@ def test_tense_and_person():
     tense_name = 'present'
     tense = TenseTemplate(tense_name, tense_elem)
     assert tense.name == tense_name
-    assert tense.persons[0].get_ending() == "ie"
-    assert tense.persons[0].get_alternate_ending() == "ye"
-    assert tense.persons[3].get_ending() == "yons"
-    assert tense.persons[3].get_alternate_ending() is None
+    assert tense.person_endings[0].get_ending() == "ie"
+    assert tense.person_endings[0].get_alternate_ending() == "ye"
+    assert tense.person_endings[0].get_person() == Person.FirstPersonSingular
+    assert tense.person_endings[3].get_ending() == "yons"
+    assert tense.person_endings[3].get_alternate_ending() is None
+    assert tense.person_endings[3].get_person() == Person.FirstPersonPlural
     assert tense.get_person_ending_by_pronoun('je').get_ending() == 'ie'
     assert tense.get_person_ending_by_pronoun('tu').get_ending() == 'ies'
     assert tense.get_person_ending_by_pronoun('elle').get_ending() == 'ie'

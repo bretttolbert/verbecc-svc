@@ -60,23 +60,37 @@ def get_default_pronoun(person):
 def get_default_pronouns():
     return list(map(get_default_pronoun, Person))
         
-def get_participle_inflection_from_pronoun(conjugation):
-    if conjugation.startswith('j'):
+def get_person_by_pronoun(pronoun):
+    pronoun = pronoun.lower()
+    if pronoun.startswith('j'):
+        return Person.FirstPersonSingular
+    elif pronoun.startswith('tu'):
+        return Person.SecondPersonSingular
+    elif pronoun.startswith(('ils', 'elles')):
+        return Person.ThirdPersonPlural
+    elif pronoun.startswith(('il', 'elle', 'on')):
+        return Person.ThirdPersonSingular
+    elif pronoun.startswith('nous'):
+        return Person.FirstPersonPlural
+    elif pronoun.startswith('vous'):
+        return Person.SecondPersonPlural
+
+def get_participle_inflection_by_pronoun(pronoun):
+    pronoun = pronoun.lower()
+    if pronoun.startswith('j'):
         return ParticipleInflection.MasculineSingular
-    elif conjugation.startswith('tu'):
+    elif pronoun.startswith('tu'):
         return ParticipleInflection.MasculineSingular
-    elif conjugation.startswith('ils'):
+    elif pronoun.startswith('ils'):
         return ParticipleInflection.MasculinePlural
-    elif conjugation.startswith('elles'):
+    elif pronoun.startswith('elles'):
         return ParticipleInflection.FemininePlural
-    elif conjugation.startswith('il'):
+    elif pronoun.startswith(('il', 'on')):
         return ParticipleInflection.MasculineSingular
-    elif conjugation.startswith('on'):
-        return ParticipleInflection.MasculineSingular
-    elif conjugation.startswith('elle'):
+    elif pronoun.startswith('elle'):
         return ParticipleInflection.FeminineSingular
-    elif conjugation.startswith('nous'):
+    elif pronoun.startswith('nous'):
         return ParticipleInflection.MasculinePlural
-    elif conjugation.startswith('vous'):
+    elif pronoun.startswith('vous'):
         return ParticipleInflection.MasculinePlural
     raise ValueError
