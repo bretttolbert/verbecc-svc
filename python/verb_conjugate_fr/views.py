@@ -3,8 +3,8 @@ from verb_conjugate_fr import app
 from fastapi import HTTPException
 import sys
 import traceback
-from .conjugator import (
-    Conjugator, ConjugatorError, InvalidMoodError, get_verb_stem)
+from .conjugator import (Conjugator, get_verb_stem,
+    ConjugatorError, InvalidMoodError)
 from .conjugation_template import ConjugationTemplate
 from .conjugations_parser import (
     ConjugationsParser, TemplateNotFoundError)

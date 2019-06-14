@@ -4,23 +4,22 @@ from __future__ import print_function
 
 from .conjugation_template import ConjugationTemplate
 from .conjugations_parser import ConjugationsParser
-from . import grammar_defines
+from .grammar_defines import *
 from .mood import Mood
 from .person_ending import PersonEnding
 from .string_utils import (
-    starts_with_vowel,
-    strip_accents
-)
+    prepend_with_que,
+    starts_with_vowel)
 from .tense_template import TenseTemplate
 from .verb import Verb
 from .verbs_parser import (
     VerbNotFoundError, VerbsParser
 )
 
-class InvalidMoodError(Exception):
+class ConjugatorError(Exception):
     pass
 
-class ConjugatorError(Exception):
+class InvalidMoodError(Exception):
     pass
 
 def get_verb_stem(infinitive, template_name):
@@ -31,66 +30,6 @@ def get_verb_stem(infinitive, template_name):
             "match infinitive {}"
             .format(template_name, infinitive))
     return infinitive[:len(infinitive) - len(template_ending)]
-
-def prepend_with_que(pronoun_string):
-    if starts_with_vowel(pronoun_string):
-        return "qu'" + pronoun_string
-    else:
-        return "que " + pronoun_string
-
-TENSES_CONJUGATED_WITHOUT_PRONOUNS = ['infinitive-present', 'present-participle', 
-                                      'imperative-present', 'past-participle']
-VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE = [
-"aller",
-"arriver",
-"descendre",
-"redescendre",
-"entrer",
-"rentrer",
-"monter",
-"remonter",
-"mourir",
-"naître",
-"renaître",
-"partir",
-"repartir",
-"passer",
-"rester",
-"retourner",
-"sortir",
-"ressortir",
-"tomber",
-"retomber",
-"venir",
-"devenir",
-"parvenir",
-"revenir"]
-
-PARTICIPLE_IDX_MASC_SING = 0
-PARTICIPLE_IDX_MASC_PLUR = 1
-PARTICIPLE_IDX_FEMI_SING = 2
-PARTICIPLE_IDX_FEMI_PLUR = 3
-
-def get_participle_idx_for_conjugation(conjugation):
-    if conjugation.startswith('j'):
-        return PARTICIPLE_IDX_MASC_SING
-    elif conjugation.startswith('tu'):
-        return PARTICIPLE_IDX_MASC_SING
-    elif conjugation.startswith('ils'):
-        return PARTICIPLE_IDX_MASC_PLUR
-    elif conjugation.startswith('elles'):
-        return PARTICIPLE_IDX_FEMI_PLUR
-    elif conjugation.startswith('il'):
-        return PARTICIPLE_IDX_MASC_SING
-    elif conjugation.startswith('on'):
-        return PARTICIPLE_IDX_MASC_SING
-    elif conjugation.startswith('elle'):
-        return PARTICIPLE_IDX_FEMI_SING
-    elif conjugation.startswith('nous'):
-        return PARTICIPLE_IDX_MASC_PLUR
-    elif conjugation.startswith('vous'):
-        return PARTICIPLE_IDX_MASC_PLUR
-    raise ValueError
 
 class Conjugator:
     def __init__(self):
@@ -155,7 +94,9 @@ class Conjugator:
         if helping_verb == 'avoir':
             ret = [i + ' ' + participle[0] for i in hv_conj]
         else:
-            ret = [i + ' ' + participle[get_participle_idx_for_conjugation(i)] for i in hv_conj]
+            ret = [i + ' ' + 
+                participle[get_participle_inflection_from_pronoun(i).value] 
+                for i in hv_conj]
         return ret
 
     def _conjugate_specific_tense(self, verb_stem, mood_name, tense_template):
@@ -164,7 +105,7 @@ class Conjugator:
             for person in tense_template.persons:
                 ret.append(verb_stem + person.get_ending())
         else:
-            pronouns = grammar_defines.get_default_pronouns()
+            pronouns = get_default_pronouns()
             for pronoun in pronouns:
                 person = tense_template.get_person_ending_by_pronoun(pronoun)
                 ending = person.get_ending()

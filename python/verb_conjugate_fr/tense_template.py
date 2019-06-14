@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .person_ending import PersonEnding
+from .grammar_defines import Person
 
 
 class TenseTemplate:
@@ -50,6 +51,16 @@ class TenseTemplate:
             <p></p>
             <p></p>
         Workaround: We do not add a PersonEnding unless it contains an <i>
+
+        Also some verbs are impersonal, e.g. pleuvoir, so they don't have
+        ending for all pronouns. Just 3rd person singular and plural
+
+            <p></p>
+            <p></p>
+            <p><i>eut</i></p>
+            <p></p>
+            <p></p>
+            <p><i>euvent</i></p>
         """
         self.persons = []
         default_p_elem = tense_elem.find('p')

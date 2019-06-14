@@ -5,11 +5,11 @@ from lxml import etree
 from mock import patch
 from verb_conjugate_fr.conjugator import (
     Conjugator,
-    ConjugatorError,
     get_verb_stem,
-    prepend_with_que
-)
+    ConjugatorError,
+    InvalidMoodError)
 from verb_conjugate_fr.tense_template import TenseTemplate
+from verb_conjugate_fr.string_utils import prepend_with_que
 
 conj = Conjugator()
 
