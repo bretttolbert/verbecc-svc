@@ -253,10 +253,117 @@ expected_resp_conj_pleuvoir = {
   }
 }
 
+expected_resp_conj_se_lever = {
+  "value": {
+    "verb": {
+      "infinitive": "lever",
+      "template": "l:ever",
+      "translation_en": "lift",
+      "stem": "l"
+    },
+    "moods": {
+      "infinitive": {
+        "infinitive-present": [
+          "se lever"
+        ]
+      },
+      "indicative": {
+        "present": [
+          "je me lève",
+          "tu te lèves",
+          "il se lève",
+          "nous nous levons",
+          "vous vous levez",
+          "ils se lèvent"
+        ],
+        "imperfect": [
+          "je me levais",
+          "tu te levais",
+          "il se levait",
+          "nous nous levions",
+          "vous vous leviez",
+          "ils se levaient"
+        ],
+        "future": [
+          "je me lèverai",
+          "tu te lèveras",
+          "il se lèvera",
+          "nous nous lèverons",
+          "vous vous lèverez",
+          "ils se lèveront"
+        ],
+        "simple-past": [
+          "je me levai",
+          "tu te levas",
+          "il se leva",
+          "nous nous levâmes",
+          "vous vous levâtes",
+          "ils se levèrent"
+        ],
+        "passé-composé": [
+          "je me suis levé",
+          "tu t'es levé",
+          "il s'est levé",
+          "nous nous sommes levés",
+          "vous vous êtes levés",
+          "ils se sont levés"
+        ]
+      },
+      "conditional": {
+        "present": [
+          "je me lèverais",
+          "tu te lèverais",
+          "il se lèverait",
+          "nous nous lèverions",
+          "vous vous lèveriez",
+          "ils se lèveraient"
+        ]
+      },
+      "subjunctive": {
+        "present": [
+          "que je me lève",
+          "que tu te lèves",
+          "qu'il se lève",
+          "que nous nous levions",
+          "que vous vous leviez",
+          "qu'ils se lèvent"
+        ],
+        "imperfect": [
+          "que je me levasse",
+          "que tu te levasses",
+          "qu'il se levât",
+          "que nous nous levassions",
+          "que vous vous levassiez",
+          "qu'ils se levassent"
+        ]
+      },
+      "imperative": {
+        "imperative-present": [
+          "lève-toi",
+          "levons-nous",
+          "levez-vous"
+        ]
+      },
+      "participle": {
+        "present-participle": [
+          "se levant"
+        ],
+        "past-participle": [
+          "s'étant levé",
+          "s'étant levés",
+          "s'étant levée",
+          "s'étant levées"
+        ]
+      }
+    }
+  }
+}
+
 test_conj_data = [
     ("pouvoir", 200, expected_resp_conj_pouvoir),
     ("Pouvoir", 200, expected_resp_conj_pouvoir),
     ("pleuvoir", 200, expected_resp_conj_pleuvoir),
+    ("se lever", 200, expected_resp_conj_se_lever),
     ("oops", 404, {"detail": "Verb not found"})
 ]
 
