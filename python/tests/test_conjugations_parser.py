@@ -15,7 +15,18 @@ from verb_conjugate_fr.conjugations_parser import (
 def test_conjugations_parser():
     conj = ConjugationsParser()
     assert len(conj.templates) >= 132
-
+    assert conj.impersonal_templates == [
+    "adv:enir",
+    "brui:re",
+    "cl:ore",
+    "fa:lloir",
+    "forclo:re",
+    "fri:re",
+    "pl:euvoir",
+    "s:eoir",
+    "s:ourdre",
+    "éch:oir",
+    "éclo:re"]
 
 @patch('lxml.etree._Element')
 def test_TemplateInvalidXML(mock_template_elem):

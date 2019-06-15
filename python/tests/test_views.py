@@ -10,12 +10,14 @@ expected_resp_etre = {"value":{
                 "infinitive":"être",
                 "infinitive_no_accents": "etre",
                 "template":":être",
-                "translation_en":"be"}}
+                "translation_en":"be",
+                "impersonal": False}}
 expected_resp_manger = {"value":{
                 "infinitive":"manger",
                 "infinitive_no_accents": "manger",
                 "template":"man:ger",
-                "translation_en":"eat"}}
+                "translation_en":"eat",
+                "impersonal": False}}
 test_find_infinitive_data = [
     (u"manger", 200, expected_resp_manger),
     (u"être", 200, expected_resp_etre),

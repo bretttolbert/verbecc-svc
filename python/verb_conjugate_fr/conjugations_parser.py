@@ -65,6 +65,8 @@ class ConjugationsParser:
                 self.templates.append(ConjugationTemplate(child))
         self.templates = sorted(self.templates, key=lambda x: x.name)
         self._keys = [template.name for template in self.templates]
+        self.impersonal_templates = \
+            [t.name for t in self.templates if t.impersonal]
         print('Loaded {} conjugation templates'.format(len(self.templates)))
 
     def find_template(self, name):

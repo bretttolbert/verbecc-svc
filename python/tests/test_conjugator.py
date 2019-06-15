@@ -19,7 +19,8 @@ test_verbs = [
     (u"être"), 
     (u"aller"), 
     (u"pouvoir"), 
-    (u"finir")
+    (u"finir"),
+    (u"pleuvoir")
 ]
 
 @pytest.mark.parametrize("infinitive", test_verbs)
@@ -91,3 +92,31 @@ def test_conjugator_get_verb_stem():
     # The infinitive ending must match the template ending
     with pytest.raises(ConjugatorError):
         verb_stem = get_verb_stem(u"vendre", u"man:ger")
+
+def test_conjugator_impersonal_verbs():
+    assert conj.impersonal_verbs == [
+        "advenir",
+        "bruire",
+        "clore",
+        "déclore",
+        "échoir",
+        "éclore",
+        "enclore",
+        "falloir",
+        "forclore",
+        "frire",
+        "messeoir",
+        "pleuvoir",
+        "seoir",
+        "sourdre"]
+
+test_conjugator_verb_can_be_reflexive_data = [
+    ("être", False),
+    ("lever", True),
+    ("pleuvoir", False),
+    ("manger", True)
+]
+@pytest.mark.parametrize("infinitive,expected_result", 
+                         test_conjugator_verb_can_be_reflexive_data)
+def test_conjugator_verb_can_be_reflexive(infinitive, expected_result):
+    assert conj.verb_can_be_reflexive(infinitive) == expected_result

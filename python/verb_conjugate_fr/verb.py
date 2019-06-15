@@ -16,6 +16,7 @@ class Verb:
             self.infinitive_no_accents = strip_accents(self.infinitive)
             self.template = u'' + v_elem.find('t').text
             self.translation_en = u'' + v_elem.find('en').text
+            self.impersonal = False
         except AttributeError as e:
             raise VerbsParserError(
                 "Error parsing {}: {}".format(

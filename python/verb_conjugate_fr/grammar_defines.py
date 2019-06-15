@@ -42,6 +42,11 @@ VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE = [
 "parvenir",
 "revenir"]
 
+VERBS_THAT_CANNOT_BE_REFLEXIVE_OTHER_THAN_IMPERSONAL_VERBS = [
+"être",
+"aller",
+"avoir"]
+
 def get_default_pronoun(person):
     if person == Person.FirstPersonSingular:
         return 'je'
