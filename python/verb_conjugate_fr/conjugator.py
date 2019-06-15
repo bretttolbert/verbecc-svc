@@ -140,9 +140,11 @@ class Conjugator:
         if tense_template.name in TENSES_CONJUGATED_WITHOUT_PRONOUNS:
             for person_ending in tense_template.person_endings:
                 conj = ''
-                if is_reflexive:
+                if is_reflexive and mood_name != 'imperative':
                     conj = prepend_with_se(conj)
                 conj += verb_stem + person_ending.get_ending()
+                if is_reflexive and mood_name == 'imperative':
+                    conj += get_pronoun_suffix(person_ending.get_person())
                 ret.append(conj)
         else:
             for person_ending in tense_template.person_endings:

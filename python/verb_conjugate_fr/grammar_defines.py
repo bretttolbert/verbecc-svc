@@ -14,6 +14,12 @@ class ParticipleInflection(Enum):
     FeminineSingular = 2
     FemininePlural = 3
 
+IMPERATIVE_PRESENT_PERSONS = (
+    Person.SecondPersonSingular,
+    Person.FirstPersonPlural,
+    Person.SecondPersonPlural
+)
+
 TENSES_CONJUGATED_WITHOUT_PRONOUNS = ['infinitive-present', 'present-participle', 
                                       'imperative-present', 'past-participle']
 VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE = [
@@ -46,6 +52,20 @@ VERBS_THAT_CANNOT_BE_REFLEXIVE_OTHER_THAN_IMPERSONAL_VERBS = [
 "être",
 "aller",
 "avoir"]
+
+def get_pronoun_suffix(person):
+    if person == Person.FirstPersonSingular:
+        return '-je'
+    elif person == Person.SecondPersonSingular:
+        return '-toi'
+    elif person == Person.ThirdPersonSingular:
+        return '-il'
+    elif person == Person.FirstPersonPlural:
+        return '-nous'
+    elif person == Person.SecondPersonPlural:
+        return '-vous'
+    elif person == Person.ThirdPersonPlural:
+        return '-ils'
 
 def get_default_pronoun(person, is_reflexive=False):
     ret = None
