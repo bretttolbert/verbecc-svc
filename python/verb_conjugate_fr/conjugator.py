@@ -85,6 +85,7 @@ class Conjugator:
         return self._get_full_conjugation_for_mood(co, mood_name)
 
     def get_verbs_that_start_with(self, query, max_results):
+        query = query.lower()
         is_reflexive, query = split_reflexive(query)
         matches = self.verb_parser.get_verbs_that_start_with(query, max_results)
         if is_reflexive:
@@ -93,6 +94,7 @@ class Conjugator:
         return matches
 
     def find_verb_by_infinitive(self, infinitive):
+        #todo: make this work for reflexive verbs
         return self.verb_parser.find_verb_by_infinitive(infinitive)
 
     def _get_full_conjugation_for_mood(self, co, mood_name):

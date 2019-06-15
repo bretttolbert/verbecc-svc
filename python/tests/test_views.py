@@ -398,7 +398,7 @@ test_search_infinitive_data = [
       "levretter"
     ]
   }),
-  ("se lev", 200, {
+  ("Se lev", 200, {
     "value": [
       "se lever",
       "se léviger",
