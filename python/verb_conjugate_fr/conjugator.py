@@ -10,6 +10,7 @@ from .person_ending import PersonEnding
 from .string_utils import (
     prepend_with_que,
     prepend_with_se,
+    split_reflexive,
     starts_with_vowel)
 from .tense_template import TenseTemplate
 from .verb import Verb
@@ -59,13 +60,7 @@ class Conjugator:
             self.is_reflexive = is_reflexive
 
     def _get_conj_obs(self, infinitive):
-        is_reflexive = False
-        if infinitive.startswith("se "):
-            is_reflexive = True
-            infinitive = infinitive[3:]
-        elif infinitive.startswith("s'"):
-            is_reflexive = True
-            infinitive = infinitive[2:]
+        is_reflexive, infinitive = split_reflexive(infinitive)
         if is_reflexive and not self.verb_can_be_reflexive(infinitive):
             raise VerbNotFoundError("Verb cannot be reflexive")
         verb = self.verb_parser.find_verb_by_infinitive(infinitive)
@@ -88,6 +83,17 @@ class Conjugator:
     def get_full_conjugation_for_mood(self, infinitive, mood_name):
         co = self._get_conj_obs(infinitive)
         return self._get_full_conjugation_for_mood(co, mood_name)
+
+    def get_verbs_that_start_with(self, query, max_results):
+        is_reflexive, query = split_reflexive(query)
+        matches = self.verb_parser.get_verbs_that_start_with(query, max_results)
+        if is_reflexive:
+            matches = [prepend_with_se(m) 
+            for m in matches if self.verb_can_be_reflexive(m)]
+        return matches
+
+    def find_verb_by_infinitive(self, infinitive):
+        return self.verb_parser.find_verb_by_infinitive(infinitive)
 
     def _get_full_conjugation_for_mood(self, co, mood_name):
         ret = {}

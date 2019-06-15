@@ -14,6 +14,16 @@ def starts_with_vowel(s):
         return False
     return strip_accents(s)[0] in VOWELS
 
+def split_reflexive(infinitive):
+    is_reflexive = False
+    if infinitive.startswith("se "):
+        is_reflexive = True
+        infinitive = infinitive[3:]
+    elif infinitive.startswith("s'"):
+        is_reflexive = True
+        infinitive = infinitive[2:]
+    return is_reflexive, infinitive
+
 def prepend_with_que(pronoun_string):
     if starts_with_vowel(pronoun_string):
         return "qu'" + pronoun_string

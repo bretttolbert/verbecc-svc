@@ -38,14 +38,14 @@ def read_conjugation(infinitive: str):
 
 @app.get("/search/infinitive/{query}")
 def read_search_infinitive(query: str, max_results=10):
-    matches = cg.verb_parser.get_verbs_that_start_with(query, max_results);
+    matches = cg.get_verbs_that_start_with(query, max_results);
     return {'value': matches}
 
 @app.get("/find/infinitive/{infinitive}")
 def read_find_infinitive(infinitive: str):
     value = None
     try:
-        value = cg.verb_parser.find_verb_by_infinitive(infinitive)
+        value = cg.find_verb_by_infinitive(infinitive)
     except VerbNotFoundError:
         raise HTTPException(status_code=404, detail="Verb not found")
     except:

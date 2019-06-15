@@ -390,6 +390,36 @@ def test_read_find_conjugation_template(template, expected_status, expected_resp
     assert response.status_code == expected_status
     assert response.json() == expected_resp
 
+test_search_infinitive_data = [
+  ("lev", 200, {
+    "value": [
+      "lever",
+      "léviger",
+      "levretter"
+    ]
+  }),
+  ("se lev", 200, {
+    "value": [
+      "se lever",
+      "se léviger",
+      "se levretter"
+    ]
+  }),
+  ("s'aim", 200, {
+    "value": [
+      "s'aimanter",
+      "s'aimer"
+    ]
+  })
+]
+
+@pytest.mark.parametrize("query,expected_status,expected_resp",
+                         test_search_infinitive_data)
+def test_read_search_infinitive(query, expected_status, expected_resp):
+  response = client.get("/search/infinitive/{}".format(query))
+  assert response.status_code == expected_status
+  assert response.json() == expected_resp
+
 @pytest.mark.parametrize("mood,infinitive,expected_status,expected_resp", 
                          test_conj_mood_data)
 def test_read_conjugation_for_mood(mood, infinitive, 
