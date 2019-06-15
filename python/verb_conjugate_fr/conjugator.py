@@ -112,13 +112,15 @@ class Conjugator:
 
     def _conjugate_passe_compose(self, co):
         helping_verb = 'avoir'
-        if co.verb.infinitive in VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE:
+        if (co.verb.infinitive in VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE
+            or co.is_reflexive):
             helping_verb = 'être'
         hvco = self._get_conj_obs(helping_verb)
         hvconj = self._conjugate_specific_tense(
             hvco.verb_stem, 
             'indicative', 
-            hvco.template.moods['indicative'].tenses['present'])
+            hvco.template.moods['indicative'].tenses['present'],
+            co.is_reflexive)
         participle = self._conjugate_specific_tense(
             co.verb_stem, 
             'participle', 
