@@ -152,6 +152,24 @@ $ make dev-build && make dev
 }
 ```
 
+* http://localhost:8000/search/infinitive/Se%20le
+```
+{
+  "value": [
+    "se lécher",
+    "se léchouiller",
+    "se légaliser",
+    "se légender",
+    "se légiférer",
+    "se légitimer",
+    "se léguer",
+    "se lénifier",
+    "se léser",
+    "se lésiner"
+  ]
+}
+```
+
 * http://localhost:8000/conjugate/mood/indicative/manger
 ```
 {
