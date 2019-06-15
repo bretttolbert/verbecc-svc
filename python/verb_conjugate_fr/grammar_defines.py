@@ -47,20 +47,33 @@ VERBS_THAT_CANNOT_BE_REFLEXIVE_OTHER_THAN_IMPERSONAL_VERBS = [
 "aller",
 "avoir"]
 
-def get_default_pronoun(person):
+def get_default_pronoun(person, is_reflexive=False):
+    ret = None
     if person == Person.FirstPersonSingular:
-        return 'je'
+        ret = 'je'
+        if is_reflexive:
+            ret += ' me'
     elif person == Person.SecondPersonSingular:
-        return 'tu'
+        ret = 'tu'
+        if is_reflexive:
+            ret += ' te'
     elif person == Person.ThirdPersonSingular:
-        return 'il'
+        ret = 'il'
+        if is_reflexive:
+            ret += ' se'
     elif person == Person.FirstPersonPlural:
-        return 'nous'
+        ret = 'nous'
+        if is_reflexive:
+            ret += ' nous'
     elif person == Person.SecondPersonPlural:
-        return 'vous'
+        ret = 'vous'
+        if is_reflexive:
+            ret += ' vous'
     elif person == Person.ThirdPersonPlural:
-        return 'ils'
-    return None
+        ret = 'ils'
+        if is_reflexive:
+            ret += ' se'
+    return ret
 
 def get_default_pronouns():
     return list(map(get_default_pronoun, Person))

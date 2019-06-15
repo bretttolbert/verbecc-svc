@@ -9,6 +9,7 @@ from .mood import Mood
 from .person_ending import PersonEnding
 from .string_utils import (
     prepend_with_que,
+    prepend_with_se,
     starts_with_vowel)
 from .tense_template import TenseTemplate
 from .verb import Verb
@@ -97,7 +98,8 @@ class Conjugator:
         for tense in mood.tenses:
             tense_template = mood.tenses[tense]
             ret[tense] = self._conjugate_specific_tense(
-                co.verb_stem, mood_name, tense_template)
+                co.verb_stem, mood_name, tense_template,
+                co.is_reflexive)
 
         if mood_name == 'indicative':
             ret['passé-composé'] = self._conjugate_passe_compose(co)
@@ -130,14 +132,20 @@ class Conjugator:
                 for i in hvconj]
         return ret
 
-    def _conjugate_specific_tense(self, verb_stem, mood_name, tense_template):
+    def _conjugate_specific_tense(self, verb_stem, mood_name, 
+                                  tense_template, is_reflexive=False):
         ret = []
         if tense_template.name in TENSES_CONJUGATED_WITHOUT_PRONOUNS:
             for person_ending in tense_template.person_endings:
-                ret.append(verb_stem + person_ending.get_ending())
+                conj = ''
+                if is_reflexive:
+                    conj = prepend_with_se(conj)
+                conj += verb_stem + person_ending.get_ending()
+                ret.append(conj)
         else:
             for person_ending in tense_template.person_endings:
-                pronoun = get_default_pronoun(person_ending.get_person())
+                pronoun = get_default_pronoun(
+                    person_ending.get_person(), is_reflexive)
                 ending = person_ending.get_ending()
                 conjugation = self._conjugate_specific_tense_pronoun(
                     verb_stem, ending, pronoun)
@@ -149,9 +157,9 @@ class Conjugator:
     def _conjugate_specific_tense_pronoun(self, verb_stem, ending, pronoun):
         ret = u''
         conjugated_verb = verb_stem + ending
-        if pronoun == 'je' and starts_with_vowel(conjugated_verb):
-            ret += u"j'"
+        if pronoun[-1] == "e" and starts_with_vowel(conjugated_verb):
+            ret += pronoun[:-1] + "'"
         else:
-            ret += pronoun + ' '
-        ret += u'{}'.format(conjugated_verb)
+            ret += pronoun + " "
+        ret += conjugated_verb
         return ret
