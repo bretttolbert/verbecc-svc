@@ -60,6 +60,7 @@ class Conjugator:
             self.is_reflexive = is_reflexive
 
     def _get_conj_obs(self, infinitive):
+        infinitive = infinitive.lower()
         is_reflexive, infinitive = split_reflexive(infinitive)
         if is_reflexive and not self.verb_can_be_reflexive(infinitive):
             raise VerbNotFoundError("Verb cannot be reflexive")

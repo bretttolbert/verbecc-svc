@@ -363,7 +363,7 @@ test_conj_data = [
     ("pouvoir", 200, expected_resp_conj_pouvoir),
     ("Pouvoir", 200, expected_resp_conj_pouvoir),
     ("pleuvoir", 200, expected_resp_conj_pleuvoir),
-    ("se lever", 200, expected_resp_conj_se_lever),
+    ("Se lever", 200, expected_resp_conj_se_lever),
     ("oops", 404, {"detail": "Verb not found"})
 ]
 
