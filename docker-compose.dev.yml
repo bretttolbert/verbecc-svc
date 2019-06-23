@@ -11,6 +11,6 @@ services:
     image: registry.gitlab.com/bretttolbert/verb-conjugate-fr/python:dev
     volumes:
       - ./python/:/code
-    entrypoint: pytest -vv
+    entrypoint: pytest -vv -l
     depends_on:
       - python

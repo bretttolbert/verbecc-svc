@@ -212,11 +212,7 @@ expected_resp_conj_pleuvoir = {
           "il plut"
         ],
         "passé-composé": [
-          "j'ai plu",
-          "tu as plu",
           "il a plu",
-          "nous avons plu",
-          "vous avez plu",
           "ils ont plu"
         ]
       },

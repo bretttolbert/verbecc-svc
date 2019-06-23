@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
+import copy
 
 from .conjugation_template import ConjugationTemplate
 from .conjugations_parser import ConjugationsParser
@@ -120,15 +121,23 @@ class Conjugator:
         return self._conjugate_passe_compose(co)
 
     def _conjugate_passe_compose(self, co):
+        persons = [pe.person for pe in 
+            co.template.moods['indicative'].tenses['present'].person_endings]
         helping_verb = 'avoir'
         if (co.verb.infinitive in VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE
             or co.is_reflexive):
             helping_verb = 'être'
         hvco = self._get_conj_obs(helping_verb)
+        hvtense_template = copy.deepcopy(hvco.template.moods['indicative'].tenses['present'])
+        hvperson_endings = []
+        for pe in hvtense_template.person_endings:
+            if pe.person in persons:
+                hvperson_endings.append(pe)
+        hvtense_template.person_endings = hvperson_endings
         hvconj = self._conjugate_specific_tense(
             hvco.verb_stem, 
             'indicative', 
-            hvco.template.moods['indicative'].tenses['present'],
+            hvtense_template,
             co.is_reflexive)
         participle = self._conjugate_specific_tense(
             co.verb_stem, 
