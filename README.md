@@ -29,6 +29,9 @@ $ make dev-build
 $ make dev
 ```
 
+## Credits
+This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html), [FastAPI](https://github.com/tiangolo/fastapi), [uvicorn](https://github.com/encode/uvicorn) and [starlette](https://github.com/encode/starlette).
+
 ## Usage Examples
 
 
@@ -211,3 +214,4 @@ $ make dev
 ```
 
 * http://localhost:8000/find/conjugation-template/man:ger
+
