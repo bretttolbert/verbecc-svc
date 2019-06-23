@@ -17,7 +17,10 @@ def test_conjugations_parser():
     assert len(conj.templates) >= 132
     assert conj.impersonal_templates == [
     "adv:enir",
+    "app:aroir",
     "brui:re",
+    "brumass:er",
+    "cha:loir",
     "cl:ore",
     "fa:lloir",
     "forclo:re",

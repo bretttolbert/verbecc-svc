@@ -96,7 +96,9 @@ def test_conjugator_get_verb_stem():
 def test_conjugator_impersonal_verbs():
     assert conj.impersonal_verbs == [
         "advenir",
+        "apparoir",
         "bruire",
+        "chaloir",
         "clore",
         "déclore",
         "échoir",

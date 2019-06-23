@@ -3,9 +3,6 @@
 <!--
 	verbs-fr.xml - List of French verbs with their conjugation template
 	Copyright (C) 2003-2016 Pierre Sarrazin <http://sarrazip.com/>
-	
-	English translations added by Brett Tolbert
-	<https://github.com/bretttolbert/verb-conjugate-fr>
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -28,7 +25,7 @@
 	<!ELEMENT v (i, t, aspirate-h?)>
 	<!ELEMENT i (#PCDATA)>  <!-- infinitive -->
 	<!ELEMENT t (#PCDATA)>	<!-- template (radical:termination) -->
-	<!ELEMENT en (#PCDATA)>  <!-- english translation -->
+	<!ELEMENT en (#PCDATA)> <!-- english translation -->	
 	<!ELEMENT aspirate-h EMPTY>  <!-- useful for verbs starting with h -->
 ]>
 
@@ -67,8 +64,7 @@
 <v><i>abraser</i><t>aim:er</t><en>abrade</en></v>
 <v><i>abréger</i><t>abr:éger</t><en>shorten</en></v>
 <v><i>abreuver</i><t>aim:er</t><en>drink</en></v>
-<v><i>abrévier</i><t>aim:er</t><en>abbreviate</en></v>
-<v><i>abricoter</i><t>aim:er</t><en>glaze with a thin layer of apricot preserve</en></v>
+<v><i>abricoter</i><t>aim:er</t><en>glaze (a cake etc) with a thin layer of apricot preserve</en></v>
 <v><i>abrier</i><t>aim:er</t><en>cover</en></v>
 <v><i>abriter</i><t>aim:er</t><en>house, to shelter, to harbour</en></v>
 <v><i>abroger</i><t>man:ger</t><en>repeal</en></v>
@@ -110,7 +106,7 @@
 <v><i>accréditer</i><t>aim:er</t><en>accredit</en></v>
 <v><i>accréter</i><t>décr:éter</t><en>accrete</en></v>
 <v><i>accrocher</i><t>aim:er</t><en>hang</en></v>
-<v><i>accroître</i><t>accr:oître</t><en>increase</en></v>
+<v><i>accroître</i><t>cr:oître</t><en>increase</en></v>
 <v><i>accroupir</i><t>fin:ir</t><en>crouch</en></v>
 <v><i>accueillir</i><t>cueill:ir</t><en>welcome</en></v>
 <v><i>acculer</i><t>aim:er</t><en>cornering</en></v>
@@ -314,7 +310,7 @@
 <v><i>amouracher</i><t>aim:er</t><en>amouracher</en></v>
 <v><i>amplifier</i><t>aim:er</t><en>amplify</en></v>
 <v><i>amputer</i><t>aim:er</t><en>amputate</en></v>
-<v><i>amuïr</i><t>amu:ïr</t><en>become mute</en></v>
+<v><i>amuïr</i><t>ha:ïr</t><en>amuïr</en></v>
 <v><i>amurer</i><t>aim:er</t><en>amurer</en></v>
 <v><i>amuser</i><t>aim:er</t><en>entertain</en></v>
 <v><i>analgésier</i><t>aim:er</t><en>analgésier</en></v>
@@ -369,7 +365,6 @@
 <v><i>appareiller</i><t>aim:er</t><en>pair</en></v>
 <v><i>apparenter</i><t>aim:er</t><en>resemble</en></v>
 <v><i>apparier</i><t>aim:er</t><en>pair</en></v>
-<v><i>apparoir</i><t>app:aroir</t><en>prove</en></v>
 <v><i>appartenir</i><t>t:enir</t><en>belong</en></v>
 <v><i>appâter</i><t>aim:er</t><en>bait</en></v>
 <v><i>appauvrir</i><t>fin:ir</t><en>impoverish</en></v>
@@ -1047,7 +1042,6 @@
 <v><i>chahuter</i><t>aim:er</t><en>heckle</en></v>
 <v><i>chaîner</i><t>aim:er</t><en>chaining</en></v>
 <v><i>challenger</i><t>man:ger</t><en>challenger</en></v>
-<v><i>chaloir</i><t>cha:loir</t><en>matter</en></v>
 <v><i>chalouper</i><t>aim:er</t><en>sway</en></v>
 <v><i>chamailler</i><t>aim:er</t><en>bicker</en></v>
 <v><i>chamarrer</i><t>aim:er</t><en>chamarrer</en></v>
@@ -1092,7 +1086,7 @@
 <v><i>chauler</i><t>aim:er</t><en>lime</en></v>
 <v><i>chaumer</i><t>aim:er</t><en>Chaumer</en></v>
 <v><i>chausser</i><t>aim:er</t><en>fit</en></v>
-<v><i>chauvir</i><t>chauv:ir</t><en>chauvir</en></v>
+<v><i>chauvir</i><t>fin:ir</t><en>chauvir</en></v>
 <v><i>chavirer</i><t>aim:er</t><en>capsize</en></v>
 <v><i>chelinguer</i><t>aim:er</t><en>chelinguer</en></v>
 <v><i>cheminer</i><t>aim:er</t><en>walk</en></v>
@@ -1308,7 +1302,6 @@
 <v><i>compulser</i><t>aim:er</t><en>sifting</en></v>
 <v><i>computer</i><t>aim:er</t><en>computer</en></v>
 <v><i>concasser</i><t>aim:er</t><en>pound</en></v>
-<v><i>concaténer</i><t>ali:éner</t><en>concatenate</en></v>
 <v><i>concéder</i><t>c:éder</t><en>grant</en></v>
 <v><i>concélébrer</i><t>cél:ébrer</t><en>concelebrate</en></v>
 <v><i>concentrer</i><t>aim:er</t><en>focus</en></v>
@@ -1417,7 +1410,7 @@
 <v><i>contre-buter</i><t>aim:er</t><en>cons-butt</en></v>
 <v><i>contrebuter</i><t>aim:er</t><en>contrebuter</en></v>
 <v><i>contrecarrer</i><t>aim:er</t><en>thwart</en></v>
-<v><i>contredire</i><t>préd:ire</t><en>contradict</en></v>
+<v><i>contredire</i><t>méd:ire</t><en>contradict</en></v>
 <v><i>contrefaire</i><t>f:aire</t><en>counterfeit</en></v>
 <v><i>contreficher</i><t>aim:er</t><en>contreficher</en></v>
 <v><i>contrefoutre</i><t>fou:tre</t><en>mock, make fun of completely a thing or person</en></v>
@@ -1788,7 +1781,6 @@
 <v><i>décompenser</i><t>aim:er</t><en>decompensate</en></v>
 <v><i>décomplexer</i><t>aim:er</t><en>decomplex</en></v>
 <v><i>décomposer</i><t>aim:er</t><en>decompose</en></v>
-<v><i>compoter</i><t>aim:er</t><en>reduce slowly to the consistency of puree</en></v>
 <v><i>décompresser</i><t>aim:er</t><en>decompress</en></v>
 <v><i>décomprimer</i><t>aim:er</t><en>decompress</en></v>
 <v><i>décompter</i><t>aim:er</t><en>deduct</en></v>
@@ -1836,7 +1828,7 @@
 <v><i>décrisper</i><t>aim:er</t><en>defuse</en></v>
 <v><i>décrocher</i><t>aim:er</t><en>unhook</en></v>
 <v><i>décroiser</i><t>aim:er</t><en>uncross</en></v>
-<v><i>décroître</i><t>accr:oître</t><en>decrease</en></v>
+<v><i>décroître</i><t>cr:oître</t><en>decrease</en></v>
 <v><i>décrotter</i><t>aim:er</t><en>décrotter</en></v>
 <v><i>décroûter</i><t>aim:er</t><en>décroûter</en></v>
 <v><i>décruer</i><t>aim:er</t><en>décruer</en></v>
@@ -1852,7 +1844,7 @@
 <v><i>dédicacer</i><t>pla:cer</t><en>autograph</en></v>
 <v><i>dédier</i><t>aim:er</t><en>dedicate</en></v>
 <v><i>dédifférencier</i><t>aim:er</t><en>dedifferentiate</en></v>
-<v><i>dédire</i><t>préd:ire</t><en>retract</en></v>
+<v><i>dédire</i><t>d:ire</t><en>retract</en></v>
 <v><i>dédommager</i><t>man:ger</t><en>compensate</en></v>
 <v><i>dédorer</i><t>aim:er</t><en>tarnish</en></v>
 <v><i>dédouaner</i><t>aim:er</t><en>clearance</en></v>
@@ -2464,7 +2456,6 @@
 <v><i>dilacérer</i><t>réf:érer</t><en>dilacérer</en></v>
 <v><i>dilapider</i><t>aim:er</t><en>squander</en></v>
 <v><i>dilater</i><t>aim:er</t><en>expand</en></v>
-<v><i>diligenter</i><t>aim:er</t><en>initiate, request, carry out diligently</en></v>
 <v><i>diluer</i><t>aim:er</t><en>dilute</en></v>
 <v><i>dimensionner</i><t>aim:er</t><en>size</en></v>
 <v><i>diminuer</i><t>aim:er</t><en>decrease</en></v>
@@ -3840,7 +3831,7 @@
 <v><i>happer</i><t>aim:er</t> <aspirate-h /> <en>snap up</en></v>
 <v><i>haranguer</i><t>aim:er</t> <aspirate-h /> <en>harangue</en></v>
 <v><i>harasser</i><t>aim:er</t> <aspirate-h /> <en>harass</en></v>
-<v><i>harceler</i><t>harc:eler</t> <aspirate-h /> <en>harass</en></v>
+<v><i>harceler</i><t>app:eler</t> <aspirate-h /> <en>harass</en></v>
 <v><i>harder</i><t>aim:er</t> <aspirate-h /> <en>harder</en></v>
 <v><i>harmoniser</i><t>aim:er</t><en>harmonize</en></v>
 <v><i>harnacher</i><t>aim:er</t> <aspirate-h /> <en>harness</en></v>
@@ -4488,7 +4479,7 @@
 <v><i>mériter</i><t>aim:er</t><en>deserve</en></v>
 <v><i>mésallier</i><t>aim:er</t><en>misalliance</en></v>
 <v><i>mésestimer</i><t>aim:er</t><en>underestimate</en></v>
-<v><i>messeoir</i><t>s:eoir</t><en>be unsuitable, unwanted</en></v>
+<v><i>messeoir</i><t>s:eoir</t><en>messeoir</en></v>
 <v><i>mesurer</i><t>aim:er</t><en>measure</en></v>
 <v><i>mésuser</i><t>aim:er</t><en>misuse</en></v>
 <v><i>métalliser</i><t>aim:er</t><en>metallized</en></v>
@@ -5053,7 +5044,7 @@
 <v><i>pleurnicher</i><t>aim:er</t><en>whimper</en></v>
 <v><i>pleuvasser</i><t>aim:er</t><en>pleuvasser</en></v>
 <v><i>pleuviner</i><t>aim:er</t><en>pleuviner</en></v>
-<v><i>pleuvoir</i><t>pl:euvoir</t><en>rain</en></v>
+<v><i>pleuvoir</i><imp/><t>pl:euvoir</t><en>rain</en></v>
 <v><i>plier</i><t>aim:er</t><en>fold</en></v>
 <v><i>plisser</i><t>aim:er</t><en>crease</en></v>
 <v><i>plomber</i><t>aim:er</t><en>seal</en></v>
@@ -5112,7 +5103,7 @@
 <v><i>posticher</i><t>aim:er</t><en>posticher</en></v>
 <v><i>postillonner</i><t>aim:er</t><en>splutter</en></v>
 <v><i>postposer</i><t>aim:er</t><en>postpone</en></v>
-<v><i>postsynchroniser</i><t>aim:er</t><en>dub</en></v>
+<v><i>postsynchroniser</i><t>aim:er</t><en>postsynchroniser</en></v>
 <v><i>postuler</i><t>aim:er</t><en>apply</en></v>
 <v><i>potasser</i><t>aim:er</t><en>mug up</en></v>
 <v><i>potentialiser</i><t>aim:er</t><en>potentiate</en></v>
@@ -5149,7 +5140,7 @@
 <v><i>prédestiner</i><t>aim:er</t><en>predestine</en></v>
 <v><i>prédéterminer</i><t>aim:er</t><en>predetermine</en></v>
 <v><i>prédiquer</i><t>aim:er</t><en>predicate</en></v>
-<v><i>prédire</i><t>préd:ire</t><en>predict</en></v>
+<v><i>prédire</i><t>d:ire</t><en>predict</en></v>
 <v><i>prédisposer</i><t>aim:er</t><en>predispose</en></v>
 <v><i>prédominer</i><t>aim:er</t><en>predominate</en></v>
 <v><i>préempter</i><t>aim:er</t><en>preempt</en></v>
@@ -5203,7 +5194,6 @@
 <v><i>privilégier</i><t>aim:er</t><en>privilege</en></v>
 <v><i>procéder</i><t>c:éder</t><en>proceed</en></v>
 <v><i>proclamer</i><t>aim:er</t><en>proclaim</en></v>
-<v><i>procrastiner</i><t>aim:er</t><en>procrastinate</en></v>
 <v><i>procréer</i><t>aim:er</t><en>procreate</en></v>
 <v><i>procurer</i><t>aim:er</t><en>obtain</en></v>
 <v><i>prodiguer</i><t>aim:er</t><en>lavish</en></v>
@@ -5494,9 +5484,7 @@
 <v><i>recenser</i><t>aim:er</t><en>inventory</en></v>
 <v><i>recentrer</i><t>aim:er</t><en>focus</en></v>
 <v><i>receper</i><t>rec:eper</t><en>prune trees, shrubs</en></v>
-<v><i>recéper</i><t>rec:éper</t><en>ratoon</en></v>
 <v><i>réceptionner</i><t>aim:er</t><en>receive</en></v>
-<v><i>recercler</i><t>aim:er</t><en>recircle</en></v>
 <v><i>recevoir</i><t>dé:cevoir</t><en>receive</en></v>
 <v><i>réchampir</i><t>fin:ir</t><en>detail; to touch up (painting)</en></v>
 <v><i>rechanger</i><t>man:ger</t><en>change again</en></v>
@@ -5563,7 +5551,6 @@
 <v><i>récriminer</i><t>aim:er</t><en>recriminate</en></v>
 <v><i>récrire</i><t>écri:re</t><en>rewrite</en></v>
 <v><i>recristalliser</i><t>aim:er</t><en>recrystallize</en></v>
-<v><i>recroître</i><t>recr:oître</t><en>regrow</en></v>
 <v><i>recroqueviller</i><t>aim:er</t><en>curl up</en></v>
 <v><i>recruter</i><t>aim:er</t><en>recruit</en></v>
 <v><i>rectifier</i><t>aim:er</t><en>correct</en></v>
@@ -5622,7 +5609,6 @@
 <v><i>refaçonner</i><t>aim:er</t><en>reshape</en></v>
 <v><i>refendre</i><t>ten:dre</t><en>splitting</en></v>
 <v><i>référencer</i><t>pla:cer</t><en>reference</en></v>
-<v><i>référencier</i><t>référenci:er</t><en>reference</en></v>
 <v><i>référer</i><t>réf:érer</t><en>refer</en></v>
 <v><i>refermer</i><t>aim:er</t><en>close</en></v>
 <v><i>refiler</i><t>aim:er</t><en>palm off</en></v>
@@ -6165,6 +6151,7 @@
 <v><i>satiner</i><t>aim:er</t><en>satin</en></v>
 <v><i>satiriser</i><t>aim:er</t><en>satirize</en></v>
 <v><i>satisfaire</i><t>f:aire</t><en>satisfy</en></v>
+<v><i>satisfer</i><t>aim:er</t><en>satisfer</en></v>
 <v><i>satonner</i><t>aim:er</t><en>satonner</en></v>
 <v><i>saturer</i><t>aim:er</t><en>saturate</en></v>
 <v><i>saucer</i><t>pla:cer</t><en>saucer</en></v>
@@ -6240,7 +6227,7 @@
 <v><i>sertir</i><t>fin:ir</t><en>crimp</en></v>
 <v><i>servir</i><t>ser:vir</t><en>serve</en></v>
 <v><i>sévir</i><t>fin:ir</t><en>crack</en></v>
-<v><i>sevrer</i><t>s:evrer</t><en>wean</en></v>
+<v><i>sevrer</i><t>aim:er</t><en>wean</en></v>
 <v><i>sextupler</i><t>aim:er</t><en>sixfold</en></v>
 <v><i>sexualiser</i><t>aim:er</t><en>sexualize</en></v>
 <v><i>shampooingner</i><t>aim:er</t><en>shampooingner</en></v>
@@ -6509,7 +6496,6 @@
 <v><i>sursauter</i><t>aim:er</t><en>jump</en></v>
 <v><i>sursemer</i><t>s:emer</t><en>overseed</en></v>
 <v><i>surseoir</i><t>surs:eoir</t><en>stay</en></v>
-<v><i>sursoir</i><t>surs:oir</t><en>suspend, postpone, defer</en></v>
 <v><i>surtaxer</i><t>aim:er</t><en>surcharge</en></v>
 <v><i>surveiller</i><t>aim:er</t><en>monitor</en></v>
 <v><i>survenir</i><t>t:enir</t><en>occur</en></v>
