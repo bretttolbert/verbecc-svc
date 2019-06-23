@@ -19,7 +19,7 @@ http://verbe.cc/vcfr/conjugate/manger
 ## Quick Start (Docker)
 ```
 $ docker pull bretttolbert/verb-conjugate-fr:latest
-$ docker run --name verb_conjugate_fr -d -p 8000:8000 bretttolbert/verb-conjugate-fr:latest
+$ docker run -d -p 8000:8000 bretttolbert/verb-conjugate-fr:latest
 ```
 
 ## Quick Start (Development)
