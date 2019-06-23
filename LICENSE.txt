@@ -1,7 +1,8 @@
-verb-conjugate-fr
-Python French verb conjugation / Conjugaison des verbes français en Python
-Copyright (C) 2019 Brett Tolbert <bretttolbert@gmail.com>
-Verb conjugation XML data files are Copyright (C) 2003-2010
+verb-conjugate-fr - Dockerized Python microservice with 
+REST API for conjugation of French verbs
+Copyright (C) 2019 Brett Tolbert 
+<https://github.com/bretttolbert/verb-conjugate-fr>
+Verb conjugation XML data files are Copyright (C) 2003-2016
 by Pierre Sarrazin <http://sarrazip.com/> (also GNU license)
 Borrowed from his conjugation system Verbiste, written in C++
 <https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html>
@@ -18,5 +19,5 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-02111-1307, USA.
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+02110-1301, USA.
