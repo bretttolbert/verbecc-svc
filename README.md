@@ -18,15 +18,15 @@ http://verbe.cc/vcfr/conjugate/manger
 
 ## Quick Start (Docker)
 ```
-$ docker login registry.gitlab.com
-$ docker pull registry.gitlab.com/bretttolbert/verb-conjugate-fr
+$ docker pull bretttolbert/verb-conjugate-fr:latest
 $ docker run --name verb_conjugate_fr -d -p 8000:8000 bretttolbert/verb-conjugate-fr:latest
 ```
 
 ## Quick Start (Development)
 
 ```
-$ make dev-build && make dev
+$ make dev-build
+$ make dev
 ```
 
 ## Usage Examples
