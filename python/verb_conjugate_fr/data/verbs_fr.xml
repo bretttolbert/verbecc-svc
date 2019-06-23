@@ -850,7 +850,7 @@
 <v><i>brouillonner</i><t>aim:er</t><en>brouillonner</en></v>
 <v><i>brouter</i><t>aim:er</t><en>browse</en></v>
 <v><i>broyer</i><t>netto:yer</t><en>grind</en></v>
-<v><i>bruiner</i><t>aim:er</t><en>drizzle</en></v>
+<v><i>bruiner</i><t>grêl:er</t><en>drizzle</en></v>
 <v><i>bruire</i><t>brui:re</t><en>swish</en></v>
 <v><i>bruir</i><t>fin:ir</t><en>rustling</en></v>
 <v><i>bruisser</i><t>aim:er</t><en>rustling</en></v>
@@ -3765,7 +3765,7 @@
 <v><i>grecquer</i><t>aim:er</t><en>grecquer</en></v>
 <v><i>gréer</i><t>aim:er</t><en>rig</en></v>
 <v><i>greffer</i><t>aim:er</t><en>graft</en></v>
-<v><i>grêler</i><t>aim:er</t><en>hail</en></v>
+<v><i>grêler</i><t>grêl:er</t><en>hail</en></v>
 <v><i>grelotter</i><t>aim:er</t><en>shivering</en></v>
 <v><i>grenailler</i><t>aim:er</t><en>peening</en></v>
 <v><i>greneler</i><t>app:eler</t><en>greneler</en></v>
@@ -4643,7 +4643,7 @@
 <v><i>nécroser</i><t>aim:er</t><en>necrotic</en></v>
 <v><i>négliger</i><t>man:ger</t><en>neglect</en></v>
 <v><i>négocier</i><t>aim:er</t><en>negotiate</en></v>
-<v><i>neiger</i><imp/><t>man:ger</t><en>snow</en></v>
+<v><i>neiger</i><t>nei:ger</t><en>snow</en></v>
 <v><i>nervurer</i><t>aim:er</t><en>beading</en></v>
 <v><i>nettoyer</i><t>netto:yer</t><en>clean</en></v>
 <v><i>neutraliser</i><t>aim:er</t><en>neutralize</en></v>

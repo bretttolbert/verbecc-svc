@@ -97,6 +97,7 @@ def test_conjugator_impersonal_verbs():
     assert conj.impersonal_verbs == [
         "advenir",
         "apparoir",
+        "bruiner",
         "bruire",
         "chaloir",
         "clore",
@@ -107,7 +108,9 @@ def test_conjugator_impersonal_verbs():
         "falloir",
         "forclore",
         "frire",
+        "grêler",
         "messeoir",
+        "neiger",
         "pleuvoir",
         "seoir",
         "sourdre"]

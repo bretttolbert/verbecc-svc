@@ -25,6 +25,8 @@ def test_conjugations_parser():
     "fa:lloir",
     "forclo:re",
     "fri:re",
+    "grêl:er",
+    "nei:ger",
     "pl:euvoir",
     "s:eoir",
     "s:ourdre",
