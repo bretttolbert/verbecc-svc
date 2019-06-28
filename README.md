@@ -30,7 +30,7 @@ $ make dev
 ```
 
 ## Credits
-This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html), [FastAPI](https://github.com/tiangolo/fastapi), [uvicorn](https://github.com/encode/uvicorn) and [starlette](https://github.com/encode/starlette).
+This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html), [FastAPI](https://github.com/tiangolo/fastapi), [uvicorn](https://github.com/encode/uvicorn), [starlette](https://github.com/encode/starlette), [lxml](https://github.com/lxml/lxml), [docker](https://docker.com), [docker-compose](https://docs.docker.com/compose/), [pytest](https://docs.pytest.org) and [python](https://www.python.org/).
 
 ## Usage Examples
 
