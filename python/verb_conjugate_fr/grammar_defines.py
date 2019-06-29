@@ -22,7 +22,7 @@ IMPERATIVE_PRESENT_PERSONS = (
 
 TENSES_CONJUGATED_WITHOUT_PRONOUNS = ['infinitive-present', 'present-participle', 
                                       'imperative-present', 'past-participle']
-VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE = [
+VERBS_CONJUGATED_WITH_ETRE = [
 "aller",
 "arriver",
 "descendre",

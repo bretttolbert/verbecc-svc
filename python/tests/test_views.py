@@ -161,6 +161,14 @@ expected_resp_conj_pouvoir = {
           "que nous pussions",
           "que vous pussiez",
           "qu'ils pussent"
+        ],
+        "past": [
+          "que j'aie pu",
+          "que tu aies pu",
+          "qu'il ait pu",
+          "que nous ayons pu",
+          "que vous ayez pu",
+          "qu'ils aient pu"
         ]
       },
       "imperative": {
@@ -229,6 +237,10 @@ expected_resp_conj_pleuvoir = {
         ],
         "imperfect": [
           "qu'il plût"
+        ],
+        "past": [
+          "qu'il ait plu",
+          "qu'ils aient plu"
         ]
       },
       "imperative": {
@@ -331,6 +343,14 @@ expected_resp_conj_se_lever = {
           "que nous nous levassions",
           "que vous vous levassiez",
           "qu'ils se levassent"
+        ],
+        "past": [
+          "que je me sois levé",
+          "que tu te sois levé",
+          "qu'il se soit levé",
+          "que nous nous soyons levés",
+          "que vous vous soyez levés",
+          "qu'ils se soient levés"
         ]
       },
       "imperative": {

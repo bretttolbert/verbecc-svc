@@ -66,6 +66,26 @@ def test_conjugator_conjugate_passe_compose_with_etre():
     "ils sont allés"
     ]
 
+def test_conjugator_conjugate_passe_subjonctif_with_avoir():
+    assert conj.conjugate_passe_subjonctif('manger') == [
+    "que j'aie mangé",
+    "que tu aies mangé",
+    "qu'il ait mangé",
+    "que nous ayons mangé",
+    "que vous ayez mangé",
+    "qu'ils aient mangé"
+    ]
+
+def test_conjugator_conjugate_passe_subjonctif_with_etre():
+    assert conj.conjugate_passe_subjonctif('aller') == [
+    "que je sois allé",
+    "que tu sois allé",
+    "qu'il soit allé",
+    "que nous soyons allés",
+    "que vous soyez allés",
+    "qu'ils soient allés"
+    ]
+
 @patch('verb_conjugate_fr.person_ending.PersonEnding')
 def test_conjugator_conjugate_specific_tense_pronoun(mock_person):
     verb_stem = u"man"

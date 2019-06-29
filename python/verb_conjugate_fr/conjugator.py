@@ -113,6 +113,8 @@ class Conjugator:
 
         if mood_name == 'indicative':
             ret['passé-composé'] = self._conjugate_passe_compose(co)
+        elif mood_name == 'subjunctive':
+            ret['past'] = self._conjugate_passe_subjonctif(co)
 
         return ret
 
@@ -120,15 +122,35 @@ class Conjugator:
         co = self._get_conj_obs(infinitive)
         return self._conjugate_passe_compose(co)
 
+    def conjugate_passe_subjonctif(self, infinitive):
+        co = self._get_conj_obs(infinitive)
+        return self._conjugate_passe_subjonctif(co)
+
     def _conjugate_passe_compose(self, co):
+        return self._conjugate_passe_compound(co, 'indicative', 'indicative', 'present')
+
+    def _conjugate_passe_subjonctif(self, co):
+        return self._conjugate_passe_compound(co, 'subjunctive', 'subjunctive', 'present')
+
+    def _conjugate_passe_compound(self, co, mood_name, hv_mood_name, hv_tense_name):
+        """Conjugate a compound tense
+        Args:
+            co: ConjugationObjects for the verb being conjugated
+            mood_name: mood verb is being conjugated in
+            hv_mood_name: mood_name for conjugating helping verb
+            hv_tense_name: tense_name for conjugating helping verb
+        """
+        # Use indicative-present to determine which persons we are conjugating,
+        # because some verbs don't have defnitions for all 6 persons
         persons = [pe.person for pe in 
             co.template.moods['indicative'].tenses['present'].person_endings]
         helping_verb = 'avoir'
-        if (co.verb.infinitive in VERBS_CONJUGATED_WITH_ETRE_IN_PASSE_COMPOSE
+        if (co.verb.infinitive in VERBS_CONJUGATED_WITH_ETRE
             or co.is_reflexive):
             helping_verb = 'être'
         hvco = self._get_conj_obs(helping_verb)
-        hvtense_template = copy.deepcopy(hvco.template.moods['indicative'].tenses['present'])
+        hvtense_template = copy.deepcopy(
+            hvco.template.moods[hv_mood_name].tenses[hv_tense_name])
         hvperson_endings = []
         for pe in hvtense_template.person_endings:
             if pe.person in persons:
@@ -150,6 +172,8 @@ class Conjugator:
             ret = [i + ' ' + 
                 participle[get_participle_inflection_by_pronoun(i).value] 
                 for i in hvconj]
+        if mood_name == 'subjunctive':
+            ret = [prepend_with_que(i) for i in ret]
         return ret
 
     def _conjugate_specific_tense(self, verb_stem, mood_name, 
