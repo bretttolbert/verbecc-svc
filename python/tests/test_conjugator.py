@@ -186,6 +186,20 @@ def test_conjugator_conjugate_anterior_past_with_etre():
     "ils furent allés"
     ]
 
+def test_conjugator_conjugate_imperative_past_with_avoir():
+    assert conj.conjugate_imperative_past('manger') == [
+    "aie mangé",
+    "ayons mangé",
+    "ayez mangé"
+    ]
+
+def test_conjugator_conjugate_imperative_past_with_etre():
+    assert conj.conjugate_imperative_past('aller') == [
+    "sois allé",
+    "soyons allés",
+    "soyez allés"
+    ]
+
 @patch('verb_conjugate_fr.person_ending.PersonEnding')
 def test_conjugator_conjugate_specific_tense_pronoun(mock_person):
     verb_stem = u"man"

@@ -113,22 +113,18 @@ def get_person_by_pronoun(pronoun):
     elif pronoun.startswith('vous'):
         return Person.SecondPersonPlural
 
-def get_participle_inflection_by_pronoun(pronoun):
-    pronoun = pronoun.lower()
-    if pronoun.startswith('j'):
+def get_default_participle_inflection_for_person(person):
+    if person == Person.FirstPersonSingular:
         return ParticipleInflection.MasculineSingular
-    elif pronoun.startswith('tu'):
+    elif person == Person.SecondPersonSingular:
         return ParticipleInflection.MasculineSingular
-    elif pronoun.startswith('ils'):
-        return ParticipleInflection.MasculinePlural
-    elif pronoun.startswith('elles'):
-        return ParticipleInflection.FemininePlural
-    elif pronoun.startswith(('il', 'on')):
+    elif person == Person.ThirdPersonSingular:
         return ParticipleInflection.MasculineSingular
-    elif pronoun.startswith('elle'):
-        return ParticipleInflection.FeminineSingular
-    elif pronoun.startswith('nous'):
+    elif person == Person.FirstPersonPlural:
         return ParticipleInflection.MasculinePlural
-    elif pronoun.startswith('vous'):
+    elif person == Person.SecondPersonPlural:
         return ParticipleInflection.MasculinePlural
-    raise ValueError
+    elif person == Person.ThirdPersonPlural:
+        return ParticipleInflection.MasculinePlural
+    else:
+        raise Exception("Invalid Person")

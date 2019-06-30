@@ -236,7 +236,8 @@ expected_resp_conj_pouvoir = {
         ]
       },
       "imperative": {
-        "imperative-present": []
+        "imperative-present": [],
+        "past": []
       },
       "participle": {
         "present-participle": [
@@ -281,7 +282,8 @@ expected_resp_conj_pleuvoir = {
           "ils pleuvront"
         ],
         "simple-past": [
-          "il plut"
+          "il plut",
+          "ils plurent"
         ],
         "passé-composé": [
           "il a plu",
@@ -316,7 +318,8 @@ expected_resp_conj_pleuvoir = {
           "qu'ils pleuvent"
         ],
         "imperfect": [
-          "qu'il plût"
+          "qu'il plût",
+          "qu'ils plussent"
         ],
         "past": [
           "qu'il ait plu",
@@ -328,7 +331,8 @@ expected_resp_conj_pleuvoir = {
         ]
       },
       "imperative": {
-        "imperative-present": []
+        "imperative-present": [],
+        "past": []
       },
       "participle": {
         "present-participle": [
@@ -482,7 +486,8 @@ expected_resp_conj_se_lever = {
           "lève-toi",
           "levons-nous",
           "levez-vous"
-        ]
+        ],
+        "past": []
       },
       "participle": {
         "present-participle": [

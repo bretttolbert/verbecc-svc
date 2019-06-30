@@ -96,22 +96,23 @@ class Conjugator:
         return matches
 
     def find_verb_by_infinitive(self, infinitive):
-        #todo: make this work for reflexive verbs
         return self.verb_parser.find_verb_by_infinitive(infinitive)
 
     def _get_full_conjugation_for_mood(self, co, mood_name):
-        ret = {}
+        conjugations = {}
         if mood_name not in co.template.moods:
             raise InvalidMoodError
-        mood = co.template.moods[mood_name]
+        self._get_simple_conjugations_for_mood(co, mood_name, conjugations);
+        self._get_compound_conjugations_for_mood(co, mood_name, conjugations)
+        return conjugations
 
+    def _get_simple_conjugations_for_mood(self, co, mood_name, conjugations):
+        mood = co.template.moods[mood_name]
         for tense in mood.tenses:
             tense_template = mood.tenses[tense]
-            ret[tense] = self._conjugate_specific_tense(
+            conjugations[tense] = self._conjugate_specific_tense(
                 co.verb_stem, mood_name, tense_template,
-                co.is_reflexive)
-        self._get_compound_conjugations_for_mood(co, mood_name, ret)
-        return ret
+                co.is_reflexive)        
 
     def _get_compound_conjugations_for_mood(self, co, mood_name, conjugations):
         if mood_name == 'indicative':
@@ -124,6 +125,8 @@ class Conjugator:
             conjugations['pluperfect'] = self._conjugate_subjunctive_pluperfect(co)
         elif mood_name == 'conditional':
             conjugations['past'] = self._conjugate_conditional_past(co)
+        elif mood_name == 'imperative':
+            conjugations['past'] = self._conjugate_imperative_past(co)
 
     def conjugate_passe_compose(self, infinitive):
         co = self._get_conj_obs(infinitive)
@@ -153,6 +156,10 @@ class Conjugator:
         co = self._get_conj_obs(infinitive)
         return self._conjugate_conditional_past(co)
 
+    def conjugate_imperative_past(self, infinitive):
+        co = self._get_conj_obs(infinitive)
+        return self._conjugate_imperative_past(co)
+
     def _conjugate_passe_compose(self, co):
         return self._conjugate_compound(co, 'indicative', 'indicative', 'present')
 
@@ -174,6 +181,9 @@ class Conjugator:
     def _conjugate_conditional_past(self, co):
         return self._conjugate_compound(co, 'conditional', 'conditional', 'present')
 
+    def _conjugate_imperative_past(self, co):
+        return self._conjugate_compound(co, 'imperative', 'imperative', 'imperative-present')
+
     def _conjugate_compound(self, co, mood_name, hv_mood_name, hv_tense_name):
         """Conjugate a compound tense
         Args:
@@ -182,10 +192,12 @@ class Conjugator:
             hv_mood_name: mood_name for conjugating helping verb
             hv_tense_name: tense_name for conjugating helping verb
         """
-        # Use indicative-present to determine which persons we are conjugating,
-        # because some verbs don't have defnitions for all 6 persons
+        ret = []
+        if (co.is_reflexive and mood_name == 'imperative' 
+            and hv_tense_name == 'imperative-present'):
+            return ret
         persons = [pe.person for pe in 
-            co.template.moods['indicative'].tenses['present'].person_endings]
+            co.template.moods[mood_name].tenses[hv_tense_name].person_endings]
         helping_verb = 'avoir'
         if (co.verb.infinitive in VERBS_CONJUGATED_WITH_ETRE
             or co.is_reflexive):
@@ -207,13 +219,16 @@ class Conjugator:
             co.verb_stem, 
             'participle', 
             co.template.moods['participle'].tenses['past-participle'])
-        ret = []
         if helping_verb == 'avoir':
-            ret = [i + ' ' + participle[0] for i in hvconj]
+            for hv in hvconj:
+                p = participle[0]
+                ret.append(hv + ' ' + p)
         else:
-            ret = [i + ' ' + 
-                participle[get_participle_inflection_by_pronoun(i).value] 
-                for i in hvconj]
+            for i, hv in enumerate(hvconj):
+                participle_inflection = \
+                    get_default_participle_inflection_for_person(persons[i])
+                p = participle[participle_inflection.value]
+                ret.append(hv + ' ' + p)
         if mood_name == 'subjunctive':
             ret = [prepend_with_que(i) for i in ret]
         return ret
