@@ -173,6 +173,11 @@ This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sar
           "mange",
           "mangeons",
           "mangez"
+        ],
+        "imperative-past": [
+          "aie mangé",
+          "ayons mangé",
+          "ayez mangé"
         ]
       },
       "participle": {
@@ -330,7 +335,8 @@ This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sar
           "lève-toi",
           "levons-nous",
           "levez-vous"
-        ]
+        ],
+        "imperative-past": []
       },
       "participle": {
         "present-participle": [

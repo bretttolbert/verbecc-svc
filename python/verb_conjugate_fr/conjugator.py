@@ -126,7 +126,7 @@ class Conjugator:
         elif mood_name == 'conditional':
             conjugations['past'] = self._conjugate_conditional_past(co)
         elif mood_name == 'imperative':
-            conjugations['past'] = self._conjugate_imperative_past(co)
+            conjugations['imperative-past'] = self._conjugate_imperative_past(co)
 
     def conjugate_passe_compose(self, infinitive):
         co = self._get_conj_obs(infinitive)
