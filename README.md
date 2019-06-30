@@ -91,6 +91,22 @@ This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sar
           "nous avons mangé",
           "vous avez mangé",
           "ils ont mangé"
+        ],
+        "pluperfect": [
+          "j'avais mangé",
+          "tu avais mangé",
+          "il avait mangé",
+          "nous avions mangé",
+          "vous aviez mangé",
+          "ils avaient mangé"
+        ],
+        "future-perfect": [
+          "j'aurai mangé",
+          "tu auras mangé",
+          "il aura mangé",
+          "nous aurons mangé",
+          "vous aurez mangé",
+          "ils auront mangé"
         ]
       },
       "conditional": {
@@ -101,6 +117,14 @@ This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sar
           "nous mangerions",
           "vous mangeriez",
           "ils mangeraient"
+        ],
+        "past": [
+          "j'aurais mangé",
+          "tu aurais mangé",
+          "il aurait mangé",
+          "nous aurions mangé",
+          "vous auriez mangé",
+          "ils auraient mangé"
         ]
       },
       "subjunctive": {
@@ -119,6 +143,14 @@ This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sar
           "que nous mangeassions",
           "que vous mangeassiez",
           "qu'ils mangeassent"
+        ],
+        "past": [
+          "que j'aie mangé",
+          "que tu aies mangé",
+          "qu'il ait mangé",
+          "que nous ayons mangé",
+          "que vous ayez mangé",
+          "qu'ils aient mangé"
         ]
       },
       "imperative": {

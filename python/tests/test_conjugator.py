@@ -126,6 +126,26 @@ def test_conjugator_conjugate_pluperfect_with_etre():
     "ils étaient allés"
     ]
 
+def test_conjugator_conjugate_future_perfect_with_avoir():
+    assert conj.conjugate_future_perfect('manger') == [
+    "j'aurai mangé",
+    "tu auras mangé",
+    "il aura mangé",
+    "nous aurons mangé",
+    "vous aurez mangé",
+    "ils auront mangé"
+    ]
+
+def test_conjugator_conjugate_future_perfect_with_etre():
+    assert conj.conjugate_future_perfect('aller') == [
+    "je serai allé",
+    "tu seras allé",
+    "il sera allé",
+    "nous serons allés",
+    "vous serez allés",
+    "ils seront allés"
+    ]
+
 @patch('verb_conjugate_fr.person_ending.PersonEnding')
 def test_conjugator_conjugate_specific_tense_pronoun(mock_person):
     verb_stem = u"man"

@@ -76,6 +76,14 @@ expected_resp_conj_indicative_pouvoir = {
       "nous avions pu",
       "vous aviez pu",
       "ils avaient pu"
+    ],
+    "future-perfect": [
+      "j'aurai pu",
+      "tu auras pu",
+      "il aura pu",
+      "nous aurons pu",
+      "vous aurez pu",
+      "ils auront pu"
     ]
   }
 }
@@ -149,6 +157,14 @@ expected_resp_conj_pouvoir = {
           "nous avions pu",
           "vous aviez pu",
           "ils avaient pu"
+        ],
+        "future-perfect": [
+          "j'aurai pu",
+          "tu auras pu",
+          "il aura pu",
+          "nous aurons pu",
+          "vous aurez pu",
+          "ils auront pu"
         ]
       },
       "conditional": {
@@ -250,6 +266,10 @@ expected_resp_conj_pleuvoir = {
         "pluperfect": [
           "il avait plu",
           "ils avaient plu"
+        ],
+        "future-perfect": [
+          "il aura plu",
+          "ils auront plu"
         ]
       },
       "conditional": {
@@ -355,6 +375,14 @@ expected_resp_conj_se_lever = {
           "nous nous étions levés",
           "vous vous étiez levés",
           "ils s'étaient levés"
+        ],
+        "future-perfect": [
+          "je me serai levé",
+          "tu te seras levé",
+          "il se sera levé",
+          "nous nous serons levés",
+          "vous vous serez levés",
+          "ils se seront levés"
         ]
       },
       "conditional": {
