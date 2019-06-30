@@ -66,8 +66,8 @@ def test_conjugator_conjugate_passe_compose_with_etre():
     "ils sont allés"
     ]
 
-def test_conjugator_conjugate_passe_subjonctif_with_avoir():
-    assert conj.conjugate_passe_subjonctif('manger') == [
+def test_conjugator_conjugate_subjunctive_past_with_avoir():
+    assert conj.conjugate_subjunctive_past('manger') == [
     "que j'aie mangé",
     "que tu aies mangé",
     "qu'il ait mangé",
@@ -76,14 +76,54 @@ def test_conjugator_conjugate_passe_subjonctif_with_avoir():
     "qu'ils aient mangé"
     ]
 
-def test_conjugator_conjugate_passe_subjonctif_with_etre():
-    assert conj.conjugate_passe_subjonctif('aller') == [
+def test_conjugator_conjugate_subjunctive_past_with_etre():
+    assert conj.conjugate_subjunctive_past('aller') == [
     "que je sois allé",
     "que tu sois allé",
     "qu'il soit allé",
     "que nous soyons allés",
     "que vous soyez allés",
     "qu'ils soient allés"
+    ]
+
+def test_conjugator_conjugate_conditional_past_with_avoir():
+    assert conj.conjugate_conditional_past('manger') == [
+    "j'aurais mangé",
+    "tu aurais mangé",
+    "il aurait mangé",
+    "nous aurions mangé",
+    "vous auriez mangé",
+    "ils auraient mangé"
+    ]
+
+def test_conjugator_conjugate_conditional_past_with_etre():
+    assert conj.conjugate_conditional_past('aller') == [
+    "je serais allé",
+    "tu serais allé",
+    "il serait allé",
+    "nous serions allés",
+    "vous seriez allés",
+    "ils seraient allés"
+    ]
+
+def test_conjugator_conjugate_pluperfect_with_avoir():
+    assert conj.conjugate_pluperfect('manger') == [
+    "j'avais mangé",
+    "tu avais mangé",
+    "il avait mangé",
+    "nous avions mangé",
+    "vous aviez mangé",
+    "ils avaient mangé"
+    ]
+
+def test_conjugator_conjugate_pluperfect_with_etre():
+    assert conj.conjugate_pluperfect('aller') == [
+    "j'étais allé",
+    "tu étais allé",
+    "il était allé",
+    "nous étions allés",
+    "vous étiez allés",
+    "ils étaient allés"
     ]
 
 @patch('verb_conjugate_fr.person_ending.PersonEnding')

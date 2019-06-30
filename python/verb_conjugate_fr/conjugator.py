@@ -110,29 +110,47 @@ class Conjugator:
             ret[tense] = self._conjugate_specific_tense(
                 co.verb_stem, mood_name, tense_template,
                 co.is_reflexive)
-
-        if mood_name == 'indicative':
-            ret['passé-composé'] = self._conjugate_passe_compose(co)
-        elif mood_name == 'subjunctive':
-            ret['past'] = self._conjugate_passe_subjonctif(co)
-
+        self._get_compound_conjugations_for_mood(co, mood_name, ret)
         return ret
+
+    def _get_compound_conjugations_for_mood(self, co, mood_name, conjugations):
+        if mood_name == 'indicative':
+            conjugations['passé-composé'] = self._conjugate_passe_compose(co)
+            conjugations['pluperfect'] = self._conjugate_pluperfect(co)
+        elif mood_name == 'subjunctive':
+            conjugations['past'] = self._conjugate_subjunctive_past(co)
+        elif mood_name == 'conditional':
+            conjugations['past'] = self._conjugate_conditional_past(co)
 
     def conjugate_passe_compose(self, infinitive):
         co = self._get_conj_obs(infinitive)
         return self._conjugate_passe_compose(co)
 
-    def conjugate_passe_subjonctif(self, infinitive):
+    def conjugate_pluperfect(self, infinitive):
         co = self._get_conj_obs(infinitive)
-        return self._conjugate_passe_subjonctif(co)
+        return self._conjugate_pluperfect(co)
+
+    def conjugate_subjunctive_past(self, infinitive):
+        co = self._get_conj_obs(infinitive)
+        return self._conjugate_subjunctive_past(co)
+
+    def conjugate_conditional_past(self, infinitive):
+        co = self._get_conj_obs(infinitive)
+        return self._conjugate_conditional_past(co)
 
     def _conjugate_passe_compose(self, co):
-        return self._conjugate_passe_compound(co, 'indicative', 'indicative', 'present')
+        return self._conjugate_compound(co, 'indicative', 'indicative', 'present')
 
-    def _conjugate_passe_subjonctif(self, co):
-        return self._conjugate_passe_compound(co, 'subjunctive', 'subjunctive', 'present')
+    def _conjugate_pluperfect(self, co):
+        return self._conjugate_compound(co, 'indicative', 'indicative', 'imperfect')
 
-    def _conjugate_passe_compound(self, co, mood_name, hv_mood_name, hv_tense_name):
+    def _conjugate_subjunctive_past(self, co):
+        return self._conjugate_compound(co, 'subjunctive', 'subjunctive', 'present')
+
+    def _conjugate_conditional_past(self, co):
+        return self._conjugate_compound(co, 'conditional', 'conditional', 'present')
+
+    def _conjugate_compound(self, co, mood_name, hv_mood_name, hv_tense_name):
         """Conjugate a compound tense
         Args:
             co: ConjugationObjects for the verb being conjugated

@@ -68,6 +68,14 @@ expected_resp_conj_indicative_pouvoir = {
       "nous avons pu",
       "vous avez pu",
       "ils ont pu"
+    ],
+    "pluperfect": [
+      "j'avais pu",
+      "tu avais pu",
+      "il avait pu",
+      "nous avions pu",
+      "vous aviez pu",
+      "ils avaient pu"
     ]
   }
 }
@@ -133,6 +141,14 @@ expected_resp_conj_pouvoir = {
           "nous avons pu",
           "vous avez pu",
           "ils ont pu"
+        ],
+        "pluperfect": [
+          "j'avais pu",
+          "tu avais pu",
+          "il avait pu",
+          "nous avions pu",
+          "vous aviez pu",
+          "ils avaient pu"
         ]
       },
       "conditional": {
@@ -143,6 +159,14 @@ expected_resp_conj_pouvoir = {
           "nous pourrions",
           "vous pourriez",
           "ils pourraient"
+        ],
+        "past": [
+          "j'aurais pu",
+          "tu aurais pu",
+          "il aurait pu",
+          "nous aurions pu",
+          "vous auriez pu",
+          "ils auraient pu"
         ]
       },
       "subjunctive": {
@@ -222,12 +246,20 @@ expected_resp_conj_pleuvoir = {
         "passé-composé": [
           "il a plu",
           "ils ont plu"
+        ],
+        "pluperfect": [
+          "il avait plu",
+          "ils avaient plu"
         ]
       },
       "conditional": {
         "present": [
           "il pleuvrait",
           "ils pleuvraient"
+        ],
+        "past": [
+          "il aurait plu",
+          "ils auraient plu"
         ]
       },
       "subjunctive": {
@@ -315,6 +347,14 @@ expected_resp_conj_se_lever = {
           "nous nous sommes levés",
           "vous vous êtes levés",
           "ils se sont levés"
+        ],
+        "pluperfect": [
+          "je m'étais levé",
+          "tu t'étais levé",
+          "il s'était levé",
+          "nous nous étions levés",
+          "vous vous étiez levés",
+          "ils s'étaient levés"
         ]
       },
       "conditional": {
@@ -325,6 +365,14 @@ expected_resp_conj_se_lever = {
           "nous nous lèverions",
           "vous vous lèveriez",
           "ils se lèveraient"
+        ],
+        "past": [
+          "je me serais levé",
+          "tu te serais levé",
+          "il se serait levé",
+          "nous nous serions levés",
+          "vous vous seriez levés",
+          "ils se seraient levés"
         ]
       },
       "subjunctive": {
