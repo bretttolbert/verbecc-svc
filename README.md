@@ -107,6 +107,14 @@ This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sar
           "nous aurons mangé",
           "vous aurez mangé",
           "ils auront mangé"
+        ],
+        "anterior-past": [
+          "j'eus mangé",
+          "tu eus mangé",
+          "il eut mangé",
+          "nous eûmes mangé",
+          "vous eûtes mangé",
+          "ils eurent mangé"
         ]
       },
       "conditional": {
@@ -240,6 +248,38 @@ This package was created with the help of [Verbiste](https://perso.b2b2c.ca/~sar
       "nous mangeâmes",
       "vous mangeâtes",
       "ils mangèrent"
+    ],
+    "passé-composé": [
+      "j'ai mangé",
+      "tu as mangé",
+      "il a mangé",
+      "nous avons mangé",
+      "vous avez mangé",
+      "ils ont mangé"
+    ],
+    "pluperfect": [
+      "j'avais mangé",
+      "tu avais mangé",
+      "il avait mangé",
+      "nous avions mangé",
+      "vous aviez mangé",
+      "ils avaient mangé"
+    ],
+    "future-perfect": [
+      "j'aurai mangé",
+      "tu auras mangé",
+      "il aura mangé",
+      "nous aurons mangé",
+      "vous aurez mangé",
+      "ils auront mangé"
+    ],
+    "anterior-past": [
+      "j'eus mangé",
+      "tu eus mangé",
+      "il eut mangé",
+      "nous eûmes mangé",
+      "vous eûtes mangé",
+      "ils eurent mangé"
     ]
   }
 }

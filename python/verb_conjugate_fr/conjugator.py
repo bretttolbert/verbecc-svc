@@ -118,6 +118,7 @@ class Conjugator:
             conjugations['passé-composé'] = self._conjugate_passe_compose(co)
             conjugations['pluperfect'] = self._conjugate_pluperfect(co)
             conjugations['future-perfect'] = self._conjugate_future_perfect(co)
+            conjugations['anterior-past'] = self._conjugate_anterior_past(co)
         elif mood_name == 'subjunctive':
             conjugations['past'] = self._conjugate_subjunctive_past(co)
         elif mood_name == 'conditional':
@@ -135,6 +136,10 @@ class Conjugator:
         co = self._get_conj_obs(infinitive)
         return self._conjugate_future_perfect(co)
 
+    def conjugate_anterior_past(self, infinitive):
+        co = self._get_conj_obs(infinitive)
+        return self._conjugate_anterior_past(co)
+
     def conjugate_subjunctive_past(self, infinitive):
         co = self._get_conj_obs(infinitive)
         return self._conjugate_subjunctive_past(co)
@@ -151,6 +156,9 @@ class Conjugator:
 
     def _conjugate_future_perfect(self, co):
         return self._conjugate_compound(co, 'indicative', 'indicative', 'future')
+
+    def _conjugate_anterior_past(self, co):
+        return self._conjugate_compound(co, 'indicative', 'indicative', 'simple-past')
 
     def _conjugate_subjunctive_past(self, co):
         return self._conjugate_compound(co, 'subjunctive', 'subjunctive', 'present')
