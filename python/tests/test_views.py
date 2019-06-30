@@ -225,6 +225,14 @@ expected_resp_conj_pouvoir = {
           "que nous ayons pu",
           "que vous ayez pu",
           "qu'ils aient pu"
+        ],
+        "pluperfect": [
+          "que j'eusse pu",
+          "que tu eusses pu",
+          "qu'il eût pu",
+          "que nous eussions pu",
+          "que vous eussiez pu",
+          "qu'ils eussent pu"
         ]
       },
       "imperative": {
@@ -313,6 +321,10 @@ expected_resp_conj_pleuvoir = {
         "past": [
           "qu'il ait plu",
           "qu'ils aient plu"
+        ],
+        "pluperfect": [
+          "qu'il eût plu",
+          "qu'ils eussent plu"
         ]
       },
       "imperative": {
@@ -455,6 +467,14 @@ expected_resp_conj_se_lever = {
           "que nous nous soyons levés",
           "que vous vous soyez levés",
           "qu'ils se soient levés"
+        ],
+        "pluperfect": [
+          "que je me fusse levé",
+          "que tu te fusses levé",
+          "qu'il se fût levé",
+          "que nous nous fussions levés",
+          "que vous vous fussiez levés",
+          "qu'ils se fussent levés"
         ]
       },
       "imperative": {

@@ -126,6 +126,26 @@ def test_conjugator_conjugate_pluperfect_with_etre():
     "ils étaient allés"
     ]
 
+def test_conjugator_conjugate_subjunctive_pluperfect_with_avoir():
+    assert conj.conjugate_subjunctive_pluperfect('manger') == [
+    "que j'eusse mangé",
+    "que tu eusses mangé",
+    "qu'il eût mangé",
+    "que nous eussions mangé",
+    "que vous eussiez mangé",
+    "qu'ils eussent mangé"
+    ]
+
+def test_conjugator_conjugate_subjunctive_pluperfect_with_etre():
+    assert conj.conjugate_subjunctive_pluperfect('aller') == [
+    "que je fusse allé",
+    "que tu fusses allé",
+    "qu'il fût allé",
+    "que nous fussions allés",
+    "que vous fussiez allés",
+    "qu'ils fussent allés"
+    ]
+
 def test_conjugator_conjugate_future_perfect_with_avoir():
     assert conj.conjugate_future_perfect('manger') == [
     "j'aurai mangé",
