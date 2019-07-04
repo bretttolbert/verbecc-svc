@@ -12,12 +12,12 @@
 
 7000 verbs supported.
 
-[![pipeline status](https://gitlab.com/bretttolbert/verbecc-svc/badges/master/pipeline.svg)](https://gitlab.com/bretttolbert/verbecc-svc/pipelines)
+[![pipeline status](https://gitlab.com/bretttolbert/verb-conjugate-fr/badges/master/pipeline.svg)](https://gitlab.com/bretttolbert/verb-conjugate-fr/pipelines)
 
 * Dockerized
 * Unit tested
 * Continuous Integration and Deployment with GitLab CI/CD
-* Web Interface available: https://gitlab.com/bretttolbert/verbecc-web
+* Web front-end available: https://github.com/bretttolbert/verbecc-web
 
 ## See it live
 http://verbe.cc/vcfr/conjugate/manger
