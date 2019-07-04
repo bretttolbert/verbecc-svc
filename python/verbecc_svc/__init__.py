@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-app = FastAPI(title='verb-conjugate-fr')
+app = FastAPI(title='verbecc-svc')
 
 app.add_middleware(
     CORSMiddleware,
@@ -12,4 +12,4 @@ app.add_middleware(
     allow_headers=['*'],
 )
 
-import verb_conjugate_fr.views
+import verbecc_svc.views

@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name='Verb Conjugate fr',
+    name='verbecc-svc',
     version='1.0',
-    packages=['verb_conjugate_fr'],
+    packages=['verbecc_svc'],
 )

@@ -11,4 +11,4 @@ RUN pip install -e .
 
 EXPOSE 8000
 
-CMD gunicorn verb_conjugate_fr:app -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0
+CMD gunicorn verbecc_svc:app -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0

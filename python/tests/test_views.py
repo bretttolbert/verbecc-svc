@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from verb_conjugate_fr import app 
+from verbecc_svc import app 
 from starlette.testclient import TestClient
 
 client = TestClient(app)

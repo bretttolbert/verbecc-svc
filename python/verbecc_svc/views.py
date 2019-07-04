@@ -1,14 +1,14 @@
 #!/usr/bin/env python
-from verb_conjugate_fr import app
+from verbecc_svc import app
 from fastapi import HTTPException
 import sys
 import traceback
-from .conjugator import (Conjugator, get_verb_stem,
+from verbecc.conjugator import (Conjugator, get_verb_stem,
     ConjugatorError, InvalidMoodError)
-from .conjugation_template import ConjugationTemplate
-from .conjugations_parser import (
+from verbecc.conjugation_template import ConjugationTemplate
+from verbecc.conjugations_parser import (
     ConjugationsParser, TemplateNotFoundError)
-from .verbs_parser import VerbNotFoundError
+from verbecc.verbs_parser import VerbNotFoundError
 
 cg = Conjugator()
 
