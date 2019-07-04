@@ -4,11 +4,25 @@
 
 ### Verbs, completely conjugated - French conjugator
 
+https://github.com/bretttolbert/verbecc
+
 # verbecc-svc
 
 ### verbecc-svc Microservice Python avec un API REST pour la conjugaison des verbes français
 
 ### verbecc-svc Python microservice with REST API for conjugation of French verbs
+
+https://github.com/bretttolbert/verbecc-svc
+
+# verbecc-web
+
+### Web front-end for verbecc-svc
+
+### Une interface web pour verbecc-svc
+
+https://github.com/bretttolbert/verbecc-web
+
+http://verbe.cc
 
 7000 verbs supported.
 
@@ -17,7 +31,6 @@
 * Dockerized
 * Unit tested
 * Continuous Integration and Deployment with GitLab CI/CD
-* Web front-end available: https://github.com/bretttolbert/verbecc-web
 
 ## See it live
 http://verbe.cc/vcfr/conjugate/manger
