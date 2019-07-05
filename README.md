@@ -86,26 +86,6 @@ Created with the help of [verbecc-svc](https://github.com/bretttolbert/verbecc-s
 ```   
 
 
-Mode du verbe|"mood" API key
---- | ---
-Infinitif | infinitive
-Indicatif | indicative
-Impératif | imperative
-Conditionnel | conditional
-Participe | participle
-
-Temps du verbe|"tense" API key
---- | ---
-Présent | present
-Passé | past
-Imparfait | imperfect
-Future simple | future
-Future antérieur | future-perfect
-Passé antérieur | anterior-past
-Passé composé | passé-composé
-Plus-que-parfait | pluperfect
-
-
 # verbecc-svc
 
 #### Quick Start (Docker)
@@ -134,13 +114,13 @@ $ make dev
       "stem": "man"
     },
     "moods": {
-      "infinitive": {
-        "infinitive-present": [
+      "infinitif": {
+        "infinitif-présent": [
           "manger"
         ]
       },
-      "indicative": {
-        "present": [
+      "indicatif": {
+        "présent": [
           "je mange",
           "tu manges",
           "il mange",
@@ -148,7 +128,7 @@ $ make dev
           "vous mangez",
           "ils mangent"
         ],
-        "imperfect": [
+        "imparfait": [
           "je mangeais",
           "tu mangeais",
           "il mangeait",
@@ -156,7 +136,7 @@ $ make dev
           "vous mangiez",
           "ils mangeaient"
         ],
-        "future": [
+        "futur-simple": [
           "je mangerai",
           "tu mangeras",
           "il mangera",
@@ -164,7 +144,7 @@ $ make dev
           "vous mangerez",
           "ils mangeront"
         ],
-        "simple-past": [
+        "passé-simple": [
           "je mangeai",
           "tu mangeas",
           "il mangea",
@@ -180,7 +160,7 @@ $ make dev
           "vous avez mangé",
           "ils ont mangé"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "j'avais mangé",
           "tu avais mangé",
           "il avait mangé",
@@ -188,7 +168,7 @@ $ make dev
           "vous aviez mangé",
           "ils avaient mangé"
         ],
-        "future-perfect": [
+        "futur-antérieur": [
           "j'aurai mangé",
           "tu auras mangé",
           "il aura mangé",
@@ -196,7 +176,7 @@ $ make dev
           "vous aurez mangé",
           "ils auront mangé"
         ],
-        "anterior-past": [
+        "passé-antérieur": [
           "j'eus mangé",
           "tu eus mangé",
           "il eut mangé",
@@ -205,8 +185,8 @@ $ make dev
           "ils eurent mangé"
         ]
       },
-      "conditional": {
-        "present": [
+      "conditionnel": {
+        "présent": [
           "je mangerais",
           "tu mangerais",
           "il mangerait",
@@ -214,7 +194,7 @@ $ make dev
           "vous mangeriez",
           "ils mangeraient"
         ],
-        "past": [
+        "passé": [
           "j'aurais mangé",
           "tu aurais mangé",
           "il aurait mangé",
@@ -223,8 +203,8 @@ $ make dev
           "ils auraient mangé"
         ]
       },
-      "subjunctive": {
-        "present": [
+      "subjonctif": {
+        "présent": [
           "que je mange",
           "que tu manges",
           "qu'il mange",
@@ -232,7 +212,7 @@ $ make dev
           "que vous mangiez",
           "qu'ils mangent"
         ],
-        "imperfect": [
+        "imparfait": [
           "que je mangeasse",
           "que tu mangeasses",
           "qu'il mangeât",
@@ -240,7 +220,7 @@ $ make dev
           "que vous mangeassiez",
           "qu'ils mangeassent"
         ],
-        "past": [
+        "passé": [
           "que j'aie mangé",
           "que tu aies mangé",
           "qu'il ait mangé",
@@ -248,7 +228,7 @@ $ make dev
           "que vous ayez mangé",
           "qu'ils aient mangé"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "que j'eusse mangé",
           "que tu eusses mangé",
           "qu'il eût mangé",
@@ -257,23 +237,23 @@ $ make dev
           "qu'ils eussent mangé"
         ]
       },
-      "imperative": {
-        "imperative-present": [
+      "imperatif": {
+        "imperatif-présent": [
           "mange",
           "mangeons",
           "mangez"
         ],
-        "imperative-past": [
+        "imperatif-passé": [
           "aie mangé",
           "ayons mangé",
           "ayez mangé"
         ]
       },
-      "participle": {
-        "present-participle": [
+      "participe": {
+        "participe-présent": [
           "mangeant"
         ],
-        "past-participle": [
+        "participe-passé": [
           "mangé",
           "mangés",
           "mangée",
@@ -296,13 +276,13 @@ $ make dev
       "stem": "l"
     },
     "moods": {
-      "infinitive": {
-        "infinitive-present": [
+      "infinitif": {
+        "infinitif-présent": [
           "se lever"
         ]
       },
-      "indicative": {
-        "present": [
+      "indicatif": {
+        "présent": [
           "je me lève",
           "tu te lèves",
           "il se lève",
@@ -310,7 +290,7 @@ $ make dev
           "vous vous levez",
           "ils se lèvent"
         ],
-        "imperfect": [
+        "imparfait": [
           "je me levais",
           "tu te levais",
           "il se levait",
@@ -318,7 +298,7 @@ $ make dev
           "vous vous leviez",
           "ils se levaient"
         ],
-        "future": [
+        "futur-simple": [
           "je me lèverai",
           "tu te lèveras",
           "il se lèvera",
@@ -326,7 +306,7 @@ $ make dev
           "vous vous lèverez",
           "ils se lèveront"
         ],
-        "simple-past": [
+        "passé-simple": [
           "je me levai",
           "tu te levas",
           "il se leva",
@@ -342,7 +322,7 @@ $ make dev
           "vous vous êtes levés",
           "ils se sont levés"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "je m'étais levé",
           "tu t'étais levé",
           "il s'était levé",
@@ -350,7 +330,7 @@ $ make dev
           "vous vous étiez levés",
           "ils s'étaient levés"
         ],
-        "future-perfect": [
+        "futur-antérieur": [
           "je me serai levé",
           "tu te seras levé",
           "il se sera levé",
@@ -358,7 +338,7 @@ $ make dev
           "vous vous serez levés",
           "ils se seront levés"
         ],
-        "anterior-past": [
+        "passé-antérieur": [
           "je me fus levé",
           "tu te fus levé",
           "il se fut levé",
@@ -367,8 +347,8 @@ $ make dev
           "ils se furent levés"
         ]
       },
-      "conditional": {
-        "present": [
+      "conditionnel": {
+        "présent": [
           "je me lèverais",
           "tu te lèverais",
           "il se lèverait",
@@ -376,7 +356,7 @@ $ make dev
           "vous vous lèveriez",
           "ils se lèveraient"
         ],
-        "past": [
+        "passé": [
           "je me serais levé",
           "tu te serais levé",
           "il se serait levé",
@@ -385,8 +365,8 @@ $ make dev
           "ils se seraient levés"
         ]
       },
-      "subjunctive": {
-        "present": [
+      "subjonctif": {
+        "présent": [
           "que je me lève",
           "que tu te lèves",
           "qu'il se lève",
@@ -394,7 +374,7 @@ $ make dev
           "que vous vous leviez",
           "qu'ils se lèvent"
         ],
-        "imperfect": [
+        "imparfait": [
           "que je me levasse",
           "que tu te levasses",
           "qu'il se levât",
@@ -402,7 +382,7 @@ $ make dev
           "que vous vous levassiez",
           "qu'ils se levassent"
         ],
-        "past": [
+        "passé": [
           "que je me sois levé",
           "que tu te sois levé",
           "qu'il se soit levé",
@@ -410,7 +390,7 @@ $ make dev
           "que vous vous soyez levés",
           "qu'ils se soient levés"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "que je me fusse levé",
           "que tu te fusses levé",
           "qu'il se fût levé",
@@ -419,19 +399,19 @@ $ make dev
           "qu'ils se fussent levés"
         ]
       },
-      "imperative": {
-        "imperative-present": [
+      "imperatif": {
+        "imperatif-présent": [
           "lève-toi",
           "levons-nous",
           "levez-vous"
         ],
-        "imperative-past": []
+        "imperatif-passé": []
       },
-      "participle": {
-        "present-participle": [
+      "participe": {
+        "participe-présent": [
           "se levant"
         ],
-        "past-participle": [
+        "participe-passé": [
           "s'étant levé",
           "s'étant levés",
           "s'étant levée",
@@ -472,11 +452,11 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/conjugate/mood/indicative/manger
+* http://localhost:8000/conjugate/mood/indicatif/manger
 ```
 {
   "value": {
-    "present": [
+    "présent": [
       "je mange",
       "tu manges",
       "il mange",
@@ -484,7 +464,7 @@ $ make dev
       "vous mangez",
       "ils mangent"
     ],
-    "imperfect": [
+    "imparfait": [
       "je mangeais",
       "tu mangeais",
       "il mangeait",
@@ -492,7 +472,7 @@ $ make dev
       "vous mangiez",
       "ils mangeaient"
     ],
-    "future": [
+    "futur-simple": [
       "je mangerai",
       "tu mangeras",
       "il mangera",
@@ -500,7 +480,7 @@ $ make dev
       "vous mangerez",
       "ils mangeront"
     ],
-    "simple-past": [
+    "passé-simple": [
       "je mangeai",
       "tu mangeas",
       "il mangea",
@@ -516,7 +496,7 @@ $ make dev
       "vous avez mangé",
       "ils ont mangé"
     ],
-    "pluperfect": [
+    "plus-que-parfait": [
       "j'avais mangé",
       "tu avais mangé",
       "il avait mangé",
@@ -524,7 +504,7 @@ $ make dev
       "vous aviez mangé",
       "ils avaient mangé"
     ],
-    "future-perfect": [
+    "futur-antérieur": [
       "j'aurai mangé",
       "tu auras mangé",
       "il aura mangé",
@@ -532,7 +512,7 @@ $ make dev
       "vous aurez mangé",
       "ils auront mangé"
     ],
-    "anterior-past": [
+    "passé-antérieur": [
       "j'eus mangé",
       "tu eus mangé",
       "il eut mangé",

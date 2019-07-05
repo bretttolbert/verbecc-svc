@@ -29,7 +29,7 @@ test_find_infinitive_data = [
 
 expected_resp_conj_indicative_pouvoir = {
   "value": {
-    "present": [
+    "présent": [
       "je peux",
       "tu peux",
       "il peut",
@@ -37,7 +37,7 @@ expected_resp_conj_indicative_pouvoir = {
       "vous pouvez",
       "ils peuvent"
     ],
-    "imperfect": [
+    "imparfait": [
       "je pouvais",
       "tu pouvais",
       "il pouvait",
@@ -45,7 +45,7 @@ expected_resp_conj_indicative_pouvoir = {
       "vous pouviez",
       "ils pouvaient"
     ],
-    "future": [
+    "futur-simple": [
       "je pourrai",
       "tu pourras",
       "il pourra",
@@ -53,7 +53,7 @@ expected_resp_conj_indicative_pouvoir = {
       "vous pourrez",
       "ils pourront"
     ],
-    "simple-past": [
+    "passé-simple": [
       "je pus",
       "tu pus",
       "il put",
@@ -69,7 +69,7 @@ expected_resp_conj_indicative_pouvoir = {
       "vous avez pu",
       "ils ont pu"
     ],
-    "pluperfect": [
+    "plus-que-parfait": [
       "j'avais pu",
       "tu avais pu",
       "il avait pu",
@@ -77,7 +77,7 @@ expected_resp_conj_indicative_pouvoir = {
       "vous aviez pu",
       "ils avaient pu"
     ],
-    "future-perfect": [
+    "futur-antérieur": [
       "j'aurai pu",
       "tu auras pu",
       "il aura pu",
@@ -85,7 +85,7 @@ expected_resp_conj_indicative_pouvoir = {
       "vous aurez pu",
       "ils auront pu"
     ],
-    "anterior-past": [
+    "passé-antérieur": [
       "j'eus pu",
       "tu eus pu",
       "il eut pu",
@@ -97,9 +97,9 @@ expected_resp_conj_indicative_pouvoir = {
 }
 
 test_conj_mood_data = [
-    ("indicative", "pouvoir", 200, expected_resp_conj_indicative_pouvoir),
-    ("indicative", "Pouvoir", 200, expected_resp_conj_indicative_pouvoir),
-    ("indicative", "oops", 404, {"detail": "Verb not found"}),
+    ("indicatif", "pouvoir", 200, expected_resp_conj_indicative_pouvoir),
+    ("indicatif", "Pouvoir", 200, expected_resp_conj_indicative_pouvoir),
+    ("indicatif", "oops", 404, {"detail": "Verb not found"}),
     ("oops", "pouvoir", 404, {"detail": "Invalid mood"})
 ]
 
@@ -112,13 +112,13 @@ expected_resp_conj_manger = {
       "stem": "man"
     },
     "moods": {
-      "infinitive": {
-        "infinitive-present": [
+      "infinitif": {
+        "infinitif-présent": [
           "manger"
         ]
       },
-      "indicative": {
-        "present": [
+      "indicatif": {
+        "présent": [
           "je mange",
           "tu manges",
           "il mange",
@@ -126,7 +126,7 @@ expected_resp_conj_manger = {
           "vous mangez",
           "ils mangent"
         ],
-        "imperfect": [
+        "imparfait": [
           "je mangeais",
           "tu mangeais",
           "il mangeait",
@@ -134,7 +134,7 @@ expected_resp_conj_manger = {
           "vous mangiez",
           "ils mangeaient"
         ],
-        "future": [
+        "futur-simple": [
           "je mangerai",
           "tu mangeras",
           "il mangera",
@@ -142,7 +142,7 @@ expected_resp_conj_manger = {
           "vous mangerez",
           "ils mangeront"
         ],
-        "simple-past": [
+        "passé-simple": [
           "je mangeai",
           "tu mangeas",
           "il mangea",
@@ -158,7 +158,7 @@ expected_resp_conj_manger = {
           "vous avez mangé",
           "ils ont mangé"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "j'avais mangé",
           "tu avais mangé",
           "il avait mangé",
@@ -166,7 +166,7 @@ expected_resp_conj_manger = {
           "vous aviez mangé",
           "ils avaient mangé"
         ],
-        "future-perfect": [
+        "futur-antérieur": [
           "j'aurai mangé",
           "tu auras mangé",
           "il aura mangé",
@@ -174,7 +174,7 @@ expected_resp_conj_manger = {
           "vous aurez mangé",
           "ils auront mangé"
         ],
-        "anterior-past": [
+        "passé-antérieur": [
           "j'eus mangé",
           "tu eus mangé",
           "il eut mangé",
@@ -183,8 +183,8 @@ expected_resp_conj_manger = {
           "ils eurent mangé"
         ]
       },
-      "conditional": {
-        "present": [
+      "conditionnel": {
+        "présent": [
           "je mangerais",
           "tu mangerais",
           "il mangerait",
@@ -192,7 +192,7 @@ expected_resp_conj_manger = {
           "vous mangeriez",
           "ils mangeraient"
         ],
-        "past": [
+        "passé": [
           "j'aurais mangé",
           "tu aurais mangé",
           "il aurait mangé",
@@ -201,8 +201,8 @@ expected_resp_conj_manger = {
           "ils auraient mangé"
         ]
       },
-      "subjunctive": {
-        "present": [
+      "subjonctif": {
+        "présent": [
           "que je mange",
           "que tu manges",
           "qu'il mange",
@@ -210,7 +210,7 @@ expected_resp_conj_manger = {
           "que vous mangiez",
           "qu'ils mangent"
         ],
-        "imperfect": [
+        "imparfait": [
           "que je mangeasse",
           "que tu mangeasses",
           "qu'il mangeât",
@@ -218,7 +218,7 @@ expected_resp_conj_manger = {
           "que vous mangeassiez",
           "qu'ils mangeassent"
         ],
-        "past": [
+        "passé": [
           "que j'aie mangé",
           "que tu aies mangé",
           "qu'il ait mangé",
@@ -226,7 +226,7 @@ expected_resp_conj_manger = {
           "que vous ayez mangé",
           "qu'ils aient mangé"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "que j'eusse mangé",
           "que tu eusses mangé",
           "qu'il eût mangé",
@@ -235,23 +235,23 @@ expected_resp_conj_manger = {
           "qu'ils eussent mangé"
         ]
       },
-      "imperative": {
-        "imperative-present": [
+      "imperatif": {
+        "imperatif-présent": [
           "mange",
           "mangeons",
           "mangez"
         ],
-        "imperative-past": [
+        "imperatif-passé": [
           "aie mangé",
           "ayons mangé",
           "ayez mangé"
         ]
       },
-      "participle": {
-        "present-participle": [
+      "participe": {
+        "participe-présent": [
           "mangeant"
         ],
-        "past-participle": [
+        "participe-passé": [
           "mangé",
           "mangés",
           "mangée",
@@ -271,13 +271,13 @@ expected_resp_conj_pouvoir = {
       "stem": "p"
     },
     "moods": {
-      "infinitive": {
-        "infinitive-present": [
+      "infinitif": {
+        "infinitif-présent": [
           "pouvoir"
         ]
       },
-      "indicative": {
-        "present": [
+      "indicatif": {
+        "présent": [
           "je peux",
           "tu peux",
           "il peut",
@@ -285,7 +285,7 @@ expected_resp_conj_pouvoir = {
           "vous pouvez",
           "ils peuvent"
         ],
-        "imperfect": [
+        "imparfait": [
           "je pouvais",
           "tu pouvais",
           "il pouvait",
@@ -293,7 +293,7 @@ expected_resp_conj_pouvoir = {
           "vous pouviez",
           "ils pouvaient"
         ],
-        "future": [
+        "futur-simple": [
           "je pourrai",
           "tu pourras",
           "il pourra",
@@ -301,7 +301,7 @@ expected_resp_conj_pouvoir = {
           "vous pourrez",
           "ils pourront"
         ],
-        "simple-past": [
+        "passé-simple": [
           "je pus",
           "tu pus",
           "il put",
@@ -317,7 +317,7 @@ expected_resp_conj_pouvoir = {
           "vous avez pu",
           "ils ont pu"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "j'avais pu",
           "tu avais pu",
           "il avait pu",
@@ -325,7 +325,7 @@ expected_resp_conj_pouvoir = {
           "vous aviez pu",
           "ils avaient pu"
         ],
-        "future-perfect": [
+        "futur-antérieur": [
           "j'aurai pu",
           "tu auras pu",
           "il aura pu",
@@ -333,7 +333,7 @@ expected_resp_conj_pouvoir = {
           "vous aurez pu",
           "ils auront pu"
         ],
-        "anterior-past": [
+        "passé-antérieur": [
           "j'eus pu",
           "tu eus pu",
           "il eut pu",
@@ -342,8 +342,8 @@ expected_resp_conj_pouvoir = {
           "ils eurent pu"
         ]
       },
-      "conditional": {
-        "present": [
+      "conditionnel": {
+        "présent": [
           "je pourrais",
           "tu pourrais",
           "il pourrait",
@@ -351,7 +351,7 @@ expected_resp_conj_pouvoir = {
           "vous pourriez",
           "ils pourraient"
         ],
-        "past": [
+        "passé": [
           "j'aurais pu",
           "tu aurais pu",
           "il aurait pu",
@@ -360,8 +360,8 @@ expected_resp_conj_pouvoir = {
           "ils auraient pu"
         ]
       },
-      "subjunctive": {
-        "present": [
+      "subjonctif": {
+        "présent": [
           "que je puisse",
           "que tu puisses",
           "qu'il puisse",
@@ -369,7 +369,7 @@ expected_resp_conj_pouvoir = {
           "que vous puissiez",
           "qu'ils puissent"
         ],
-        "imperfect": [
+        "imparfait": [
           "que je pusse",
           "que tu pusses",
           "qu'il pût",
@@ -377,7 +377,7 @@ expected_resp_conj_pouvoir = {
           "que vous pussiez",
           "qu'ils pussent"
         ],
-        "past": [
+        "passé": [
           "que j'aie pu",
           "que tu aies pu",
           "qu'il ait pu",
@@ -385,7 +385,7 @@ expected_resp_conj_pouvoir = {
           "que vous ayez pu",
           "qu'ils aient pu"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "que j'eusse pu",
           "que tu eusses pu",
           "qu'il eût pu",
@@ -394,15 +394,15 @@ expected_resp_conj_pouvoir = {
           "qu'ils eussent pu"
         ]
       },
-      "imperative": {
-        "imperative-present": [],
-        "imperative-past": []
+      "imperatif": {
+        "imperatif-présent": [],
+        "imperatif-passé": []
       },
-      "participle": {
-        "present-participle": [
+      "participe": {
+        "participe-présent": [
           "pouvant"
         ],
-        "past-participle": [
+        "participe-passé": [
           "pu",
           "pus",
           "pue",
@@ -422,25 +422,25 @@ expected_resp_conj_pleuvoir = {
       "stem": "pl"
     },
     "moods": {
-      "infinitive": {
-        "infinitive-present": [
+      "infinitif": {
+        "infinitif-présent": [
           "pleuvoir"
         ]
       },
-      "indicative": {
-        "present": [
+      "indicatif": {
+        "présent": [
           "il pleut",
           "ils pleuvent"
         ],
-        "imperfect": [
+        "imparfait": [
           "il pleuvait",
           "ils pleuvaient"
         ],
-        "future": [
+        "futur-simple": [
           "il pleuvra",
           "ils pleuvront"
         ],
-        "simple-past": [
+        "passé-simple": [
           "il plut",
           "ils plurent"
         ],
@@ -448,56 +448,56 @@ expected_resp_conj_pleuvoir = {
           "il a plu",
           "ils ont plu"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "il avait plu",
           "ils avaient plu"
         ],
-        "future-perfect": [
+        "futur-antérieur": [
           "il aura plu",
           "ils auront plu"
         ],
-        "anterior-past": [
+        "passé-antérieur": [
           "il eut plu",
           "ils eurent plu"
         ]
       },
-      "conditional": {
-        "present": [
+      "conditionnel": {
+        "présent": [
           "il pleuvrait",
           "ils pleuvraient"
         ],
-        "past": [
+        "passé": [
           "il aurait plu",
           "ils auraient plu"
         ]
       },
-      "subjunctive": {
-        "present": [
+      "subjonctif": {
+        "présent": [
           "qu'il pleuve",
           "qu'ils pleuvent"
         ],
-        "imperfect": [
+        "imparfait": [
           "qu'il plût",
           "qu'ils plussent"
         ],
-        "past": [
+        "passé": [
           "qu'il ait plu",
           "qu'ils aient plu"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "qu'il eût plu",
           "qu'ils eussent plu"
         ]
       },
-      "imperative": {
-        "imperative-present": [],
-        "imperative-past": []
+      "imperatif": {
+        "imperatif-présent": [],
+        "imperatif-passé": []
       },
-      "participle": {
-        "present-participle": [
+      "participe": {
+        "participe-présent": [
           "pleuvant"
         ],
-        "past-participle": [
+        "participe-passé": [
           "plu",
           "plus",
           "plue",
@@ -517,13 +517,13 @@ expected_resp_conj_se_lever = {
       "stem": "l"
     },
     "moods": {
-      "infinitive": {
-        "infinitive-present": [
+      "infinitif": {
+        "infinitif-présent": [
           "se lever"
         ]
       },
-      "indicative": {
-        "present": [
+      "indicatif": {
+        "présent": [
           "je me lève",
           "tu te lèves",
           "il se lève",
@@ -531,7 +531,7 @@ expected_resp_conj_se_lever = {
           "vous vous levez",
           "ils se lèvent"
         ],
-        "imperfect": [
+        "imparfait": [
           "je me levais",
           "tu te levais",
           "il se levait",
@@ -539,7 +539,7 @@ expected_resp_conj_se_lever = {
           "vous vous leviez",
           "ils se levaient"
         ],
-        "future": [
+        "futur-simple": [
           "je me lèverai",
           "tu te lèveras",
           "il se lèvera",
@@ -547,7 +547,7 @@ expected_resp_conj_se_lever = {
           "vous vous lèverez",
           "ils se lèveront"
         ],
-        "simple-past": [
+        "passé-simple": [
           "je me levai",
           "tu te levas",
           "il se leva",
@@ -563,7 +563,7 @@ expected_resp_conj_se_lever = {
           "vous vous êtes levés",
           "ils se sont levés"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "je m'étais levé",
           "tu t'étais levé",
           "il s'était levé",
@@ -571,7 +571,7 @@ expected_resp_conj_se_lever = {
           "vous vous étiez levés",
           "ils s'étaient levés"
         ],
-        "future-perfect": [
+        "futur-antérieur": [
           "je me serai levé",
           "tu te seras levé",
           "il se sera levé",
@@ -579,7 +579,7 @@ expected_resp_conj_se_lever = {
           "vous vous serez levés",
           "ils se seront levés"
         ],
-        "anterior-past": [
+        "passé-antérieur": [
           "je me fus levé",
           "tu te fus levé",
           "il se fut levé",
@@ -588,8 +588,8 @@ expected_resp_conj_se_lever = {
           "ils se furent levés"
         ]
       },
-      "conditional": {
-        "present": [
+      "conditionnel": {
+        "présent": [
           "je me lèverais",
           "tu te lèverais",
           "il se lèverait",
@@ -597,7 +597,7 @@ expected_resp_conj_se_lever = {
           "vous vous lèveriez",
           "ils se lèveraient"
         ],
-        "past": [
+        "passé": [
           "je me serais levé",
           "tu te serais levé",
           "il se serait levé",
@@ -606,8 +606,8 @@ expected_resp_conj_se_lever = {
           "ils se seraient levés"
         ]
       },
-      "subjunctive": {
-        "present": [
+      "subjonctif": {
+        "présent": [
           "que je me lève",
           "que tu te lèves",
           "qu'il se lève",
@@ -615,7 +615,7 @@ expected_resp_conj_se_lever = {
           "que vous vous leviez",
           "qu'ils se lèvent"
         ],
-        "imperfect": [
+        "imparfait": [
           "que je me levasse",
           "que tu te levasses",
           "qu'il se levât",
@@ -623,7 +623,7 @@ expected_resp_conj_se_lever = {
           "que vous vous levassiez",
           "qu'ils se levassent"
         ],
-        "past": [
+        "passé": [
           "que je me sois levé",
           "que tu te sois levé",
           "qu'il se soit levé",
@@ -631,7 +631,7 @@ expected_resp_conj_se_lever = {
           "que vous vous soyez levés",
           "qu'ils se soient levés"
         ],
-        "pluperfect": [
+        "plus-que-parfait": [
           "que je me fusse levé",
           "que tu te fusses levé",
           "qu'il se fût levé",
@@ -640,19 +640,19 @@ expected_resp_conj_se_lever = {
           "qu'ils se fussent levés"
         ]
       },
-      "imperative": {
-        "imperative-present": [
+      "imperatif": {
+        "imperatif-présent": [
           "lève-toi",
           "levons-nous",
           "levez-vous"
         ],
-        "imperative-past": []
+        "imperatif-passé": []
       },
-      "participle": {
-        "present-participle": [
+      "participe": {
+        "participe-présent": [
           "se levant"
         ],
-        "past-participle": [
+        "participe-passé": [
           "s'étant levé",
           "s'étant levés",
           "s'étant levée",
