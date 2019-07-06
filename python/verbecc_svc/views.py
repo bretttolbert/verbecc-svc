@@ -37,10 +37,6 @@ def read_find_conjugation_template(template_name: str):
 def read_conjugation_for_mood(mood: str, infinitive: str):
     return do_op(op(cg.get_full_conjugation_for_mood, infinitive, mood))
 
-@app.get("/conjugate/{infinitive}/passe-compose")
-def read_conjugation_passe_compose(infinitive: str):
-    return do_op(op(cg.conjugate_passe_compose, infinitive))
-
 def do_op(op):
     value = None
     try:
