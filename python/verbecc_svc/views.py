@@ -3,12 +3,12 @@ from verbecc_svc import app
 from fastapi import HTTPException
 import sys
 import traceback
-from verbecc.conjugator import (Conjugator, get_verb_stem,
-    ConjugatorError, InvalidMoodError)
-from verbecc.conjugation_template import ConjugationTemplate
-from verbecc.conjugations_parser import (
-    ConjugationsParser, TemplateNotFoundError)
-from verbecc.verbs_parser import VerbNotFoundError
+from verbecc.conjugator import (
+    Conjugator, 
+    ConjugatorError, 
+    InvalidMoodError,
+    TemplateNotFoundError,
+    VerbNotFoundError)
 
 cg = Conjugator()
 
@@ -59,7 +59,7 @@ def read_find_infinitive(infinitive: str):
 def read_find_conjugation_template(template_name: str):
     value = None
     try:
-        value = cg.conj_parser.find_template(template_name)
+        value = cg.find_template(template_name)
     except TemplateNotFoundError:
         raise HTTPException(status_code=404, detail="Template not found")
     except:
