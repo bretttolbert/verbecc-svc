@@ -45,6 +45,8 @@ def do_op(op):
         raise HTTPException(status_code=404, detail="Verb not found")
     except exceptions.InvalidMoodError:
         raise HTTPException(status_code=404, detail="Invalid mood")
+    except exceptions.InvalidTenseError:
+        raise HTTPException(status_code=404, detail="Invalid tense")
     except exceptions.TemplateNotFoundError:
         raise HTTPException(status_code=404, detail="Template not found")
     except exceptions.ConjugatorError:

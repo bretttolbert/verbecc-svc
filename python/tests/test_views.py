@@ -728,21 +728,26 @@ def test_search_infinitive(query, expected_status, expected_resp):
 @pytest.mark.parametrize("mood,infinitive,expected_status,expected_resp", 
                          test_conj_mood_data)
 def test_conjugate_mood(mood, infinitive, 
-                                   expected_status, expected_resp):
+                        expected_status, expected_resp):
     response = client.get(
         "/conjugate/{}?mood={}".format(infinitive, mood))
     assert response.status_code == expected_status
     assert response.json() == expected_resp
+
+def test_conjugate_mood_invalid_infinitive():
+    response = client.get("/conjugate/oops?mood=indicatif")
+    assert response.status_code == 404
+    assert response.json() == {"detail": "Verb not found"}
 
 def test_conjugate_mood_invalid_mood():
     response = client.get("/conjugate/manger?mood=oops")
     assert response.status_code == 404
     assert response.json() == {"detail": "Invalid mood"}
 
-def test_conjugate_mood_invalid_infinitive():
-    response = client.get("/conjugate/oops?mood=indicatif")
+def test_conjugate_mood_invalid_tense():
+    response = client.get("/conjugate/manger?mood=imperatif&tense=oops")
     assert response.status_code == 404
-    assert response.json() == {"detail": "Verb not found"}
+    assert response.json() == {"detail": "Invalid tense"}
 
 @pytest.mark.parametrize("infinitive,expected_status,expected_resp", 
                          test_conj_data)
