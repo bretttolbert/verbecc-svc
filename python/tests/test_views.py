@@ -664,19 +664,20 @@ expected_resp_conj_se_lever = {
 }
 
 test_conj_data = [
-    ("manger", 200, expected_resp_conj_manger),
-    ("pouvoir", 200, expected_resp_conj_pouvoir),
-    ("Pouvoir", 200, expected_resp_conj_pouvoir),
-    ("pleuvoir", 200, expected_resp_conj_pleuvoir),
-    ("Se lever", 200, expected_resp_conj_se_lever),
-    ("oops", 404, {"detail": "Verb not found"})
+    ("fr", "manger", 200, expected_resp_conj_manger),
+    ("fr", "pouvoir", 200, expected_resp_conj_pouvoir),
+    ("fr", "Pouvoir", 200, expected_resp_conj_pouvoir),
+    ("fr", "pleuvoir", 200, expected_resp_conj_pleuvoir),
+    ("fr", "Se lever", 200, expected_resp_conj_se_lever),
+    ("fr", "oops", 404, {"detail": "Verb not found"}),
+    ("oops", "oops", 404, {"detail": "Invalid language"})
 ]
 
 test_find_template_data = [
     ("oops:ie", 404, {"detail": "Template not found"})
 ]
 
-def test_read_root():
+def test_root():
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"value": "Hello 世界"}
@@ -684,14 +685,14 @@ def test_read_root():
 @pytest.mark.parametrize("infinitive,expected_status,expected_resp", 
                          test_find_infinitive_data)
 def test_find_infinitive(infinitive, expected_status, expected_resp):
-    response = client.get("/find/infinitive/{}".format(infinitive))
+    response = client.get("/find/infinitive/fr/{}".format(infinitive))
     assert response.status_code == expected_status
     assert response.json() == expected_resp
 
 @pytest.mark.parametrize("template,expected_status,expected_resp", 
                          test_find_template_data)
 def test_find_conjugation_template(template, expected_status, expected_resp):
-    response = client.get("/find/conjugation-template/{}".format(template))
+    response = client.get("/find/template/fr/{}".format(template))
     assert response.status_code == expected_status
     assert response.json() == expected_resp
 
@@ -721,7 +722,7 @@ test_search_infinitive_data = [
 @pytest.mark.parametrize("query,expected_status,expected_resp",
                          test_search_infinitive_data)
 def test_search_infinitive(query, expected_status, expected_resp):
-  response = client.get("/search/infinitive/{}".format(query))
+  response = client.get("/search/infinitive/fr/{}".format(query))
   assert response.status_code == expected_status
   assert response.json() == expected_resp
 
@@ -730,37 +731,37 @@ def test_search_infinitive(query, expected_status, expected_resp):
 def test_conjugate_mood(mood, infinitive, 
                         expected_status, expected_resp):
     response = client.get(
-        "/conjugate/{}?mood={}".format(infinitive, mood))
+        "/conjugate/fr/{}?mood={}".format(infinitive, mood))
     assert response.status_code == expected_status
     assert response.json() == expected_resp
 
 def test_conjugate_mood_invalid_infinitive():
-    response = client.get("/conjugate/oops?mood=indicatif")
+    response = client.get("/conjugate/fr/oops?mood=indicatif")
     assert response.status_code == 404
     assert response.json() == {"detail": "Verb not found"}
 
 def test_conjugate_mood_invalid_mood():
-    response = client.get("/conjugate/manger?mood=oops")
+    response = client.get("/conjugate/fr/manger?mood=oops")
     assert response.status_code == 404
     assert response.json() == {"detail": "Invalid mood"}
 
 def test_conjugate_mood_invalid_tense():
-    response = client.get("/conjugate/manger?mood=imperatif&tense=oops")
+    response = client.get("/conjugate/fr/manger?mood=imperatif&tense=oops")
     assert response.status_code == 404
     assert response.json() == {"detail": "Invalid tense"}
 
-@pytest.mark.parametrize("infinitive,expected_status,expected_resp", 
+@pytest.mark.parametrize("lang,infinitive,expected_status,expected_resp", 
                          test_conj_data)
-def test_conjugate(infinitive, 
+def test_conjugate(lang, infinitive, 
                    expected_status, expected_resp):
     response = client.get(
-        "/conjugate/{}".format(infinitive))
+        "/conjugate/{}/{}".format(lang, infinitive))
     assert response.status_code == expected_status
     assert response.json() == expected_resp
 
 def test_conjugate_mood_tense():
   response = client.get(
-    "/conjugate/manger?mood=indicatif&tense=passé-composé")
+    "/conjugate/fr/manger?mood=indicatif&tense=passé-composé")
   assert response.json() == {
   "value": [
       "j'ai mangé",

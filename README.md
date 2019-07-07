@@ -10,6 +10,7 @@ https://github.com/bretttolbert/verbecc
 
 #### Features
 * Over 7,000 verbs supported
+* BETA: Support for Spanish verb conjugation
 * pip installable
 * Unit tested
 * Continuous Integration and Deployment with GitLab CI/CD
@@ -103,7 +104,7 @@ $ make dev
 
 ## Usage Examples
 
-* http://localhost:8000/conjugate/manger
+* http://localhost:8000/conjugate/fr/manger
 ```
 {
   "value": {
@@ -265,7 +266,7 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/conjugate/se+lever
+* http://localhost:8000/conjugate/fr/se+lever
 ```
 {
   "value": {
@@ -423,7 +424,7 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/find/infinitive/manger
+* http://localhost:8000/find/infinitive/fr/manger
 ```
 {
   "value": {
@@ -434,7 +435,7 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/search/infinitive/Se+le
+* http://localhost:8000/search/infinitive/fr/Se+le
 ```
 {
   "value": [
@@ -452,7 +453,7 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/conjugate/manger?mood=indicatif
+* http://localhost:8000/conjugate/fr/manger?mood=indicatif
 ```
 {
   "value": {
@@ -524,7 +525,7 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/conjugate/manger?mood=indicatif&tense=passé-composé
+* http://localhost:8000/conjugate/fr/manger?mood=indicatif&tense=passé-composé
 ```
 {
   "value": [
@@ -538,5 +539,5 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/find/conjugation-template/man:ger
-
+* http://localhost:8000/find/conjugation-template/fr/man:ger
+* http://localhost:8000/find/conjugation-template/es/deb:er
