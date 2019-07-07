@@ -724,7 +724,7 @@ test_search_infinitive_data = [
 def test_search_infinitive(query, expected_status, expected_resp):
   response = client.get("/search/infinitive/fr/{}".format(query))
   assert response.status_code == expected_status
-  assert response.json() == expected_resp
+  assert set(response.json()["value"]) == set(expected_resp["value"])
 
 @pytest.mark.parametrize("mood,infinitive,expected_status,expected_resp", 
                          test_conj_mood_data)
