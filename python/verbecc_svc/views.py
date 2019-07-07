@@ -18,24 +18,28 @@ def read_root():
     return {'value': 'Hello 世界'}
 
 @app.get("/conjugate/{infinitive}")
-def read_conjugation(infinitive: str):
+def conjugate(infinitive: str):
     return do_op(op(cg.conjugate, infinitive))
 
 @app.get("/search/infinitive/{query}")
-def read_search_infinitive(query: str, max_results=10):
+def search_infinitive(query: str, max_results=10):
     return do_op(op(cg.get_verbs_that_start_with, query, max_results))
 
 @app.get("/find/infinitive/{infinitive}")
-def read_find_infinitive(infinitive: str):
+def find_infinitive(infinitive: str):
     return do_op(op(cg.find_verb_by_infinitive, infinitive))
 
 @app.get("/find/conjugation-template/{template_name}")
-def read_find_conjugation_template(template_name: str):
+def find_conjugation_template(template_name: str):
     return do_op(op(cg.find_template, template_name))
 
 @app.get("/conjugate/mood/{mood}/{infinitive}")
-def read_conjugation_for_mood(mood: str, infinitive: str):
-    return do_op(op(cg.get_full_conjugation_for_mood, infinitive, mood))
+def conjugate_mood(mood: str, infinitive: str):
+    return do_op(op(cg.conjugate_mood, infinitive, mood))
+
+@app.get("/conjugate/mood/{mood}/tense/{tense}/{infinitive}")
+def connjugate_mood_tense(mood: str, tense: str, infinitive: str):
+    return do_op(op(cg.conjugate_mood_tense, infinitive, mood, tense))
 
 def do_op(op):
     value = None
