@@ -265,7 +265,7 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/conjugate/se lever
+* http://localhost:8000/conjugate/se+lever
 ```
 {
   "value": {
@@ -434,7 +434,7 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/search/infinitive/Se%20le
+* http://localhost:8000/search/infinitive/Se+le
 ```
 {
   "value": [
@@ -452,7 +452,7 @@ $ make dev
 }
 ```
 
-* http://localhost:8000/conjugate/mood/indicatif/manger
+* http://localhost:8000/conjugate/manger?mood=indicatif
 ```
 {
   "value": {
@@ -521,6 +521,20 @@ $ make dev
       "ils eurent mangé"
     ]
   }
+}
+```
+
+* http://localhost:8000/conjugate/manger?mood=indicatif&tense=passé-composé
+```
+{
+  "value": [
+      "j'ai mangé",
+      "tu as mangé",
+      "il a mangé",
+      "nous avons mangé",
+      "vous avez mangé",
+      "ils ont mangé"
+    ]
 }
 ```
 

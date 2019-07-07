@@ -730,17 +730,17 @@ def test_search_infinitive(query, expected_status, expected_resp):
 def test_conjugate_mood(mood, infinitive, 
                                    expected_status, expected_resp):
     response = client.get(
-        "/conjugate/mood/{}/{}".format(mood, infinitive))
+        "/conjugate/{}?mood={}".format(infinitive, mood))
     assert response.status_code == expected_status
     assert response.json() == expected_resp
 
 def test_conjugate_mood_invalid_mood():
-    response = client.get("/conjugate/mood/oops/manger")
+    response = client.get("/conjugate/manger?mood=oops")
     assert response.status_code == 404
     assert response.json() == {"detail": "Invalid mood"}
 
 def test_conjugate_mood_invalid_infinitive():
-    response = client.get("/conjugate/mood/indicative/oops")
+    response = client.get("/conjugate/oops?mood=indicatif")
     assert response.status_code == 404
     assert response.json() == {"detail": "Verb not found"}
 
@@ -752,3 +752,17 @@ def test_conjugate(infinitive,
         "/conjugate/{}".format(infinitive))
     assert response.status_code == expected_status
     assert response.json() == expected_resp
+
+def test_conjugate_mood_tense():
+  response = client.get(
+    "/conjugate/manger?mood=indicatif&tense=passé-composé")
+  assert response.json() == {
+  "value": [
+      "j'ai mangé",
+      "tu as mangé",
+      "il a mangé",
+      "nous avons mangé",
+      "vous avez mangé",
+      "ils ont mangé"
+    ]
+  }
