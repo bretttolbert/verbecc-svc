@@ -1,24 +1,24 @@
 ## verbecc
 
-#### Verbes, complètement conjugués - conjugueur français
+#### Verbs, completely conjugated - French and Spanish verb conjugator
 
-#### Verbs, completely conjugated - French conjugator
+#### Verbes, complètement conjugués - conjugaison en français et espagnol
+
+#### Verbos, completamente conjugados - conjugador de verbos francés y español
 
 https://github.com/bretttolbert/verbecc
 
 [![Python Package Index Status](https://img.shields.io/pypi/v/verbecc.svg)](https://pypi.python.org/pypi/verbecc) [![GitLab CI pipeline status](https://gitlab.com/bretttolbert/verbecc/badges/master/pipeline.svg)](https://gitlab.com/bretttolbert/verbecc/pipelines)
 
 #### Features
-* Over 7,000 verbs supported
-* BETA: Support for Spanish verb conjugation
+* Over 7,000 French verbs and 9,000 Spanish verbs supported
 * pip installable
 * Unit tested
 * Continuous Integration and Deployment with GitLab CI/CD
 * Dependencies: lxml
 
 #### Credits
-Created with the help of [lxml](https://github.com/lxml/lxml), [pytest](https://docs.pytest.org) and [python](https://www.python.org/). Verb conjugation template XML files derived from [Verbiste](https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html)
-
+Created with the help of [lxml](https://github.com/lxml/lxml), [pytest](https://docs.pytest.org) and [python](https://www.python.org/). French verb conjugation template XML files derived from [Verbiste](https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html) and Spanish verb conjugation XML files dervied from [mlconjug](https://github.com/SekouD/mlconjug).
 
 ## verbecc-svc
 
