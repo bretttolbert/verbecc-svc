@@ -1,4 +1,4 @@
-verbecc>=1.2.1
+verbecc>=1.4.1
 fastapi
 uvicorn
 starlette

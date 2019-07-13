@@ -9,12 +9,16 @@ client = TestClient(app)
 expected_resp_etre = {"value":{
                 "infinitive":"être",
                 "infinitive_no_accents": "etre",
+                "predicted": False,
+                "pred_score": 1.0,
                 "template":":être",
                 "translation_en":"be",
                 "impersonal": False}}
 expected_resp_manger = {"value":{
                 "infinitive":"manger",
                 "infinitive_no_accents": "manger",
+                "predicted": False,
+                "pred_score": 1.0,
                 "template":"man:ger",
                 "translation_en":"eat",
                 "impersonal": False}}
@@ -23,8 +27,7 @@ test_find_infinitive_data = [
     (u"être", 200, expected_resp_etre),
     (u"etre", 200, expected_resp_etre),
     (u"Être", 200, expected_resp_etre),
-    (u"Etre", 200, expected_resp_etre),
-    (u"oops", 404, {"detail": "Verb not found"})
+    (u"Etre", 200, expected_resp_etre)
 ]
 
 expected_resp_conj_indicative_pouvoir = {
@@ -99,7 +102,7 @@ expected_resp_conj_indicative_pouvoir = {
 test_conj_mood_data = [
     ("indicatif", "pouvoir", 200, expected_resp_conj_indicative_pouvoir),
     ("indicatif", "Pouvoir", 200, expected_resp_conj_indicative_pouvoir),
-    ("indicatif", "oops", 404, {"detail": "Verb not found"}),
+    ("indicatif", "oops", 404, {"detail": "Conjugator error"}),
     ("oops", "pouvoir", 404, {"detail": "Invalid mood"})
 ]
 
@@ -107,6 +110,8 @@ expected_resp_conj_manger = {
     "value": {
         "verb": {
             "infinitive": "manger",
+            "predicted": False,
+            "pred_score": 1.0,
             "template": "man:ger",
             "translation_en": "eat",
             "stem": "man"
@@ -266,6 +271,8 @@ expected_resp_conj_pouvoir = {
     "value": {
         "verb": {
             "infinitive": "pouvoir",
+            "predicted": False,
+            "pred_score": 1.0,
             "template": "p:ouvoir",
             "translation_en": "power",
             "stem": "p"
@@ -417,6 +424,8 @@ expected_resp_conj_pleuvoir = {
     "value": {
         "verb": {
             "infinitive": "pleuvoir",
+            "predicted": False,
+            "pred_score": 1.0,
             "template": "pl:euvoir",
             "translation_en": "rain",
             "stem": "pl"
@@ -512,6 +521,8 @@ expected_resp_conj_se_lever = {
     "value": {
         "verb": {
             "infinitive": "lever",
+            "predicted": False,
+            "pred_score": 1.0,
             "template": "l:ever",
             "translation_en": "lift",
             "stem": "l"
@@ -669,7 +680,7 @@ test_conj_data = [
     ("fr", "Pouvoir", 200, expected_resp_conj_pouvoir),
     ("fr", "pleuvoir", 200, expected_resp_conj_pleuvoir),
     ("fr", "Se lever", 200, expected_resp_conj_se_lever),
-    ("fr", "oops", 404, {"detail": "Verb not found"}),
+    ("fr", "oops", 404, {"detail": "Conjugator error"}),
     ("oops", "oops", 404, {"detail": "Invalid language"})
 ]
 
@@ -741,10 +752,12 @@ def test_conjugate_mood(mood, infinitive,
     assert response.status_code == expected_status
     assert response.json() == expected_resp
 
+"""
 def test_conjugate_mood_invalid_infinitive():
     response = client.get("/conjugate/fr/oops?mood=indicatif")
     assert response.status_code == 404
     assert response.json() == {"detail": "Verb not found"}
+"""
 
 def test_conjugate_mood_invalid_mood():
     response = client.get("/conjugate/fr/manger?mood=oops")

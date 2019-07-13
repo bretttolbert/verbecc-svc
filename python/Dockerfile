@@ -5,7 +5,8 @@ LABEL maintainer="Brett Tolbert <bretttolbert@gmail.com>"
 COPY . /code
 WORKDIR /code
 
-RUN apk add --update --no-cache g++ gcc libxslt-dev
+RUN apk add --update --no-cache g++ gcc gfortran libxslt-dev openblas-dev
+RUN pip install Cython numpy scipy
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install -e .
 
