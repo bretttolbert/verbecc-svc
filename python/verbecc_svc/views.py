@@ -7,11 +7,10 @@ from fastapi import HTTPException
 
 from verbecc_svc import app
 
-from verbecc import conjugator
-from verbecc import exceptions
+import verbecc
 
-conjugators = {lang : conjugator.Conjugator(lang=lang) 
-               for lang in conjugator.SUPPORTED_LANGUAGES}
+conjugators = {lang : verbecc.Conjugator(lang=lang) 
+               for lang in verbecc.SUPPORTED_LANGUAGES}
 
 def cg(lang):
     if lang in conjugators:
@@ -25,7 +24,7 @@ def root():
 
 @app.get("/supported-langs")
 def supported_langs():
-    return {'value': conjugator.SUPPORTED_LANGUAGES}
+    return {'value': verbecc.SUPPORTED_LANGUAGES}
 
 @app.get("/conjugate/{lang}/{infinitive}")
 def conjugate(lang: str, infinitive: str, mood: str = 'all', tense: str = 'all'):
@@ -52,17 +51,17 @@ def do_op(op):
     value = None
     try:
         value = op()
-    except exceptions.VerbNotFoundError:
+    except verbecc.VerbNotFoundError:
         raise HTTPException(status_code=404, detail="Verb not found")
-    except exceptions.InvalidLangError:
+    except verbecc.InvalidLangError:
         raise HTTPException(status_code=404, detail="Invalid language")
-    except exceptions.InvalidMoodError:
+    except verbecc.InvalidMoodError:
         raise HTTPException(status_code=404, detail="Invalid mood")
-    except exceptions.InvalidTenseError:
+    except verbecc.InvalidTenseError:
         raise HTTPException(status_code=404, detail="Invalid tense")
-    except exceptions.TemplateNotFoundError:
+    except verbecc.TemplateNotFoundError:
         raise HTTPException(status_code=404, detail="Template not found")
-    except exceptions.ConjugatorError:
+    except verbecc.ConjugatorError:
         raise HTTPException(status_code=404, detail="Conjugator error")
     except:
         extype, exval, extb = sys.exc_info()
