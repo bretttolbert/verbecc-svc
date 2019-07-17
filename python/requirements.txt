@@ -1,10 +1,10 @@
-verbecc>=1.5.2
-fastapi
-uvicorn
-starlette
-requests
-lxml==4.1.1
+lxml>=4.3.4
 mock>=2.0.0,<3.0.0
 pytest>=3.0.6,<4.0.0
 pytest-cov>=2.4.0,<3.0.0
 pylama>=7.4.1,<8.0.0
+fastapi
+uvicorn
+starlette
+requests
+verbecc>=1.5.3
