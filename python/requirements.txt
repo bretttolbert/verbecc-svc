@@ -7,4 +7,4 @@ fastapi
 uvicorn
 starlette
 requests
-verbecc>=1.5.4
+verbecc>=1.5.5
