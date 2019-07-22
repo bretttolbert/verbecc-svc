@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-__version__ = '1.5.6'
+__version__ = '1.5.7'
 
 app = FastAPI(title='verbecc-svc')
 
