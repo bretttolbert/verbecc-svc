@@ -5,6 +5,7 @@ LABEL maintainer="Brett Tolbert <bretttolbert@gmail.com>"
 COPY . /code
 WORKDIR /code
 
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install -e .
 
