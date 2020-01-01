@@ -8,3 +8,4 @@ uvicorn
 starlette==0.12.9
 requests
 verbecc>=1.5.9
+email-validator
