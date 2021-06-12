@@ -12,8 +12,8 @@ services:
 image: docker
 
 before_script:
-  - apk add --update py-pip python-dev
-  - pip install docker-compose==1.23.2
+  - apk add --update py-pip python3-dev
+  - pip install docker-compose>=1.29.2
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
 
 build:
