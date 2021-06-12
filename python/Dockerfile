@@ -1,6 +1,6 @@
-FROM bretttolbert/uvicorn-gunicorn-sklearn:python3.7-alpine3.8
+FROM bretttolbert/uvicorn-gunicorn-sklearn:python3.8-alpine3.10
 
-LABEL maintainer="Brett Tolbert <bretttolbert@gmail.com>"
+MAINTAINER "Brett Tolbert <bretttolbert@gmail.com>"
 
 COPY . /code
 WORKDIR /code
