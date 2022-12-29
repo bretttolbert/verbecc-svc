@@ -47,7 +47,7 @@ Created with the help of [scikit-learn](https://scikit-learn.org), [lxml](https:
 
 [![pipeline status](https://gitlab.com/bretttolbert/verb-conjugate-fr/badges/master/pipeline.svg)](https://gitlab.com/bretttolbert/verb-conjugate-fr/pipelines)
 
-#### verbecc-svc Dockerized microservice with REST API for conjugation of any verb in French and Spanish
+#### verbecc-svc Dockerized microservice with REST API for conjugation of any verb in French, Spanish, Italian, Portuguese and Romanian
 
 https://github.com/bretttolbert/verbecc-svc
 
@@ -67,7 +67,7 @@ Created with the help of [verbecc](https://github.com/bretttolbert/verbecc), [Fa
 
 ## verbecc-web
 
-#### Web front-end for verbecc-svc - conjugation of any verb in French and Spanish
+#### Web front-end for verbecc-svc - conjugation of any verb in French, Spanish, Italian, Portuguese and Romanian
 
 https://github.com/bretttolbert/verbecc-web
 
@@ -109,16 +109,17 @@ Created with the help of [verbecc-svc](https://github.com/bretttolbert/verbecc-s
 # verbecc-svc
 
 #### Quick Start (Docker)
-```
-$ docker pull bretttolbert/verbecc-svc:latest
-$ docker run -d -p 8000:8000 bretttolbert/verbecc-svc:latest
+```bash
+docker pull bretttolbert/verbecc-svc:latest
+docker run -d -p 8000:8000 bretttolbert/verbecc-svc:latest
 ```
 
 ## Quick Start (Development)
 
-```
-$ make dev-build
-$ make dev
+```bash
+docker build -t bretttolbert/verbecc-svc .
+docker tag bretttolbert/verbecc-svc:latest bretttolbert/verbecc-svc:1.8.1
+docker run -d -p 8000:8000 bretttolbert/verbecc-svc:latest
 ```
 
 ## Usage Examples
