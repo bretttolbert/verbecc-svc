@@ -1,131 +1,34 @@
-
-![verbecc logo](https://raw.githubusercontent.com/bretttolbert/verbecc/master/logo/verbecc.png)
-
-# verbecc - python library (verbecc), dockerized microservice (verbecc-svc) and web app (verbecc-web) for verb conjugation in French, Spanish, Italian, Portuguese and Romanian, powered by ML
-
-verbecc
-[![Python Package Index Status](https://img.shields.io/pypi/v/verbecc.svg)](https://pypi.python.org/pypi/verbecc) 
-[![PyPi Downloads Per Month](https://img.shields.io/pypi/dm/verbecc)](https://pypistats.org/packages/verbecc)
-[![GitLab CI pipeline status](https://gitlab.com/bretttolbert/verbecc/badges/master/pipeline.svg)](https://gitlab.com/bretttolbert/verbecc/-/pipelines)
-[![Code Coverage](https://codecov.io/gl/bretttolbert/verbecc/branch/master/graph/badge.svg)](https://codecov.io/gl/bretttolbert/verbecc)
-
-verbecc-svc
-[![Docker Pulls](https://img.shields.io/docker/pulls/bretttolbert/verbecc-svc)](https://hub.docker.com/r/bretttolbert/verbecc-svc)
-[![GitLab CI pipeline status](https://gitlab.com/bretttolbert/verb-conjugate-fr/badges/master/pipeline.svg)](https://gitlab.com/bretttolbert/verb-conjugate-fr/-/pipelines)
-
-#### Verbs completely conjugated: verb conjugations for French, Spanish, Portuguese, Italian and Romanian, enhanced by machine learning
-
-#### Verbes complètement conjugués: conjugaisons des verbes français, espagnol, portugais, italien et roumain, à l'aide de l'apprentissage automatique
-
-#### Verbi completamente coniugati: coniugazioni di verbi per francese, spagnolo, portoghese, italiano e rumeno, migliorate dall'apprendimento automatico
-
-#### Verbos completamente conjugados: conjugaciones de verbos en francés, español, portugués, italiano y rumano, mejoradas por aprendizaje automático
-
-#### Verbos completamente conjugados: conjugações verbais para francês, espanhol, português, italiano e romeno, aprimoradas pelo aprendizado de máquina
-
-#### Verbe complet conjugate: conjugări de verbe franceză, spaniolă, portugheză, italiană și română, utilizând învățarea prin mașină
-
-#### Live demo
-http://verbe.cc
-
-https://github.com/bretttolbert/verbecc
-
-#### Features
-* Conjugate verbs in French, Spanish, Portuguese, Italian and Romanian
-* Uses machine learning techniques to predict conjugation of unknown verbs with 99% accurracy
-* Includes both simple and compound conjugations
-* pip installable
-* Unit tested
-* Continuous integration with GitLab CI/CD
-* Dependencies: scikit-learn, lxml
-
-#### Credits
-Created with the help of [scikit-learn](https://scikit-learn.org), [lxml](https://github.com/lxml/lxml), [pytest](https://docs.pytest.org) and [python](https://www.python.org/). French verb conjugation template XML files derived from [Verbiste](https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html). Conjugation XML files for other languages and machine-learning conjugation template prediction for unknown verbs dervied from [mlconjug](https://github.com/SekouD/mlconjug).
-
-
-## verbecc-svc
-
-[![pipeline status](https://gitlab.com/bretttolbert/verb-conjugate-fr/badges/master/pipeline.svg)](https://gitlab.com/bretttolbert/verb-conjugate-fr/pipelines)
-
-#### verbecc-svc Dockerized microservice with REST API for conjugation of any verb in French, Spanish, Italian, Portuguese and Romanian
-
-https://github.com/bretttolbert/verbecc-svc
-
-#### Live demo
-http://verbe.cc/vcfr/conjugate/fr/manger
-
-#### Features
-* Self-contained dockerized microservice
-* Unit tested
-* Continuous integration with GitLab CI/CD
-* Convenient JSON REST API
-* Dependencies: verbecc
-
-#### Credits
-Created with the help of [verbecc](https://github.com/bretttolbert/verbecc), [FastAPI](https://github.com/tiangolo/fastapi), [uvicorn](https://github.com/encode/uvicorn), [starlette](https://github.com/encode/starlette), [docker](https://docker.com), [docker-compose](https://docs.docker.com/compose/), [pytest](https://docs.pytest.org) and [python](https://www.python.org/).
-
-
-## verbecc-web
-
-#### Web front-end for verbecc-svc - conjugation of any verb in French, Spanish, Italian, Portuguese and Romanian
-
-https://github.com/bretttolbert/verbecc-web
-
-#### Live demo
-http://verbe.cc
-
-#### Features
-* Dockerized
-* Search suggestions
-* Implemented entirely in Javascript (JQuery) - conjugations are generated without reloading the page
-* Dependencies: verbecc-svc
-
-#### Credits
-Created with the help of [verbecc-svc](https://github.com/bretttolbert/verbecc-svc), and [JQuery](https://jquery.com/)
-
-
-```
-+------------------------------------------------------+                                                                               
-|               verbecc-web                            |                                                                               
-|               web application                        |                                                                               
-|               docker-compose                         |                                                                               
-|                      |                               |                                                                               
-|                  REST API                            |                                                                               
-|                      |                               |                                                                               
-|      +----------------------------------------+      |                                                                               
-|      |                                        |      |                                                                               
-|      |       verbecc-svc                      |      |                                                                               
-|      |       Dockerized microservice          |      |                                                                               
-|      |                                        |      |                                                                               
-|      |        +----------------------+        |      |                                                                               
-|      |        |   verbecc            |        |      |                                                                               
-|      |        |   Python library     |        |      |                                                                               
-|      |        +----------------------+        |      |                                                                               
-|      +----------------------------------------+      |                                                                               
-+------------------------------------------------------+                                                                               
-```   
-
-
 # verbecc-svc
 
-#### Quick Start (Docker)
+Dockerized microservice with REST API for conjugation of any verb in French, Catalan, Spanish, Italian, Portuguese and Romanian
+
+## Live demo
+http://verbe.cc/vcfr/conjugate/fr/manger
+
+## Features
+* Self-contained dockerized microservice
+* Unit tested
+* Convenient JSON REST API
+* Dependencies: [verbecc](https://github.com/bretttolbert/verbecc)
+
+## Credits
+Created with [verbecc](https://github.com/bretttolbert/verbecc), [FastAPI](https://github.com/tiangolo/fastapi), [uvicorn](https://github.com/encode/uvicorn), [starlette](https://github.com/encode/starlette), [docker](https://docker.com), [docker-compose](https://docs.docker.com/compose/), [pytest](https://docs.pytest.org) and [python](https://www.python.org/).
+
+
+## Quick Start (Docker)
 ```bash
 docker pull bretttolbert/verbecc-svc:latest
 docker run -d -p 8000:8000 bretttolbert/verbecc-svc:latest
+xdg-open http://localhost:8000/conjugate/fr/manger
 ```
 
-## Quick Start (Development)
-
-```bash
-docker build -t bretttolbert/verbecc-svc .
-docker tag bretttolbert/verbecc-svc:latest bretttolbert/verbecc-svc:1.8.1
-docker run -d -p 8000:8000 bretttolbert/verbecc-svc:latest
-```
+## Development
+- See [Dev](./doc/dev.md)
 
 ## Usage Examples
 
-* http://localhost:8000/conjugate/fr/manger
-```
+* [http://localhost:8000/conjugate/fr/manger](http://localhost:8000/conjugate/fr/manger)
+```json
 {
   "value": {
     "verb": {
