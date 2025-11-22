@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import sys
 import traceback
-from functools import partial
 
 from fastapi import HTTPException
 
