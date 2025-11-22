@@ -22,9 +22,5 @@ RUN pip install requests==2.32.5
 RUN pip install starlette==0.50.0
 RUN pip install uvicorn==0.38.0
 #RUN pip install verbecc==2.0.0
-RUN pip install -e ../verbecc/
-RUN pip install -e .
-
 EXPOSE 8000
-
-CMD ["uvicorn", "verbecc_svc:app", "--host", "0.0.0.0", "--reload", "--port", "8000"]
+#CMD ["uvicorn", "verbecc_svc:app", "--host", "0.0.0.0", "--reload", "--port", "8000"]

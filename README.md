@@ -19,34 +19,15 @@ Created with [verbecc](https://github.com/bretttolbert/verbecc), [FastAPI](https
 ```bash
 docker pull bretttolbert/verbecc-svc:latest
 docker run -d -p 8000:8000 bretttolbert/verbecc-svc:latest
+xdg-open http://localhost:8000/conjugate/fr/manger
 ```
 
-## Quick Start (Development)
-
-```bash
-docker build -t bretttolbert/verbecc-svc .
-docker tag bretttolbert/verbecc-svc:latest bretttolbert/verbecc-svc:2.0.0
-docker run -it -p 8000:8000 --name verbecc_svc bretttolbert/verbecc-svc:2.0.0
-docker run -it -p 8000:8000 --name verbecc_svc -v $(pwd):/code/verbecc_svc -v /home/$(whoami)/Git/verbecc/verbecc:/code/verbecc bretttolbert/verbecc-svc /bin/bash
-docker exec -it verbecc_svc /bin/bash
-```
-
-If the container stops, you can restart the it like this:
-```bash
-docker start verbecc_svc
-```
-
-Misc commands:
-```bash
-docker run -it --name verbecc_svc -v $(pwd):/app bretttolbert/verbecc-svc /bin/bash
-docker run -it --name verbecc_svc -v $(pwd):/app tiangolo/uvicorn-gunicorn-fastapi:python3.11-2025-11-17 /bin/bash
-
-uvicorn verbecc_svc:app --host 0.0.0.0 --reload --port 8000
-```
+## Development
+- See [Dev](./doc/dev.md)
 
 ## Usage Examples
 
-* http://localhost:8000/conjugate/fr/manger
+* [http://localhost:8000/conjugate/fr/manger](http://localhost:8000/conjugate/fr/manger)
 ```json
 {
   "value": {
