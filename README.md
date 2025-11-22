@@ -40,6 +40,8 @@ Misc commands:
 ```bash
 docker run -it --name verbecc_svc -v $(pwd):/app bretttolbert/verbecc-svc /bin/bash
 docker run -it --name verbecc_svc -v $(pwd):/app tiangolo/uvicorn-gunicorn-fastapi:python3.11-2025-11-17 /bin/bash
+
+uvicorn verbecc_svc:app --host 0.0.0.0 --reload --port 8000
 ```
 
 ## Usage Examples
