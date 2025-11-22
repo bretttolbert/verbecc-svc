@@ -32,7 +32,7 @@ def cg(lang):
 
 @app.get("/")
 def root():
-    return_data("Hello 世界")
+    return return_data("Hello 世界")
 
 
 @app.get("/supported-langs")
@@ -52,7 +52,7 @@ def conjugate(lang: str, infinitive: str, mood: str = "all", tense: str = "all")
             if tense != "all":
                 tc = cg(lang).conjugate_mood_tense(infinitive, Mood(mood), Tense(tense))
                 ret = tc
-        return_data(ret.get_data())
+        return return_data(ret.get_data())
     except Exception as exc:
         handle_error(exc)
 
@@ -60,7 +60,7 @@ def conjugate(lang: str, infinitive: str, mood: str = "all", tense: str = "all")
 @app.get("/search/infinitive/{lang}/{query}")
 def search_infinitive(lang: str, query: str, max_results=10):
     try:
-        return_data(cg(lang).get_verbs_that_start_with(query, max_results))
+        return return_data(cg(lang).get_verbs_that_start_with(query, max_results))
     except Exception as exc:
         handle_error(exc)
 
@@ -68,7 +68,7 @@ def search_infinitive(lang: str, query: str, max_results=10):
 @app.get("/find/infinitive/{lang}/{infinitive}")
 def find_infinitive(lang: str, infinitive: str):
     try:
-        return_data(cg(lang).find_verb_by_infinitive(infinitive))
+        return return_data(cg(lang).find_verb_by_infinitive(infinitive))
     except Exception as exc:
         handle_error(exc)
 
@@ -76,7 +76,7 @@ def find_infinitive(lang: str, infinitive: str):
 @app.get("/find/template/{lang}/{template}")
 def find_template(lang: str, template: str):
     try:
-        return_data(cg(lang).find_template(template))
+        return return_data(cg(lang).find_template(template))
     except Exception as exc:
         handle_error(exc)
 
