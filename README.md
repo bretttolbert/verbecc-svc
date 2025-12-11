@@ -3,7 +3,8 @@
 Dockerized microservice with REST API for conjugation of any verb in French, Catalan, Spanish, Italian, Portuguese and Romanian
 
 ## Live demo
-http://verbe.cc/vcfr/conjugate/fr/manger
+- [Web GUI](https://verbe.cc)
+- [HTTP API : /verbecc/conjugate/fr/manger](https://verbe.cc/verbecc/conjugate/fr/manger)
 
 ## Features
 * Self-contained dockerized microservice
